@@ -1,0 +1,110 @@
+.card {
+  height: 286px;
+  border: 1px solid #e2e0f2;
+  border-radius: 18px;
+  box-shadow: none;
+}
+
+.card :global(.ant-card-body) {
+  height: 100%;
+  padding: 28px 28px 22px;
+}
+
+.container {
+  height: 100%;
+}
+
+.headerIcon,
+.editIcon,
+.contactIconGraphic {
+  color: #4b49c6;
+  font-size: 20px;
+}
+
+.editButton {
+  color: #4b49c6;
+  padding-inline: 0;
+}
+
+.title {
+  margin: 0;
+  color: #332556;
+  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.content {
+  flex: 1;
+  align-items: stretch;
+  margin-top: 18px;
+}
+
+.leftColumn {
+  flex: 1 1 0;
+  justify-content: center;
+}
+
+.leftGroup {
+  flex: 1 1 0;
+}
+
+.rightColumn {
+  flex: 1 1 0;
+  justify-content: center;
+}
+
+.divider {
+  height: 100%;
+  margin: 0;
+  border-color: #e2e0f2;
+}
+
+.infoItem,
+.contactItem,
+.contactText {
+  min-width: 0;
+}
+
+.contactIcon {
+  min-width: 18px;
+  padding-top: 1px;
+}
+
+.label {
+  margin: 0;
+  color: #332556;
+  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.2;
+  opacity: 0.68;
+}
+
+.value {
+  margin: 0;
+  color: #332556;
+  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.categoryTag {
+  width: fit-content;
+  margin: 0;
+  padding: 2px 10px;
+  color: #4b49c6;
+  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.2;
+  background: #ffffff;
+  border: 1px solid #c6c1eb;
+  border-radius: 10px;
+}

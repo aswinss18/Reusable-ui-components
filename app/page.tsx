@@ -27,6 +27,11 @@ const components = [
     description: "Partner and email contact card with success, danger, and warning variants.",
   },
   {
+    href: "/company-info-card",
+    name: "CompanyInfoCard",
+    description: "Company information card with contact details, category badge, and edit action.",
+  },
+  {
     href: "/price-card",
     name: "PriceCard",
     description: "Simple pricing display card with title and value.",
