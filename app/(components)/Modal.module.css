@@ -1,4 +1,4 @@
-.modal :global(.ant-modal-content) {
+.modal :global(.ant-modal-container) {
   padding: 0;
   overflow: hidden;
   border-radius: 18px;
