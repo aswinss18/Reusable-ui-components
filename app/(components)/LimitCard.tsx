@@ -68,7 +68,7 @@ export default function LimitCard({
               percent={boundedPercent}
               size={76}
               strokeColor={progressColors[variant]}
-              trailColor="#D9D9D9"
+              railColor="#D9D9D9"
               strokeWidth={10}
               format={() => (
                 <Typography.Text className={styles.progressText}>
