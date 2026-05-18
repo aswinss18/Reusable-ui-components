@@ -28,7 +28,7 @@
   flex: 1;
   flex-direction: column;
   gap: 14px;
-  padding-top: 10px;
+  justify-content: center;
 }
 
 .title {
@@ -41,23 +41,26 @@
 }
 
 .value {
-  color: #332556;
-  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
-  font-size: 55px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 100%;
-  letter-spacing: 0;
+  gap: 0;
 }
 
+.valuePrimary,
 .valueSecondary {
   color: #332556;
   font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
   font-size: 55px;
   font-style: normal;
-  font-weight: 300;
   line-height: 100%;
   letter-spacing: 0;
+  margin: 0;
+}
+
+.valuePrimary {
+  font-weight: 500;
+}
+
+.valueSecondary {
+  font-weight: 300;
 }
 
 .rightBlock {
@@ -80,22 +83,35 @@
 }
 
 .progressWrap {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 96px;
-  height: 96px;
+  position: relative;
+  width: 75.95px;
+  height: 75.95px;
+}
+
+.progressSvg {
+  display: block;
+  width: 75.95px;
+  height: 75.95px;
 }
 
 .progressText {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #332556;
   font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
   line-height: 1;
+  margin: 0;
+  pointer-events: none;
 }
 
 .progressPercent {
   font-size: 0.8em;
+  color: inherit;
+  margin: 0;
 }

@@ -1,8 +1,7 @@
 "use client";
 
-import { Card } from "antd";
+import { Card, Flex, Typography } from "antd";
 import type { CardProps } from "antd";
-import type { CSSProperties } from "react";
 import styles from "./LimitCard.module.css";
 
 type LimitCardVariant = "danger" | "success" | "warning";
@@ -22,13 +21,51 @@ const progressColors: Record<LimitCardVariant, string> = {
   warning: "#F0B100",
 };
 
-const TRACK_COLOR = "#d2d2dd";
+const PROGRESS_SIZE = 75.95;
 const TRACK_STROKE_WIDTH = 2;
 const VALUE_STROKE_WIDTH = 10;
-const SVG_SIZE = 96;
-const CENTER = SVG_SIZE / 2;
-const RADIUS = 36;
-const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
+const PROGRESS_RADIUS = (PROGRESS_SIZE - VALUE_STROKE_WIDTH) / 2;
+const PROGRESS_CENTER = PROGRESS_SIZE / 2;
+
+function polarToCartesian(
+  centerX: number,
+  centerY: number,
+  radius: number,
+  angleInDegrees: number,
+) {
+  const angleInRadians = (angleInDegrees * Math.PI) / 180;
+
+  return {
+    x: centerX + radius * Math.cos(angleInRadians),
+    y: centerY + radius * Math.sin(angleInRadians),
+  };
+}
+
+function describeArc({
+  cx,
+  cy,
+  radius,
+  startAngle,
+  endAngle,
+  counterClockwise = false,
+}: {
+  cx: number;
+  cy: number;
+  radius: number;
+  startAngle: number;
+  endAngle: number;
+  counterClockwise?: boolean;
+}) {
+  const start = polarToCartesian(cx, cy, radius, startAngle);
+  const end = polarToCartesian(cx, cy, radius, endAngle);
+  const angleDelta = counterClockwise
+    ? (startAngle - endAngle + 360) % 360
+    : (endAngle - startAngle + 360) % 360;
+  const largeArcFlag = angleDelta > 180 ? 1 : 0;
+  const sweepFlag = counterClockwise ? 0 : 1;
+
+  return `M ${start.x} ${start.y} A ${radius} ${radius} 0 ${largeArcFlag} ${sweepFlag} ${end.x} ${end.y}`;
+}
 
 function LimitProgress({
   percent,
@@ -38,55 +75,46 @@ function LimitProgress({
   color: string;
 }) {
   const boundedPercent = Math.max(0, Math.min(100, percent));
-  const angle = (360 * boundedPercent) / 100;
-  const rotation = 90 - angle / 2;
-  const dashOffset = CIRCUMFERENCE * (1 - boundedPercent / 100);
-
-  const circleStyle = {
-    transform: `rotate(${rotation}deg)`,
-    transformOrigin: "50% 50%",
-  } satisfies CSSProperties;
+  const progressSweep = (boundedPercent / 100) * 359.5;
+  const trackPath = describeArc({
+    cx: PROGRESS_CENTER,
+    cy: PROGRESS_CENTER,
+    endAngle: 449.5,
+    radius: PROGRESS_RADIUS,
+    startAngle: 90,
+  });
+  const progressPath = describeArc({
+    counterClockwise: true,
+    cx: PROGRESS_CENTER,
+    cy: PROGRESS_CENTER,
+    endAngle: 90 - progressSweep,
+    radius: PROGRESS_RADIUS,
+    startAngle: 90,
+  });
 
   return (
-    <div className={styles.progressWrap}>
-      <svg
-        aria-hidden="true"
-        height={SVG_SIZE}
-        viewBox={`0 0 ${SVG_SIZE} ${SVG_SIZE}`}
-        width={SVG_SIZE}
-      >
-        <circle
-          cx={CENTER}
-          cy={CENTER}
+    <svg
+      aria-hidden="true"
+      className={styles.progressSvg}
+      viewBox={`0 0 ${PROGRESS_SIZE} ${PROGRESS_SIZE}`}
+    >
+      <path
+        d={trackPath}
+        fill="none"
+        stroke="#D9D9D9"
+        strokeLinecap="round"
+        strokeWidth={TRACK_STROKE_WIDTH}
+      />
+      {boundedPercent > 0 ? (
+        <path
+          d={progressPath}
           fill="none"
-          r={RADIUS}
-          stroke={TRACK_COLOR}
-          strokeWidth={TRACK_STROKE_WIDTH}
-        />
-        <circle
-          cx={CENTER}
-          cy={CENTER}
-          fill="none"
-          r={RADIUS}
           stroke={color}
-          strokeDasharray={CIRCUMFERENCE}
-          strokeDashoffset={dashOffset}
           strokeLinecap="round"
           strokeWidth={VALUE_STROKE_WIDTH}
-          style={circleStyle}
         />
-        <text
-          className={styles.progressText}
-          dominantBaseline="middle"
-          textAnchor="middle"
-          x="50%"
-          y="50%"
-        >
-          {boundedPercent}
-          <tspan className={styles.progressPercent}>%</tspan>
-        </text>
-      </svg>
-    </div>
+      ) : null}
+    </svg>
   );
 }
 
@@ -101,23 +129,38 @@ export default function LimitCard({
   ...props
 }: LimitCardProps) {
   const cardClassName = [styles.card, className].filter(Boolean).join(" ");
+  const boundedPercent = Math.max(0, Math.min(100, utilizedPercent));
 
   return (
     <Card className={cardClassName} {...props}>
-      <div className={styles.content}>
-        <div className={styles.leftBlock}>
-          <span className={styles.title}>{title}</span>
-          <div className={styles.value}>
-            <span>{currentValue}</span>
-            <span className={styles.valueSecondary}>/{totalValue}</span>
-          </div>
-        </div>
+      <Flex className={styles.content} justify="space-between">
+        <Flex className={styles.leftBlock} vertical>
+          <Typography.Text className={styles.title}>{title}</Typography.Text>
+          <Flex align="baseline" className={styles.value} wrap>
+            <Typography.Text className={styles.valuePrimary}>
+              {currentValue}
+            </Typography.Text>
+            <Typography.Text className={styles.valueSecondary}>
+              /{totalValue}
+            </Typography.Text>
+          </Flex>
+        </Flex>
 
-        <div className={styles.rightBlock}>
-          <span className={styles.utilized}>{utilizedLabel}</span>
-          <LimitProgress color={progressColors[variant]} percent={utilizedPercent} />
-        </div>
-      </div>
+        <Flex align="center" className={styles.rightBlock} vertical>
+          <Typography.Text className={styles.utilized}>
+            {utilizedLabel}
+          </Typography.Text>
+          <Flex align="center" className={styles.progressWrap} justify="center">
+            <LimitProgress color={progressColors[variant]} percent={boundedPercent} />
+            <Typography.Text className={styles.progressText}>
+              {boundedPercent}
+              <Typography.Text className={styles.progressPercent}>
+                %
+              </Typography.Text>
+            </Typography.Text>
+          </Flex>
+        </Flex>
+      </Flex>
     </Card>
   );
 }
