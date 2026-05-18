@@ -31,6 +31,11 @@ const components = [
     name: "PriceCard",
     description: "Simple pricing display card with title and value.",
   },
+  {
+    href: "/status-filter-tabs",
+    name: "StatusFilterTabs",
+    description: "Status filter tabs with color-coded badges and counts.",
+  },
 ];
 
 export default function Home() {
