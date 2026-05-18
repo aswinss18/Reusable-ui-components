@@ -3,11 +3,26 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  --primary: #414099;
+  --secondary: #0cc496;
+  --danger: #ff2032;
+  --neutral-border: #d1d6de;
+  --neutral-text: #35363a;
+  --neutral-surface: #f3f5f8;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-danger: var(--danger);
+  --color-neutral-border: var(--neutral-border);
+  --color-neutral-text: var(--neutral-text);
+  --color-neutral-surface: var(--neutral-surface);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -23,4 +38,41 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Custom class names */
+.bg-primary-custom {
+  background-color: var(--primary);
+}
+
+.bg-secondary-custom {
+  background-color: var(--secondary);
+}
+
+.text-primary-custom {
+  color: var(--primary);
+}
+
+.text-secondary-custom {
+  color: var(--secondary);
+}
+
+.border-primary-custom {
+  border-color: var(--primary);
+}
+
+.border-secondary-custom {
+  border-color: var(--secondary);
+}
+
+.bg-danger-custom {
+  background-color: var(--danger);
+}
+
+.text-danger-custom {
+  color: var(--danger);
+}
+
+.border-danger-custom {
+  border-color: var(--danger);
 }
