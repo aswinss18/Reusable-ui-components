@@ -62,7 +62,7 @@ export default function LimitCard({
           <Typography.Text className={styles.utilized}>
             {utilizedLabel}
           </Typography.Text>
-          <div className={styles.progressContainer}>
+          <Flex className={styles.progressContainer}>
             <Progress
               type="circle"
               percent={boundedPercent}
@@ -71,13 +71,13 @@ export default function LimitCard({
               trailColor="#D9D9D9"
               strokeWidth={10}
               format={() => (
-                <span className={styles.progressText}>
+                <Typography.Text className={styles.progressText}>
                   {boundedPercent}
-                  <span className={styles.progressPercent}>%</span>
-                </span>
+                  <Typography.Text className={styles.progressPercent}>%</Typography.Text>
+                </Typography.Text>
               )}
             />
-          </div>
+          </Flex>
         </Flex>
       </Flex>
     </Card>

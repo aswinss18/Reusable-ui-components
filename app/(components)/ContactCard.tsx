@@ -13,7 +13,7 @@ export type ContactCardProps = {
   partnerLabel?: string;
   emailLabel?: string;
   variant?: ContactCardVariant;
-} & Omit<CardProps, "children" | "title">;
+} & Omit<CardProps, "children" | "title" | "variant">;
 
 const toneStyles: Record<ContactCardVariant, CSSProperties> = {
   danger: {
