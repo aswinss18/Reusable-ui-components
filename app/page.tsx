@@ -26,6 +26,11 @@ const components = [
     name: "ContactCard",
     description: "Partner and email contact card with success, danger, and warning variants.",
   },
+  {
+    href: "/price-card",
+    name: "PriceCard",
+    description: "Simple pricing display card with title and value.",
+  },
 ];
 
 export default function Home() {

@@ -1,0 +1,35 @@
+.card {
+  width: 300.33px;
+  min-width: 300.33px;
+  height: 86px;
+  min-height: 86px;
+  border: 1px solid #4140991A;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #FAFAFF 0%, #F0F0FF 20%);
+  box-shadow: none;
+}
+
+.card :global(.ant-card-body) {
+  padding: 17px;
+  height: 100%;
+}
+
+.title {
+  color: #60606C;
+  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+}
+
+.value {
+  color: #414099;
+  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin: 0;
+}
