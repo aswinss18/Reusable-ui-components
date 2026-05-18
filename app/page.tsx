@@ -21,6 +21,11 @@ const components = [
     name: "Modal",
     description: "Reusable modal with title prop, close button, and child-driven body content.",
   },
+  {
+    href: "/contact-card",
+    name: "ContactCard",
+    description: "Partner and email contact card with success, danger, and warning variants.",
+  },
 ];
 
 export default function Home() {

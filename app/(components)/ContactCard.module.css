@@ -1,0 +1,15 @@
+.card {
+  border-left: 4px solid;
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+.text {
+  margin: 0;
+  color: #454260;
+  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.7;
+}

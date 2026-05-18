@@ -3,6 +3,7 @@
 import { Input } from "antd";
 import { useState, useSyncExternalStore } from "react";
 import Button from "./Button";
+import ContactCard from "./ContactCard";
 import Modal from "./Modal";
 
 export default function ModalShowcase() {
@@ -61,16 +62,11 @@ export default function ModalShowcase() {
               title="Approve Partner"
             >
               <div className="space-y-6">
-                <div className="rounded-[12px] border-l-4 border-l-[#18d1b1] bg-[#e6f8f6] px-4 py-3">
-                  <p className="text-sm leading-7 text-[#454260]">
-                    <span className="font-semibold">Partner:</span> TechCorp
-                    Solutions
-                  </p>
-                  <p className="text-sm leading-7 text-[#454260]">
-                    <span className="font-semibold">Email:</span>{" "}
-                    contact@techcorp.com
-                  </p>
-                </div>
+                <ContactCard
+                  email="contact@techcorp.com"
+                  partner="TechCorp Solutions"
+                  variant="success"
+                />
 
                 <div className="space-y-2">
                   <label
@@ -116,16 +112,11 @@ export default function ModalShowcase() {
               titleBg="#4a47a8"
             >
               <div className="space-y-6">
-                <div className="rounded-[12px] border-l-4 border-l-[#18d1b1] bg-[#e6f8f6] px-4 py-3">
-                  <p className="text-sm leading-7 text-[#454260]">
-                    <span className="font-semibold">Partner:</span> TechCorp
-                    Solutions
-                  </p>
-                  <p className="text-sm leading-7 text-[#454260]">
-                    <span className="font-semibold">Email:</span>{" "}
-                    contact@techcorp.com
-                  </p>
-                </div>
+                <ContactCard
+                  email="contact@techcorp.com"
+                  partner="TechCorp Solutions"
+                  variant="danger"
+                />
 
                 <div className="space-y-2">
                   <label
