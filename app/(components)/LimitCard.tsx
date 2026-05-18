@@ -13,7 +13,7 @@ export type LimitCardProps = {
   utilizedPercent: number;
   variant?: LimitCardVariant;
   utilizedLabel?: string;
-} & Omit<CardProps, "children" | "title">;
+} & Omit<CardProps, "children" | "title" | "variant">;
 
 const progressColors: Record<LimitCardVariant, string> = {
   danger: "#D62A23",

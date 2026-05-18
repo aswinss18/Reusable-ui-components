@@ -1,6 +1,6 @@
 "use client";
 
-import { Card, Tag } from "antd";
+import { Card, Tag, Flex, Typography } from "antd";
 import type { CardProps } from "antd";
 import type { ReactNode } from "react";
 import styles from "./StatCard.module.css";
@@ -30,15 +30,15 @@ export default function StatCard({
 
   return (
     <Card className={cardClassName} {...props}>
-      <div className={styles.content}>
-        <div className={styles.textBlock}>
-          <span className={styles.title}>{title}</span>
-          <span className={styles.value}>{value}</span>
+      <Flex className={styles.content}>
+        <Flex className={styles.textBlock} vertical>
+          <Typography.Text className={styles.title}>{title}</Typography.Text>
+          <Typography.Text className={styles.value}>{value}</Typography.Text>
           {change ? <Tag className={styles.pill}>{change}</Tag> : null}
-          {subtitle ? <span className={styles.subtitle}>{subtitle}</span> : null}
-        </div>
-        {icon ? <div className={styles.iconBox}>{icon}</div> : null}
-      </div>
+          {subtitle ? <Typography.Text className={styles.subtitle}>{subtitle}</Typography.Text> : null}
+        </Flex>
+        {icon ? <Flex className={styles.iconBox}>{icon}</Flex> : null}
+      </Flex>
     </Card>
   );
 }
