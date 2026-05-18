@@ -36,6 +36,11 @@ const components = [
     name: "StatusFilterTabs",
     description: "Status filter tabs with color-coded badges and counts.",
   },
+  {
+    href: "/account-opening-item",
+    name: "AccountOpeningItem",
+    description: "List item for account openings with status indicators.",
+  },
 ];
 
 export default function Home() {

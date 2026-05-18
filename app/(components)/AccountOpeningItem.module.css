@@ -1,0 +1,78 @@
+.item {
+  display: flex;
+  width: 928px;
+  height: 47px;
+  padding: 0 20px 0 0;
+  background: #F8F8FF;
+  border: 1px solid #E8E8F5;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-bottom: 8px;
+  border-radius: 8px;
+}
+
+.item:hover {
+  background: #F0F0FF;
+}
+
+.dateColumn {
+  flex: 0 0 120px;
+  min-width: 120px;
+  padding-left: 20px;
+}
+
+.nameColumn {
+  flex: 1;
+  min-width: 180px;
+}
+
+.fundingColumn {
+  flex: 0 0 140px;
+  min-width: 140px;
+}
+
+.kycColumn {
+  flex: 0 0 140px;
+  min-width: 140px;
+}
+
+.accountColumn {
+  flex: 0 0 140px;
+  min-width: 140px;
+}
+
+.date {
+  color: #33255699;
+  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+}
+
+.name {
+  color: #332556;
+  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin: 0;
+}
+
+.tag {
+  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  height: 22px;
+  padding: 0 8px;
+  border-radius: 8px;
+  border: none;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
