@@ -43,16 +43,17 @@ export default function ContactCard({
 }: ContactCardProps) {
   const cardClassName = [styles.card, className].filter(Boolean).join(" ");
 
+  const bodyStyles = typeof cardStyles === 'object' && cardStyles?.body 
+    ? { padding: "12px 16px", ...cardStyles.body }
+    : { padding: "12px 16px" };
+
   return (
     <Card
       {...props}
       className={cardClassName}
       style={{ ...toneStyles[variant], ...style }}
       styles={{
-        body: {
-          padding: "12px 16px",
-          ...cardStyles?.body,
-        },
+        body: bodyStyles,
       }}
       variant="borderless"
     >
