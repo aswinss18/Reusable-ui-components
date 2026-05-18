@@ -16,6 +16,11 @@ const components = [
     name: "LimitCard",
     description: "Usage limit cards with circular utilization charts and color variants.",
   },
+  {
+    href: "/modal",
+    name: "Modal",
+    description: "Reusable modal with title prop, close button, and child-driven body content.",
+  },
 ];
 
 export default function Home() {

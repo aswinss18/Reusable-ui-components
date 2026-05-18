@@ -1,0 +1,93 @@
+.modal :global(.ant-modal-content) {
+  padding: 0;
+  overflow: hidden;
+  border-radius: 18px;
+  box-shadow: 0 30px 80px rgba(16, 18, 56, 0.18);
+}
+
+.modal :global(.ant-modal-header) {
+  margin: 0;
+  padding: 0;
+  border-bottom: 0;
+  background: transparent;
+}
+
+/* ✅ Kill Ant's default title margin/padding completely */
+.modal :global(.ant-modal-title) {
+  margin: 0;
+  padding: 0;
+  font-weight: unset;
+  font-size: unset;
+  line-height: unset;
+}
+
+.modal :global(.ant-modal-body) {
+  padding: 0 28px 28px;
+}
+
+.modalColored :global(.ant-modal-header) {
+  background: var(--modal-title-bg, #4a47a8);
+  margin: 0;
+  padding: 0;
+}
+
+.modalColored :global(.ant-modal-title) {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.modalColored :global(.ant-modal-body) {
+  padding: 20px 28px 28px;
+}
+
+.headerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 28px 28px 18px;
+}
+
+.headerInnerColored {
+  padding: 20px 24px;
+}
+
+.title {
+  color: #2c275f;
+  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.titleColored {
+  color: #ffffff;
+}
+
+.closeButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: transparent;
+  color: #1f1f1f;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  padding: 4px;
+}
+
+.closeButton:hover {
+  color: #414099;
+}
+
+.closeButtonColored {
+  color: #ffffff;
+}
+
+.closeButtonColored:hover {
+  color: #f3f2ff;
+}
