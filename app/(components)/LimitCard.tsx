@@ -1,6 +1,6 @@
 "use client";
 
-import { Card, Flex, Typography } from "antd";
+import { Card, Flex, Typography, Progress } from "antd";
 import type { CardProps } from "antd";
 import styles from "./LimitCard.module.css";
 
@@ -21,103 +21,6 @@ const progressColors: Record<LimitCardVariant, string> = {
   warning: "#F0B100",
 };
 
-const PROGRESS_SIZE = 75.95;
-const TRACK_STROKE_WIDTH = 2;
-const VALUE_STROKE_WIDTH = 10;
-const PROGRESS_RADIUS = (PROGRESS_SIZE - VALUE_STROKE_WIDTH) / 2;
-const PROGRESS_CENTER = PROGRESS_SIZE / 2;
-
-function polarToCartesian(
-  centerX: number,
-  centerY: number,
-  radius: number,
-  angleInDegrees: number,
-) {
-  const angleInRadians = (angleInDegrees * Math.PI) / 180;
-
-  return {
-    x: centerX + radius * Math.cos(angleInRadians),
-    y: centerY + radius * Math.sin(angleInRadians),
-  };
-}
-
-function describeArc({
-  cx,
-  cy,
-  radius,
-  startAngle,
-  endAngle,
-  counterClockwise = false,
-}: {
-  cx: number;
-  cy: number;
-  radius: number;
-  startAngle: number;
-  endAngle: number;
-  counterClockwise?: boolean;
-}) {
-  const start = polarToCartesian(cx, cy, radius, startAngle);
-  const end = polarToCartesian(cx, cy, radius, endAngle);
-  const angleDelta = counterClockwise
-    ? (startAngle - endAngle + 360) % 360
-    : (endAngle - startAngle + 360) % 360;
-  const largeArcFlag = angleDelta > 180 ? 1 : 0;
-  const sweepFlag = counterClockwise ? 0 : 1;
-
-  return `M ${start.x} ${start.y} A ${radius} ${radius} 0 ${largeArcFlag} ${sweepFlag} ${end.x} ${end.y}`;
-}
-
-function LimitProgress({
-  percent,
-  color,
-}: {
-  percent: number;
-  color: string;
-}) {
-  const boundedPercent = Math.max(0, Math.min(100, percent));
-  const progressSweep = (boundedPercent / 100) * 359.5;
-  const trackPath = describeArc({
-    cx: PROGRESS_CENTER,
-    cy: PROGRESS_CENTER,
-    endAngle: 449.5,
-    radius: PROGRESS_RADIUS,
-    startAngle: 90,
-  });
-  const progressPath = describeArc({
-    counterClockwise: true,
-    cx: PROGRESS_CENTER,
-    cy: PROGRESS_CENTER,
-    endAngle: 90 - progressSweep,
-    radius: PROGRESS_RADIUS,
-    startAngle: 90,
-  });
-
-  return (
-    <svg
-      aria-hidden="true"
-      className={styles.progressSvg}
-      viewBox={`0 0 ${PROGRESS_SIZE} ${PROGRESS_SIZE}`}
-    >
-      <path
-        d={trackPath}
-        fill="none"
-        stroke="#D9D9D9"
-        strokeLinecap="round"
-        strokeWidth={TRACK_STROKE_WIDTH}
-      />
-      {boundedPercent > 0 ? (
-        <path
-          d={progressPath}
-          fill="none"
-          stroke={color}
-          strokeLinecap="round"
-          strokeWidth={VALUE_STROKE_WIDTH}
-        />
-      ) : null}
-    </svg>
-  );
-}
-
 export default function LimitCard({
   title,
   currentValue,
@@ -133,10 +36,13 @@ export default function LimitCard({
 
   return (
     <Card className={cardClassName} {...props}>
-      <Flex className={styles.content} justify="space-between">
-        <Flex className={styles.leftBlock} vertical>
-          <Typography.Text className={styles.title}>{title}</Typography.Text>
-          <Flex align="baseline" className={styles.value} wrap>
+      <Flex className={styles.content} justify="space-between" align="center">
+        {/* Left Block: Title and Value */}
+        <Flex className={styles.leftBlock} vertical justify="center">
+          <Typography.Text className={styles.title}>
+            {title}
+          </Typography.Text>
+          <Flex align="baseline" className={styles.value}>
             <Typography.Text className={styles.valuePrimary}>
               {currentValue}
             </Typography.Text>
@@ -146,19 +52,32 @@ export default function LimitCard({
           </Flex>
         </Flex>
 
-        <Flex align="center" className={styles.rightBlock} vertical>
+        {/* Right Block: Progress Circle */}
+        <Flex
+          align="center"
+          className={styles.rightBlock}
+          vertical
+          justify="center"
+        >
           <Typography.Text className={styles.utilized}>
             {utilizedLabel}
           </Typography.Text>
-          <Flex align="center" className={styles.progressWrap} justify="center">
-            <LimitProgress color={progressColors[variant]} percent={boundedPercent} />
-            <Typography.Text className={styles.progressText}>
-              {boundedPercent}
-              <Typography.Text className={styles.progressPercent}>
-                %
-              </Typography.Text>
-            </Typography.Text>
-          </Flex>
+          <div className={styles.progressContainer}>
+            <Progress
+              type="circle"
+              percent={boundedPercent}
+              size={76}
+              strokeColor={progressColors[variant]}
+              trailColor="#D9D9D9"
+              strokeWidth={10}
+              format={() => (
+                <span className={styles.progressText}>
+                  {boundedPercent}
+                  <span className={styles.progressPercent}>%</span>
+                </span>
+              )}
+            />
+          </div>
         </Flex>
       </Flex>
     </Card>
