@@ -49,7 +49,7 @@ export default function Modal({
     .filter(Boolean)
     .join(" ");
   const modalStyle = titleBg
-    ? ({ "--modal-title-bg": titleBg } satisfies CSSProperties)
+    ? ({ "--modal-title-bg": titleBg } as CSSProperties)
     : undefined;
 
   return (
