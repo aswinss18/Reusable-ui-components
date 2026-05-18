@@ -1,0 +1,96 @@
+.card {
+  border: 1px solid rgba(65, 64, 153, 0.1);
+  border-color: rgba(65, 64, 153, 0.1);
+  border-radius: 14px;
+  box-shadow: none;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.card :global(.ant-card-body) {
+  padding: 24px;
+}
+
+.card:hover {
+  transform: translateY(-1px);
+  background-color: #deddff;
+  border-color: #d2d0fb;
+  box-shadow: 0 18px 38px rgba(65, 64, 153, 0.12);
+}
+
+.highlighted {
+  background-color: #deddff;
+  border-color: #d2d0fb;
+  box-shadow: 0 18px 38px rgba(65, 64, 153, 0.12);
+}
+
+.content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.textBlock {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title {
+  color: #8d8cab;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+.value {
+  color: #2f2a63;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.subtitle {
+  color: #8d8cab;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.pill {
+  display: inline-flex;
+  width: 47.53px;
+  min-width: 47.53px;
+  height: 22px;
+  margin: 2px 0 0;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #dcfce7;
+  border-radius: 8px;
+  background: #dcfce7;
+  color: #008236;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  padding: 0;
+}
+
+.iconBox {
+  display: inline-flex;
+  height: 48px;
+  width: 48px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: #4742a3;
+  color: #ffffff;
+  font-size: 22px;
+  box-shadow: 0 10px 24px rgba(71, 66, 163, 0.22);
+}

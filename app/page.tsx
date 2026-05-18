@@ -6,6 +6,11 @@ const components = [
     name: "Button",
     description: "Primary, secondary, danger, and neutral button variants.",
   },
+  {
+    href: "/stat-card",
+    name: "StatCard",
+    description: "Dashboard summary cards with change pills and highlighted state.",
+  },
 ];
 
 export default function Home() {
