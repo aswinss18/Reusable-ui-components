@@ -1,7 +1,7 @@
 "use client";
 
 import { CloseOutlined } from "@ant-design/icons";
-import { Modal as AntModal } from "antd";
+import { Modal as AntModal, Button, Flex, Typography } from "antd";
 import type { ModalProps as AntModalProps } from "antd";
 import type { CSSProperties, ReactNode } from "react";
 import styles from "./Modal.module.css";
@@ -63,17 +63,16 @@ export default function Modal({
       rootClassName={modalClassName}
       style={modalStyle}
       title={
-        <div className={headerInnerClassName}>
-          <div className={titleClassName}>{title}</div>
-          <button
+        <Flex justify="space-between" align="center" className={headerInnerClassName}>
+          <Typography className={titleClassName}>{title}</Typography>
+          <Button
+            type="text"
+            icon={<CloseOutlined />}
+            onClick={onClose}
             aria-label="Close modal"
             className={closeButtonClassName}
-            onClick={onClose}
-            type="button"
-          >
-            <CloseOutlined />
-          </button>
-        </div>
+          />
+        </Flex>
       }
       width={width}
     >
