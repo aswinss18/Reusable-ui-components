@@ -11,6 +11,11 @@ const components = [
     name: "StatCard",
     description: "Dashboard summary cards with change pills and highlighted state.",
   },
+  {
+    href: "/limit-card",
+    name: "LimitCard",
+    description: "Usage limit cards with circular utilization charts and color variants.",
+  },
 ];
 
 export default function Home() {
