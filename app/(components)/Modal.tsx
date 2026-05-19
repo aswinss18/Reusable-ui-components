@@ -35,12 +35,14 @@ export default function Modal({
   footer = false,
   ...props
 }: ModalProps) {
+  const rawActionItems = Children.toArray(actions);
+  const firstActionItem = rawActionItems[0];
   const actionItems =
-    Children.toArray(actions).length === 1 &&
-    isValidElement(Children.toArray(actions)[0]) &&
-    Children.toArray(actions)[0].type === Fragment
-      ? Children.toArray(Children.toArray(actions)[0].props.children)
-      : Children.toArray(actions);
+    rawActionItems.length === 1 &&
+    isValidElement<{ children?: ReactNode }>(firstActionItem) &&
+    firstActionItem.type === Fragment
+      ? Children.toArray(firstActionItem.props.children)
+      : rawActionItems;
   const hasStyledFooter = Boolean(footer);
   const modalClassName = [
     styles.modal,
