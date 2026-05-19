@@ -47,6 +47,11 @@ const components = [
     description: "Company information card with contact details, category badge, and edit action.",
   },
   {
+    href: "/lead-card",
+    name: "LeadCard",
+    description: "Lead summary card with reusable approved, pending, and rejected states.",
+  },
+  {
     href: "/price-card",
     name: "PriceCard",
     description: "Simple pricing display card with title and value.",
