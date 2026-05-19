@@ -21,6 +21,7 @@
 
 .search {
   width: 278px;
+  flex-shrink: 0;
   height: 40px;
   border-radius: 12px;
   background: #f8f8ff;
@@ -44,6 +45,7 @@
 }
 
 .rightSection {
+  margin-left: auto;
   flex-shrink: 0;
 }
 

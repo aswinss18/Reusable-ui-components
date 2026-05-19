@@ -107,7 +107,7 @@ export default function HeaderShowcase() {
                     Header Layout
                   </p>
                   <h2 className="mt-3 text-2xl font-semibold text-[#1d1b4a]">
-                    Logo, centered search, and admin controls
+                    Logo, right-aligned search, and admin controls
                   </h2>
                   <p className="mt-3 max-w-xl text-base leading-7 text-[#6b6a8f]">
                     The component keeps the same proportions as your reference,

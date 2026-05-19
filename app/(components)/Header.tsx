@@ -51,15 +51,15 @@ export default function Header({
           width={178.27}
         />
 
-        <Input
-          className={styles.search}
-          onChange={onSearchChange}
-          placeholder={searchPlaceholder}
-          prefix={<SearchOutlined className={styles.searchIcon} />}
-          value={searchValue}
-        />
-
         <Flex align="center" className={styles.rightSection} gap={16}>
+          <Input
+            className={styles.search}
+            onChange={onSearchChange}
+            placeholder={searchPlaceholder}
+            prefix={<SearchOutlined className={styles.searchIcon} />}
+            value={searchValue}
+          />
+
           <Badge
             count={notificationCount}
             overflowCount={99}
