@@ -1,0 +1,106 @@
+.wrapper {
+  width: 100%;
+}
+
+.filterContainer {
+  display: flex;
+  width: fit-content;
+  padding: 5px;
+  height: 36px;
+  align-items: center;
+  border: 2px solid #d9d9d9;
+  border-radius: 50px;
+  background: #ffffff;
+}
+
+.filterTab {
+  display: flex;
+  align-items: center;
+  height: 26px;
+  padding: 0 16px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.filterTab:hover {
+  opacity: 0.9;
+}
+
+.filterTabActive {
+  background: #414099;
+}
+
+.filterTabActive .filterTabText {
+  color: #ffffff !important;
+}
+
+.filterTabText {
+  margin: 0;
+  color: #332556b2;
+  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.filterBadge :global(.ant-badge-count) {
+  min-width: 29.13px;
+  width: 29.13px;
+  height: 22px;
+  line-height: 16px;
+  padding: 0 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: none;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.navigationTabs {
+  width: 100%;
+  background: #ffffff;
+}
+
+.navigationTabs :global(.ant-tabs-nav) {
+  margin: 0;
+  padding: 0 24px;
+  border-bottom: 1px solid #e7e4f6;
+}
+
+.navigationTabs :global(.ant-tabs-nav::before) {
+  border-bottom: 1px solid #e7e4f6;
+}
+
+.navigationTabs :global(.ant-tabs-tab) {
+  padding: 18px 28px 16px;
+}
+
+.navigationTabs :global(.ant-tabs-tab .ant-tabs-tab-btn) {
+  color: #8d8cab;
+  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.navigationTabs :global(.ant-tabs-tab-active .ant-tabs-tab-btn) {
+  color: #414099 !important;
+}
+
+.navigationTabs :global(.ant-tabs-ink-bar) {
+  height: 3px !important;
+  background: #414099;
+  border-radius: 999px;
+}
+
+.navigationTabs :global(.ant-tabs-content-holder) {
+  display: none;
+}

@@ -17,7 +17,7 @@ import CompanyInfoCard from "./CompanyInfoCard";
 import ContactCard from "./ContactCard";
 import Modal from "./Modal";
 import PriceCard from "./PriceCard";
-import StatusFilterTabs from "./StatusFilterTabs";
+import Tabs from "./Tabs";
 
 type ModalExample =
   | "compact"
@@ -372,11 +372,29 @@ export default function ModalShowcase() {
                   </Avatar>
                 </Flex>
 
-                <StatusFilterTabs
-                  approvedCount={4}
-                  defaultActiveTab="pending"
-                  pendingCount={7}
-                  rejectedCount={2}
+                <Tabs
+                  defaultActiveKey="pending"
+                  items={[
+                    {
+                      badgeColor: "#ED1B2F",
+                      badgeCount: 7,
+                      key: "pending",
+                      label: "Pending for Actions",
+                    },
+                    {
+                      badgeColor: "#0CC496",
+                      badgeCount: 4,
+                      key: "approved",
+                      label: "Approved",
+                    },
+                    {
+                      badgeColor: "#000000",
+                      badgeCount: 2,
+                      key: "rejected",
+                      label: "Rejected",
+                    },
+                  ]}
+                  type="filter"
                 />
 
                 <div className="space-y-3">

@@ -52,9 +52,9 @@ const components = [
     description: "Simple pricing display card with title and value.",
   },
   {
-    href: "/status-filter-tabs",
-    name: "StatusFilterTabs",
-    description: "Status filter tabs with color-coded badges and counts.",
+    href: "/tabs",
+    name: "Tabs",
+    description: "Reusable tabs component for filter pills and navigation underline styles.",
   },
   {
     href: "/account-opening-item",
