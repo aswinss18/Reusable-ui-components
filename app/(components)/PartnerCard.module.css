@@ -1,0 +1,210 @@
+.card {
+  border: 1px solid #ebe9f7;
+  border-radius: 14px;
+  box-shadow: none;
+  overflow: hidden;
+}
+
+.card :global(.ant-card-body) {
+  position: relative;
+  padding: 13px 18px;
+}
+
+.row,
+.identityBlock,
+.identityText,
+.metricsRow,
+.metricItem,
+.actionBlock {
+  min-width: 0;
+}
+
+.row {
+  width: 100%;
+}
+
+.identityBlock {
+  flex: 0 0 210px;
+}
+
+.avatar {
+  flex-shrink: 0;
+  background: #4b49b6;
+  color: #ffffff;
+  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.partnerName {
+  margin: 0;
+  color: #332556;
+  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+
+.partnerCodeTag {
+  width: fit-content;
+  margin: 0;
+  padding: 2px 10px;
+  color: #7470b8;
+  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.2;
+  background: #f3f2fb;
+  border: none;
+  border-radius: 999px;
+}
+
+.metricsRow {
+  flex: 1 1 0;
+  justify-content: space-between;
+}
+
+.metricItem {
+  justify-content: center;
+}
+
+.revenueMetric {
+  min-width: 102px;
+}
+
+.accountsMetric {
+  min-width: 132px;
+}
+
+.growthMetric {
+  min-width: 58px;
+}
+
+.statusMetric {
+  min-width: 108px;
+}
+
+.metricLabel {
+  margin: 0;
+  color: rgba(51, 37, 86, 0.55);
+  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.metricValue {
+  margin: 0;
+  color: #332556;
+  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.growthTag {
+  width: fit-content;
+  margin: 0;
+  padding: 4px 8px;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.actionBlock {
+  flex: 0 0 92px;
+}
+
+.manageButton {
+  min-width: 92px;
+  height: 36px;
+  padding: 0 18px;
+  color: #4b49b6;
+  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  background: #ffffff;
+  border: 1px solid #4b49b6;
+  border-radius: 10px;
+  box-shadow: none;
+}
+
+.manageButton:hover,
+.manageButton:focus {
+  color: #4b49b6 !important;
+  border-color: #4b49b6 !important;
+  background: #ffffff !important;
+}
+
+.disabledBadge {
+  position: absolute;
+  top: 13px;
+  left: 0;
+  z-index: 1;
+  margin: 0;
+  padding: 5px 10px 5px 8px;
+  color: #ed1b2f;
+  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1;
+  background: rgba(237, 27, 47, 0.12);
+  border: none;
+  border-radius: 0 8px 8px 0;
+}
+
+.cardDisabled .avatar {
+  background: #dbd9e4;
+}
+
+.cardDisabled .partnerName,
+.cardDisabled .metricValue {
+  color: rgba(51, 37, 86, 0.42);
+}
+
+.cardDisabled .metricLabel {
+  color: rgba(51, 37, 86, 0.38);
+}
+
+.cardDisabled .partnerCodeTag {
+  color: #cbc7d8;
+  background: #f4f3f8;
+}
+
+@media (max-width: 960px) {
+  .card :global(.ant-card-body) {
+    padding: 16px;
+  }
+
+  .row {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .identityBlock {
+    flex-basis: 100%;
+  }
+
+  .metricsRow {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 20px 28px;
+  }
+
+  .actionBlock {
+    flex-basis: 100%;
+  }
+}

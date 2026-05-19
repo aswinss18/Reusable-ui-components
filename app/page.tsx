@@ -52,6 +52,11 @@ const components = [
     description: "Lead summary card with reusable approved, pending, and rejected states.",
   },
   {
+    href: "/partner-card",
+    name: "PartnerCard",
+    description: "Compact partner business card with active and disabled dashboard states.",
+  },
+  {
     href: "/price-card",
     name: "PriceCard",
     description: "Simple pricing display card with title and value.",
