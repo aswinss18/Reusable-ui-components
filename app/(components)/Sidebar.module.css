@@ -1,0 +1,94 @@
+.sidebar {
+  background: #ffffff !important;
+  border-right: 1px solid #ece8fb;
+}
+
+.inner {
+  height: 100%;
+  padding: 28px 22px;
+  gap: 28px;
+}
+
+.section {
+  gap: 14px;
+}
+
+.sectionTitle {
+  color: #8d8cab;
+  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.menu {
+  border-inline-end: 0 !important;
+  background: transparent !important;
+}
+
+.menu :global(.ant-menu-item),
+.menu :global(.ant-menu-submenu-title) {
+  height: 46px;
+  margin: 0 0 12px !important;
+  padding-inline: 16px !important;
+  width: 100%;
+  color: #3b326e;
+  border-radius: 16px;
+}
+
+.menu :global(.ant-menu-item:last-child) {
+  margin-bottom: 0 !important;
+}
+
+.menu :global(.ant-menu-item:hover) {
+  background: rgba(75, 73, 198, 0.08) !important;
+  color: #3b326e !important;
+}
+
+.menu :global(.ant-menu-item-selected) {
+  background: #4b49b6 !important;
+  box-shadow: 0 10px 24px rgba(75, 73, 182, 0.28);
+  color: #ffffff !important;
+}
+
+.menu :global(.ant-menu-item-selected:hover) {
+  color: #ffffff !important;
+}
+
+.menu :global(.ant-menu-title-content) {
+  margin-inline-start: 12px !important;
+}
+
+.menu :global(.ant-menu-item-selected .ant-menu-title-content),
+.menu :global(.ant-menu-item-selected .ant-menu-item-icon) {
+  color: #ffffff !important;
+}
+
+.menuIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: inherit;
+}
+
+.itemRow {
+  width: 100%;
+}
+
+.itemText {
+  color: inherit;
+  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.activeArrow {
+  font-size: 14px;
+  color: #ffffff;
+}

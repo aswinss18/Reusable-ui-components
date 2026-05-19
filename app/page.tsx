@@ -7,6 +7,16 @@ const components = [
     description: "Primary, secondary, danger, and neutral button variants.",
   },
   {
+    href: "/bread-crumb",
+    name: "BreadCrumb",
+    description: "Dynamic page header with optional back route, subtitle, and actions.",
+  },
+  {
+    href: "/sidebar",
+    name: "Sidebar",
+    description: "Grouped sidebar navigation with dynamic sections, badges, and active states.",
+  },
+  {
     href: "/stat-card",
     name: "StatCard",
     description: "Dashboard summary cards with change pills and highlighted state.",
