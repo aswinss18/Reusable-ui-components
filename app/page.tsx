@@ -17,6 +17,11 @@ const components = [
     description: "Grouped sidebar navigation with dynamic sections, badges, and active states.",
   },
   {
+    href: "/header",
+    name: "Header",
+    description: "Top app header with Fino logo, search, notifications, and user controls.",
+  },
+  {
     href: "/stat-card",
     name: "StatCard",
     description: "Dashboard summary cards with change pills and highlighted state.",

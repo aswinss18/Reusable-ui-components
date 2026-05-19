@@ -1,0 +1,96 @@
+.header {
+  height: 86px !important;
+  padding: 0 !important;
+  background: #ffffff !important;
+  border-bottom: 1px solid #ece8fb;
+}
+
+.inner {
+  height: 100%;
+  padding: 0 24px 0 26px;
+}
+
+.logo {
+  flex-shrink: 0;
+}
+
+.logo :global(.ant-image-img) {
+  display: block;
+  object-fit: contain;
+}
+
+.search {
+  width: 278px;
+  height: 40px;
+  border-radius: 12px;
+  background: #f8f8ff;
+  border: 1px solid #ebe9f7;
+}
+
+.search :global(.ant-input) {
+  color: #332556;
+  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.search :global(.ant-input::placeholder) {
+  color: #b3b0cc;
+}
+
+.searchIcon {
+  color: #8d8cab;
+  font-size: 14px;
+}
+
+.rightSection {
+  flex-shrink: 0;
+}
+
+.bellIcon {
+  color: #332556;
+  font-size: 18px;
+}
+
+.divider {
+  height: 30px;
+  margin: 0 !important;
+  border-color: #ece8fb;
+}
+
+.avatar {
+  background: #4b49b6;
+  color: #ffffff;
+  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.userText {
+  line-height: 1;
+}
+
+.userName {
+  color: #332556;
+  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.userRole {
+  color: #8d8cab;
+  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.trailingAction {
+  min-width: 18px;
+}
+
+.logoutIcon {
+  color: #ff2432;
+  font-size: 18px;
+}
