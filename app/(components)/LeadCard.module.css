@@ -14,6 +14,7 @@
 .headerRow,
 .headerText,
 .titleRow,
+.headerActions,
 .detailsRow,
 .detailItem,
 .reasonTextBlock {
@@ -87,6 +88,10 @@
   font-style: normal;
   font-weight: 500;
   line-height: 1.2;
+}
+
+.headerActions {
+  align-self: flex-start;
 }
 
 .detailsCard {

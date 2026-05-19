@@ -1,5 +1,6 @@
 "use client";
 
+import Button from "./Button";
 import LeadCard from "./LeadCard";
 
 export default function LeadCardShowcase() {
@@ -21,6 +22,14 @@ export default function LeadCardShowcase() {
 
         <div className="flex flex-col gap-6">
           <LeadCard
+            actions={
+              <>
+                <Button style={{ minWidth: 74 }}>Approve</Button>
+                <Button color="danger" style={{ minWidth: 71 }} variant="outlined">
+                  Reject
+                </Button>
+              </>
+            }
             appliedOn="2026-03-15"
             avatarText="T"
             category="Enterprise"
@@ -28,7 +37,6 @@ export default function LeadCardShowcase() {
             contactPerson="Rajesh Kumar"
             emailAddress="rajesh.kumar@techsol.com"
             mobileNumber="+91 9999999999"
-            status="approved"
             subtitle="PTR-2025-001"
           />
 
@@ -40,7 +48,7 @@ export default function LeadCardShowcase() {
             contactPerson="Anita Menon"
             emailAddress="anita@leadbridge.com"
             mobileNumber="+91 9876543210"
-            status="pending"
+            status="approved"
             subtitle="leadbridge@company.com"
           />
 

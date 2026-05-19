@@ -3,7 +3,7 @@
 import { CloseCircleOutlined, EditOutlined } from "@ant-design/icons";
 import { Avatar, Button, Card, Flex, Tag, Typography } from "antd";
 import type { CardProps } from "antd";
-import type { CSSProperties } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import styles from "./LeadCard.module.css";
 
 export type LeadCardStatus = "approved" | "pending" | "rejected";
@@ -19,10 +19,11 @@ export type LeadCardProps = {
   appliedOn: string;
   status?: LeadCardStatus;
   statusLabel?: string;
+  actions?: ReactNode;
   rejectionReason?: string;
   onEdit?: () => void;
   showEditAction?: boolean;
-} & Omit<CardProps, "children" | "extra" | "title">;
+} & Omit<CardProps, "actions" | "children" | "extra" | "title">;
 
 type DetailItemProps = {
   label: string;
@@ -78,6 +79,7 @@ export default function LeadCard({
   appliedOn,
   status = "pending",
   statusLabel,
+  actions,
   rejectionReason,
   onEdit,
   showEditAction = true,
@@ -86,6 +88,7 @@ export default function LeadCard({
 }: LeadCardProps) {
   const cardClassName = [styles.card, className].filter(Boolean).join(" ");
   const showRejectionReason = status === "rejected" && Boolean(rejectionReason);
+  const showHeaderActions = Boolean(actions);
 
   return (
     <Card className={cardClassName} {...props}>
@@ -107,9 +110,15 @@ export default function LeadCard({
               <Typography.Text className={styles.subtitle}>{subtitle}</Typography.Text>
             </Flex>
 
-            <Tag className={styles.statusTag} style={statusToneStyles[status]}>
-              {statusLabel ?? statusLabels[status]}
-            </Tag>
+            {showHeaderActions ? (
+              <Flex align="center" className={styles.headerActions} gap={10} wrap>
+                {actions}
+              </Flex>
+            ) : (
+              <Tag className={styles.statusTag} style={statusToneStyles[status]}>
+                {statusLabel ?? statusLabels[status]}
+              </Tag>
+            )}
           </Flex>
 
           <Card className={styles.detailsCard}>
