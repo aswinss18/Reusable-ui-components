@@ -10,7 +10,7 @@ export default function ModalShowcase() {
   const [plainOpen, setPlainOpen] = useState(false);
   const [coloredOpen, setColoredOpen] = useState(true);
   const mounted = useSyncExternalStore(
-    () => () => {},
+    () => () => { },
     () => true,
     () => false,
   );
@@ -56,10 +56,29 @@ export default function ModalShowcase() {
         {mounted ? (
           <>
             <Modal
+              actions={
+                <>
+                  <Button
+                    color="neutral"
+                    onClick={() => setPlainOpen(false)}
+                    style={{ minWidth: 120 }}
+                    variant="outlined"
+                  >
+                    Cancel
+                  </Button>
+                  <Button
+                    onClick={() => console.log("Proceed clicked")}
+                    style={{ minWidth: 140 }}
+                  >
+                    Proceed
+                  </Button>
+                </>
+              }
               mask={{ closable: true }}
               onClose={() => setPlainOpen(false)}
               open={plainOpen}
               title="Approve Partner"
+
             >
               <div className="space-y-6">
                 <ContactCard
@@ -84,11 +103,15 @@ export default function ModalShowcase() {
                     This will be assigned to the approved partner
                   </p>
                 </div>
+              </div>
+            </Modal>
 
-                <div className="flex flex-wrap justify-end gap-3 pt-2">
+            <Modal
+              actions={
+                <>
                   <Button
                     color="neutral"
-                    onClick={() => setPlainOpen(false)}
+                    onClick={() => setColoredOpen(false)}
                     style={{ minWidth: 120 }}
                     variant="outlined"
                   >
@@ -100,16 +123,15 @@ export default function ModalShowcase() {
                   >
                     Proceed
                   </Button>
-                </div>
-              </div>
-            </Modal>
-
-            <Modal
+                </>
+              }
               mask={{ closable: true }}
               onClose={() => setColoredOpen(false)}
               open={coloredOpen}
               title="Approve Partner"
               titleBg="#4a47a8"
+              footer={true}
+              actionsAlign="space-between"
             >
               <div className="space-y-6">
                 <ContactCard
@@ -133,23 +155,6 @@ export default function ModalShowcase() {
                   <p className="text-sm text-[#9a98b4]">
                     This will be assigned to the approved partner
                   </p>
-                </div>
-
-                <div className="flex flex-wrap justify-end gap-3 pt-2">
-                  <Button
-                    color="neutral"
-                    onClick={() => setColoredOpen(false)}
-                    style={{ minWidth: 120 }}
-                    variant="outlined"
-                  >
-                    Cancel
-                  </Button>
-                  <Button
-                    onClick={() => console.log("Proceed clicked")}
-                    style={{ minWidth: 140 }}
-                  >
-                    Proceed
-                  </Button>
                 </div>
               </div>
             </Modal>
