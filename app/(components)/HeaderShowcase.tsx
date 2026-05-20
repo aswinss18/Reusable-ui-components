@@ -4,55 +4,57 @@ import { Flex } from "antd";
 import BreadCrumb from "./BreadCrumb";
 import Button from "./Button";
 import Header from "./Header";
-import Sidebar, { sidebarExampleIcons } from "./Sidebar";
+import Sidebar from "./Sidebar";
 
-const sidebarSections = [
+const sidebarMenu = [
   {
+    section: "MAIN MENU",
     items: [
       {
-        href: "/bread-crumb",
-        icon: sidebarExampleIcons.overview,
+        icon: "overview",
         key: "overview",
         label: "Overview",
+        path: "/bread-crumb",
       },
       {
-        badgeCount: 3,
-        href: "/modal",
-        icon: sidebarExampleIcons.leads,
+        badge: 3,
+        icon: "leads",
         key: "leads",
         label: "Leads",
+        path: "/modal",
       },
       {
-        href: "/company-info-card",
-        icon: sidebarExampleIcons.partners,
+        active: true,
+        hasArrow: true,
+        icon: "partners",
         key: "partners",
         label: "My Partners",
+        path: "/company-info-card",
       },
     ],
-    title: "Main Menu",
   },
   {
+    section: "PARTNER MANAGEMENT",
     items: [
       {
-        href: "/limit-card",
-        icon: sidebarExampleIcons.limits,
+        icon: "limits",
         key: "limits",
         label: "Limits",
+        path: "/limit-card",
       },
       {
-        href: "/price-card",
-        icon: sidebarExampleIcons.charges,
+        icon: "charges",
         key: "charges",
         label: "Charges",
+        path: "/price-card",
       },
       {
-        href: "/account-opening-item",
-        icon: sidebarExampleIcons.activity,
+        icon: "activity",
         key: "activity",
         label: "Activity Log",
+        path: "/account-opening-item",
       },
     ],
-    title: "Partner Management",
   },
 ];
 
@@ -86,7 +88,7 @@ export default function HeaderShowcase() {
           />
 
           <Flex>
-            <Sidebar activeKey="partners" sections={sidebarSections} />
+            <Sidebar activeKey="partners" data={sidebarMenu} />
 
             <Flex className="min-h-[760px] flex-1 bg-white p-8" vertical gap={28}>
               <BreadCrumb

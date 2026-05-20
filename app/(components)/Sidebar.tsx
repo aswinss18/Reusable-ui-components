@@ -12,33 +12,11 @@ import {
 import { Badge, Flex, Layout, Menu, Typography } from "antd";
 import type { MenuProps } from "antd";
 import { useRouter } from "next/navigation";
+import { isValidElement } from "react";
 import type { ReactNode } from "react";
 import styles from "./Sidebar.module.css";
 
-export type SidebarItem = {
-  key: string;
-  label: string;
-  icon?: ReactNode;
-  href?: string;
-  badgeCount?: number;
-  suffix?: ReactNode;
-  disabled?: boolean;
-};
-
-export type SidebarSection = {
-  title: string;
-  items: SidebarItem[];
-};
-
-export type SidebarProps = {
-  sections: SidebarSection[];
-  activeKey?: string;
-  width?: number | string;
-  className?: string;
-  onItemClick?: (item: SidebarItem) => void;
-};
-
-export const sidebarExampleIcons = {
+export const sidebarIconMap = {
   overview: <RiseOutlined />,
   leads: <UsergroupAddOutlined />,
   partners: <TeamOutlined />,
@@ -47,30 +25,59 @@ export const sidebarExampleIcons = {
   activity: <HistoryOutlined />,
 };
 
+export type SidebarIconKey = keyof typeof sidebarIconMap;
+
+export type SidebarMenuItem = {
+  key: string;
+  label: string;
+  icon?: SidebarIconKey | ReactNode;
+  path?: string;
+  badge?: number;
+  active?: boolean;
+  hasArrow?: boolean;
+  suffix?: ReactNode;
+  disabled?: boolean;
+};
+
+export type SidebarMenuSection = {
+  section: string;
+  items: SidebarMenuItem[];
+};
+
+export type SidebarProps = {
+  data: SidebarMenuSection[];
+  activeKey?: string;
+  width?: number | string;
+  className?: string;
+  onItemClick?: (item: SidebarMenuItem) => void;
+};
+
 function SidebarItemLabel({
   active,
   item,
 }: {
   active: boolean;
-  item: SidebarItem;
+  item: SidebarMenuItem;
 }) {
+  const showArrow = item.hasArrow ?? active;
+
   return (
     <Flex align="center" className={styles.itemRow} justify="space-between">
       <Typography.Text className={styles.itemText}>{item.label}</Typography.Text>
 
-      {item.badgeCount || active || item.suffix ? (
+      {item.badge || showArrow || item.suffix ? (
         <Flex align="center" gap={12}>
-          {typeof item.badgeCount === "number" ? (
+          {typeof item.badge === "number" ? (
             <Badge
               className={styles.itemBadge}
-              count={item.badgeCount}
+              count={item.badge}
               overflowCount={999}
             />
           ) : null}
 
           {item.suffix ? (
             item.suffix
-          ) : active ? (
+          ) : showArrow ? (
             <RightOutlined className={styles.activeArrow} />
           ) : null}
         </Flex>
@@ -79,8 +86,22 @@ function SidebarItemLabel({
   );
 }
 
+function resolveSidebarIcon(icon?: SidebarIconKey | ReactNode) {
+  if (!icon) {
+    return null;
+  }
+
+  if (typeof icon === "string") {
+    return icon in sidebarIconMap
+      ? sidebarIconMap[icon as SidebarIconKey]
+      : null;
+  }
+
+  return isValidElement(icon) ? icon : null;
+}
+
 export default function Sidebar({
-  sections,
+  data,
   activeKey,
   width = 308,
   className = "",
@@ -90,8 +111,10 @@ export default function Sidebar({
   const sidebarClassName = [styles.sidebar, className].filter(Boolean).join(" ");
 
   const itemMap = Object.fromEntries(
-    sections.flatMap((section) => section.items.map((item) => [item.key, item])),
-  ) as Record<string, SidebarItem>;
+    data.flatMap((section) => section.items.map((item) => [item.key, item])),
+  ) as Record<string, SidebarMenuItem>;
+  const derivedActiveKey =
+    activeKey ?? data.flatMap((section) => section.items).find((item) => item.active)?.key;
 
   const handleMenuClick: MenuProps["onClick"] = ({ key }) => {
     const item = itemMap[key];
@@ -102,8 +125,8 @@ export default function Sidebar({
 
     onItemClick?.(item);
 
-    if (item.href) {
-      router.push(item.href);
+    if (item.path) {
+      router.push(item.path);
     }
   };
 
@@ -115,26 +138,26 @@ export default function Sidebar({
       width={width}
     >
       <Flex className={styles.inner} vertical>
-        {sections.map((section) => (
-          <Flex key={section.title} className={styles.section} vertical>
+        {data.map((section) => (
+          <Flex key={section.section} className={styles.section} vertical>
             <Typography.Text className={styles.sectionTitle}>
-              {section.title}
+              {section.section}
             </Typography.Text>
 
             <Menu
               className={styles.menu}
               items={section.items.map((item) => ({
                 disabled: item.disabled,
-                icon: <span className={styles.menuIcon}>{item.icon}</span>,
+                icon: <span className={styles.menuIcon}>{resolveSidebarIcon(item.icon)}</span>,
                 key: item.key,
                 label: (
-                  <SidebarItemLabel active={activeKey === item.key} item={item} />
+                  <SidebarItemLabel active={derivedActiveKey === item.key} item={item} />
                 ),
               }))}
               mode="inline"
               onClick={handleMenuClick}
               selectable
-              selectedKeys={activeKey ? [activeKey] : []}
+              selectedKeys={derivedActiveKey ? [derivedActiveKey] : []}
             />
           </Flex>
         ))}
