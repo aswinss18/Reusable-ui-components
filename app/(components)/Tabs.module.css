@@ -63,6 +63,18 @@
   font-weight: 700;
 }
 
+.filterBadgeDanger :global(.ant-badge-count) {
+  background: #ed1b2f;
+}
+
+.filterBadgeSuccess :global(.ant-badge-count) {
+  background: #0cc496;
+}
+
+.filterBadgeNeutral :global(.ant-badge-count) {
+  background: #000000;
+}
+
 .navigationTabs {
   width: 100%;
   background: #ffffff;

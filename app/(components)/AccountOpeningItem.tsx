@@ -23,40 +23,34 @@ export type AccountOpeningItemData = {
 
 const fundingStatusConfig = {
   completed: {
-    icon: <CheckCircleFilled style={{ fontSize: 18, color: "#1CB791" }} />,
+    icon: CheckCircleFilled,
+    iconClassName: [styles.fundingIcon, styles.fundingIconCompleted].join(" "),
   },
   failed: {
-    icon: <CloseCircleFilled style={{ fontSize: 18, color: "#DB3529" }} />,
+    icon: CloseCircleFilled,
+    iconClassName: [styles.fundingIcon, styles.fundingIconFailed].join(" "),
   },
 };
 
 const kycStatusConfig = {
   completed: {
     label: "Completed",
-    color: "#1CB791",
-    backgroundColor: "#2BCCA433",
-    borderColor: "#1CB791",
+    toneClassName: styles.tagCompleted,
   },
   pending: {
     label: "Pending",
-    color: "#A65F00",
-    backgroundColor: "#FEF9C2",
-    borderColor: "#A65F00",
+    toneClassName: styles.tagPending,
   },
 };
 
 const accountStatusConfig = {
   opened: {
     label: "Opened",
-    color: "#1CB791",
-    backgroundColor: "#2BCCA433",
-    borderColor: "#1CB791",
+    toneClassName: styles.tagOpened,
   },
   failed: {
     label: "Failed",
-    color: "#DB3529",
-    backgroundColor: "#FFE2E2",
-    borderColor: "#DB3529",
+    toneClassName: styles.tagFailed,
   },
 };
 
@@ -74,6 +68,7 @@ export default function AccountOpeningItem({
   const fundingConfig = fundingStatusConfig[fundingStatus];
   const kycConfig = kycStatusConfig[kycStatus];
   const accountConfig = accountStatusConfig[accountStatus];
+  const FundingIcon = fundingConfig.icon;
 
   return (
     <Flex
@@ -93,29 +88,17 @@ export default function AccountOpeningItem({
       </Flex>
 
       <Flex className={styles.fundingColumn} align="center" justify="center">
-        {fundingConfig.icon}
+        <FundingIcon className={fundingConfig.iconClassName} />
       </Flex>
 
       <Flex className={styles.kycColumn} align="center" justify="center">
-        <Tag
-          className={styles.tag}
-          style={{
-            color: kycConfig.color,
-            backgroundColor: kycConfig.backgroundColor,
-          }}
-        >
+        <Tag className={[styles.tag, kycConfig.toneClassName].join(" ")}>
           {kycConfig.label}
         </Tag>
       </Flex>
 
       <Flex className={styles.accountColumn} align="center" justify="center">
-        <Tag
-          className={styles.tag}
-          style={{
-            color: accountConfig.color,
-            backgroundColor: accountConfig.backgroundColor,
-          }}
-        >
+        <Tag className={[styles.tag, accountConfig.toneClassName].join(" ")}>
           {accountConfig.label}
         </Tag>
       </Flex>

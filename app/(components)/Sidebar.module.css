@@ -90,6 +90,18 @@
   line-height: 1.3;
 }
 
+.itemBadge :global(.ant-badge-count) {
+  background: #ff2432;
+  box-shadow: none;
+  color: #ffffff;
+  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  min-width: 28px;
+  height: 28px;
+  line-height: 28px;
+}
+
 .activeArrow {
   font-size: 14px;
   color: #ffffff;

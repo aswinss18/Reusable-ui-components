@@ -12,7 +12,7 @@ import {
 import { Badge, Flex, Layout, Menu, Typography } from "antd";
 import type { MenuProps } from "antd";
 import { useRouter } from "next/navigation";
-import type { CSSProperties, ReactNode } from "react";
+import type { ReactNode } from "react";
 import styles from "./Sidebar.module.css";
 
 export type SidebarItem = {
@@ -62,21 +62,9 @@ function SidebarItemLabel({
         <Flex align="center" gap={12}>
           {typeof item.badgeCount === "number" ? (
             <Badge
+              className={styles.itemBadge}
               count={item.badgeCount}
               overflowCount={999}
-              styles={{
-                indicator: {
-                  backgroundColor: "#ff2432",
-                  boxShadow: "none",
-                  color: "#ffffff",
-                  fontFamily: "var(--font-work-sans), Arial, Helvetica, sans-serif",
-                  fontSize: 12,
-                  fontWeight: 600,
-                  minWidth: 28,
-                  height: 28,
-                  lineHeight: "28px",
-                },
-              }}
             />
           ) : null}
 
@@ -100,8 +88,6 @@ export default function Sidebar({
 }: SidebarProps) {
   const router = useRouter();
   const sidebarClassName = [styles.sidebar, className].filter(Boolean).join(" ");
-  const sidebarStyle =
-    typeof width === "string" ? ({ width } satisfies CSSProperties) : undefined;
 
   const itemMap = Object.fromEntries(
     sections.flatMap((section) => section.items.map((item) => [item.key, item])),
@@ -124,10 +110,9 @@ export default function Sidebar({
   return (
     <Layout.Sider
       className={sidebarClassName}
-      style={sidebarStyle}
       theme="light"
       trigger={null}
-      width={typeof width === "number" ? width : undefined}
+      width={width}
     >
       <Flex className={styles.inner} vertical>
         {sections.map((section) => (

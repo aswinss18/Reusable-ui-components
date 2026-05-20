@@ -19,12 +19,6 @@ export type LimitCardData = {
   utilizedLabel?: string;
 };
 
-const progressColors: Record<LimitCardVariant, string> = {
-  danger: "#D62A23",
-  success: "#00A63E",
-  warning: "#F0B100",
-};
-
 export default function LimitCard({
   data,
   variant = "danger",
@@ -40,6 +34,16 @@ export default function LimitCard({
   } = data;
   const cardClassName = [styles.card, className].filter(Boolean).join(" ");
   const boundedPercent = Math.max(0, Math.min(100, utilizedPercent));
+  const progressClassName = [
+    styles.progress,
+    variant === "success"
+      ? styles.progressSuccess
+      : variant === "warning"
+        ? styles.progressWarning
+        : styles.progressDanger,
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   return (
     <Card className={cardClassName} {...props}>
@@ -71,11 +75,10 @@ export default function LimitCard({
           </Typography.Text>
           <Flex className={styles.progressContainer}>
             <Progress
+              className={progressClassName}
               type="circle"
               percent={boundedPercent}
               size={76}
-              strokeColor={progressColors[variant]}
-              railColor="#D9D9D9"
               strokeWidth={10}
               format={() => (
                 <Typography.Text className={styles.progressText}>

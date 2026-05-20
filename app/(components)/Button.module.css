@@ -24,3 +24,75 @@
   transform: none;
   box-shadow: none;
 }
+
+.buttonPrimaryFilled,
+.buttonPrimaryFilled:hover,
+.buttonPrimaryFilled:focus,
+.buttonPrimaryFilled:active {
+  background: var(--primary) !important;
+  border-color: var(--primary) !important;
+  color: #ffffff !important;
+}
+
+.buttonPrimaryOutlined,
+.buttonPrimaryOutlined:hover,
+.buttonPrimaryOutlined:focus,
+.buttonPrimaryOutlined:active {
+  background: transparent !important;
+  border-color: var(--primary) !important;
+  color: var(--primary) !important;
+}
+
+.buttonSecondaryFilled,
+.buttonSecondaryFilled:hover,
+.buttonSecondaryFilled:focus,
+.buttonSecondaryFilled:active {
+  background: var(--secondary) !important;
+  border-color: var(--secondary) !important;
+  color: #ffffff !important;
+}
+
+.buttonSecondaryOutlined,
+.buttonSecondaryOutlined:hover,
+.buttonSecondaryOutlined:focus,
+.buttonSecondaryOutlined:active {
+  background: transparent !important;
+  border-color: var(--secondary) !important;
+  color: var(--secondary) !important;
+}
+
+.buttonDangerFilled,
+.buttonDangerFilled:hover,
+.buttonDangerFilled:focus,
+.buttonDangerFilled:active {
+  background: var(--danger) !important;
+  border-color: var(--danger) !important;
+  color: #ffffff !important;
+}
+
+.buttonDangerOutlined,
+.buttonDangerOutlined:hover,
+.buttonDangerOutlined:focus,
+.buttonDangerOutlined:active {
+  background: transparent !important;
+  border-color: var(--danger) !important;
+  color: var(--danger) !important;
+}
+
+.buttonNeutralFilled,
+.buttonNeutralFilled:hover,
+.buttonNeutralFilled:focus,
+.buttonNeutralFilled:active {
+  background: var(--neutral-surface) !important;
+  border-color: var(--neutral-surface) !important;
+  color: var(--neutral-text) !important;
+}
+
+.buttonNeutralOutlined,
+.buttonNeutralOutlined:hover,
+.buttonNeutralOutlined:focus,
+.buttonNeutralOutlined:active {
+  background: transparent !important;
+  border-color: var(--neutral-border) !important;
+  color: var(--neutral-text) !important;
+}

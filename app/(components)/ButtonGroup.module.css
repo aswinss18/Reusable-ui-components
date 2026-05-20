@@ -1,0 +1,36 @@
+.group {
+  width: 100%;
+}
+
+.alignLeft {
+  justify-content: flex-start;
+}
+
+.alignCenter {
+  justify-content: center;
+}
+
+.alignRight {
+  justify-content: flex-end;
+}
+
+.item {
+  display: flex;
+}
+
+.item :global(.ant-btn) {
+  min-width: 140px;
+}
+
+.matchWidth {
+  width: 100%;
+}
+
+.matchWidth .item {
+  flex: 1 1 0;
+}
+
+.matchWidth .item :global(.ant-btn) {
+  width: 100%;
+  min-width: 0;
+}

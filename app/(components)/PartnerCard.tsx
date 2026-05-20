@@ -2,7 +2,6 @@
 
 import { Avatar, Button, Card, Flex, Tag, Typography } from "antd";
 import type { ButtonProps, CardProps } from "antd";
-import type { CSSProperties } from "react";
 import styles from "./PartnerCard.module.css";
 
 export type PartnerCardState = "active" | "disabled";
@@ -35,19 +34,10 @@ type MetricItemProps = {
   className?: string;
 };
 
-const growthToneStyles: Record<PartnerCardGrowthTone, CSSProperties> = {
-  negative: {
-    backgroundColor: "rgba(237, 27, 47, 0.12)",
-    color: "#ED1B2F",
-  },
-  neutral: {
-    backgroundColor: "#E8E8E8",
-    color: "#8D8D8D",
-  },
-  positive: {
-    backgroundColor: "rgba(12, 196, 150, 0.12)",
-    color: "#1CB791",
-  },
+const growthToneClassNames: Record<PartnerCardGrowthTone, string> = {
+  negative: styles.growthNegative,
+  neutral: styles.growthNeutral,
+  positive: styles.growthPositive,
 };
 
 function MetricItem({
@@ -63,7 +53,7 @@ function MetricItem({
     <Flex className={itemClassName} vertical gap={6}>
       <Typography.Text className={styles.metricLabel}>{label}</Typography.Text>
       {renderAsTag ? (
-        <Tag className={styles.growthTag} style={growthToneStyles[tone]}>
+        <Tag className={[styles.growthTag, growthToneClassNames[tone]].join(" ")}>
           {value}
         </Tag>
       ) : (

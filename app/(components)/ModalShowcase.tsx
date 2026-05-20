@@ -34,7 +34,7 @@ const modalCards = [
   },
   {
     key: "approval" as const,
-    blurb: "410px, styled footer, approval flow",
+    blurb: "410px, colored title, styled footer",
     label: "Branded Approval",
   },
   {
@@ -202,6 +202,7 @@ export default function ModalShowcase() {
               footer
               onClose={closeModal}
               open={activeModal === "approval"}
+              titleBackground="brand"
               title="Approve Partner"
               width={410}
             >
@@ -296,6 +297,7 @@ export default function ModalShowcase() {
               footer
               onClose={closeModal}
               open={activeModal === "pricing"}
+              titleBackground="deep"
               title="Pricing Summary"
               width={720}
             >

@@ -68,22 +68,10 @@ export default function Header({
           />
 
           <Badge
+            className={styles.notificationBadge}
             count={notificationCount}
             overflowCount={99}
             size="small"
-            styles={{
-              indicator: {
-                backgroundColor: "#ff2432",
-                boxShadow: "none",
-                color: "#ffffff",
-                fontFamily: "var(--font-work-sans), Arial, Helvetica, sans-serif",
-                fontSize: 10,
-                fontWeight: 600,
-                minWidth: 16,
-                height: 16,
-                lineHeight: "16px",
-              },
-            }}
           >
             <BellOutlined className={styles.bellIcon} />
           </Badge>

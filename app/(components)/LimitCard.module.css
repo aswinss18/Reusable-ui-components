@@ -103,6 +103,22 @@
   justify-content: center;
 }
 
+.progress :global(.ant-progress-circle-trail) {
+  stroke: #d9d9d9;
+}
+
+.progressDanger :global(.ant-progress-circle-path) {
+  stroke: #d62a23;
+}
+
+.progressSuccess :global(.ant-progress-circle-path) {
+  stroke: #00a63e;
+}
+
+.progressWarning :global(.ant-progress-circle-path) {
+  stroke: #f0b100;
+}
+
 .progressContainer :global(.ant-progress-circle-text) {
   font-size: 20px !important;
   color: #332556 !important;

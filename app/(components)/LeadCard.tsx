@@ -3,7 +3,7 @@
 import { CloseCircleOutlined, EditOutlined } from "@ant-design/icons";
 import { Avatar, Button, Card, Flex, Tag, Typography } from "antd";
 import type { CardProps } from "antd";
-import type { CSSProperties, ReactNode } from "react";
+import type { ReactNode } from "react";
 import styles from "./LeadCard.module.css";
 
 export type LeadCardStatus = "approved" | "pending" | "rejected";
@@ -35,19 +35,10 @@ type DetailItemProps = {
   withBorder?: boolean;
 };
 
-const statusToneStyles: Record<LeadCardStatus, CSSProperties> = {
-  approved: {
-    backgroundColor: "rgba(12, 196, 150, 0.12)",
-    color: "#1CB791",
-  },
-  pending: {
-    backgroundColor: "#FEF9C2",
-    color: "#A65F00",
-  },
-  rejected: {
-    backgroundColor: "rgba(237, 27, 47, 0.12)",
-    color: "#ED1B2F",
-  },
+const statusToneClassNames: Record<LeadCardStatus, string> = {
+  approved: styles.statusApproved,
+  pending: styles.statusPending,
+  rejected: styles.statusRejected,
 };
 
 const statusLabels: Record<LeadCardStatus, string> = {
@@ -122,7 +113,7 @@ export default function LeadCard({
                 {actions}
               </Flex>
             ) : (
-              <Tag className={styles.statusTag} style={statusToneStyles[status]}>
+              <Tag className={[styles.statusTag, statusToneClassNames[status]].join(" ")}>
                 {statusLabel ?? statusLabels[status]}
               </Tag>
             )}

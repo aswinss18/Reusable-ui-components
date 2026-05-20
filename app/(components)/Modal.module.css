@@ -31,6 +31,10 @@
   max-width: calc(100vw - 32px);
 }
 
+.modalFitContent :global(.ant-modal) {
+  min-width: min(410px, calc(100vw - 32px));
+}
+
 .modalWithFooter :global(.ant-modal-footer) {
   margin: 0;
   min-height: 102px;
@@ -64,6 +68,19 @@
   padding-top: 8px;
 }
 
+.modalTitleBrand :global(.ant-modal-header) {
+  background: #4a47a8;
+}
+
+.modalTitleDeep :global(.ant-modal-header) {
+  background: #34326e;
+}
+
+.modalTitleBrand :global(.ant-modal-body),
+.modalTitleDeep :global(.ant-modal-body) {
+  padding-top: 20px;
+}
+
 .headerInner {
   display: flex;
   align-items: center;
@@ -74,12 +91,24 @@
   padding: 28px 28px 18px;
 }
 
+.modalTitleBrand .headerInner,
+.modalTitleDeep .headerInner {
+  padding: 20px 24px;
+}
+
 .title {
   color: #2c275f;
   font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
   font-size: 20px;
   font-weight: 600;
   line-height: 1.2;
+}
+
+.modalTitleBrand .title,
+.modalTitleDeep .title,
+.modalTitleBrand .closeButton,
+.modalTitleDeep .closeButton {
+  color: #ffffff;
 }
 
 .closeButton {
@@ -97,4 +126,9 @@
 
 .closeButton:hover {
   color: #414099;
+}
+
+.modalTitleBrand .closeButton:hover,
+.modalTitleDeep .closeButton:hover {
+  color: #f3f2ff;
 }

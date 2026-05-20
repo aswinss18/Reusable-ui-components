@@ -90,6 +90,21 @@
   line-height: 1.2;
 }
 
+.statusApproved {
+  background: rgba(12, 196, 150, 0.12);
+  color: #1cb791;
+}
+
+.statusPending {
+  background: #fef9c2;
+  color: #a65f00;
+}
+
+.statusRejected {
+  background: rgba(237, 27, 47, 0.12);
+  color: #ed1b2f;
+}
+
 .headerActions {
   align-self: flex-start;
 }

@@ -54,6 +54,18 @@
   font-size: 18px;
 }
 
+.notificationBadge :global(.ant-badge-count) {
+  background: #ff2432;
+  box-shadow: none;
+  color: #ffffff;
+  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  min-width: 16px;
+  height: 16px;
+  line-height: 16px;
+}
+
 .divider {
   height: 30px;
   margin: 0 !important;

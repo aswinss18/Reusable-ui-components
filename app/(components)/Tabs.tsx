@@ -24,6 +24,20 @@ export type TabsProps = {
   onChange?: (key: string) => void;
 };
 
+function resolveFilterBadgeClassName(color?: string) {
+  const normalizedColor = color?.toLowerCase();
+
+  if (normalizedColor === "#0cc496") {
+    return styles.filterBadgeSuccess;
+  }
+
+  if (normalizedColor === "#000000") {
+    return styles.filterBadgeNeutral;
+  }
+
+  return styles.filterBadgeDanger;
+}
+
 function FilterTabLabel({ item }: { item: TabsItem }) {
   return (
     <Flex align="center" gap={8}>
@@ -31,9 +45,8 @@ function FilterTabLabel({ item }: { item: TabsItem }) {
       {typeof item.badgeCount === "number" ? (
         <Badge
           count={item.badgeCount}
-          className={styles.filterBadge}
+          className={[styles.filterBadge, resolveFilterBadgeClassName(item.badgeColor)].join(" ")}
           overflowCount={999}
-          style={{ backgroundColor: item.badgeColor ?? "#ED1B2F" }}
         />
       ) : null}
     </Flex>

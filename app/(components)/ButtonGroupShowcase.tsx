@@ -75,11 +75,7 @@ export default function ButtonGroupShowcase() {
             <p className="mb-5 text-sm font-medium text-[#8c89b6]">
               Right-aligned actions with custom margin
             </p>
-            <ButtonGroup
-              align="right"
-              buttons={searchButtons}
-              style={{ marginTop: 0 }}
-            />
+            <ButtonGroup align="right" buttons={searchButtons} />
           </div>
         </div>
       </section>

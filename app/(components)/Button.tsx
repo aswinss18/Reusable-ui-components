@@ -1,6 +1,6 @@
 import { Button as AntButton } from "antd";
 import type { ButtonProps as AntButtonProps } from "antd";
-import type { CSSProperties, ReactNode } from "react";
+import type { ReactNode } from "react";
 import styles from "./Button.module.css";
 
 type ButtonVariant = "filled" | "outlined";
@@ -12,54 +12,22 @@ export type ButtonProps = {
   color?: ButtonColor;
 } & Omit<AntButtonProps, "children" | "color" | "variant" | "type" | "block">;
 
-const buttonStyles: Record<ButtonColor, Record<ButtonVariant, CSSProperties>> = {
+const buttonToneClassNames: Record<ButtonColor, Record<ButtonVariant, string>> = {
   primary: {
-    filled: {
-      backgroundColor: "var(--primary)",
-      borderColor: "var(--primary)",
-      color: "#ffffff",
-    },
-    outlined: {
-      backgroundColor: "transparent",
-      borderColor: "var(--primary)",
-      color: "var(--primary)",
-    },
+    filled: styles.buttonPrimaryFilled,
+    outlined: styles.buttonPrimaryOutlined,
   },
   secondary: {
-    filled: {
-      backgroundColor: "var(--secondary)",
-      borderColor: "var(--secondary)",
-      color: "#ffffff",
-    },
-    outlined: {
-      backgroundColor: "transparent",
-      borderColor: "var(--secondary)",
-      color: "var(--secondary)",
-    },
+    filled: styles.buttonSecondaryFilled,
+    outlined: styles.buttonSecondaryOutlined,
   },
   danger: {
-    filled: {
-      backgroundColor: "var(--danger)",
-      borderColor: "var(--danger)",
-      color: "#ffffff",
-    },
-    outlined: {
-      backgroundColor: "transparent",
-      borderColor: "var(--danger)",
-      color: "var(--danger)",
-    },
+    filled: styles.buttonDangerFilled,
+    outlined: styles.buttonDangerOutlined,
   },
   neutral: {
-    filled: {
-      backgroundColor: "var(--neutral-surface)",
-      borderColor: "var(--neutral-surface)",
-      color: "var(--neutral-text)",
-    },
-    outlined: {
-      backgroundColor: "transparent",
-      borderColor: "var(--neutral-border)",
-      color: "var(--neutral-text)",
-    },
+    filled: styles.buttonNeutralFilled,
+    outlined: styles.buttonNeutralOutlined,
   },
 };
 
@@ -69,17 +37,21 @@ export default function Button({
   color = "primary",
   className = "",
   htmlType = "button",
-  style,
   ...props
 }: ButtonProps) {
-  const buttonClassName = [styles.button, className].filter(Boolean).join(" ");
+  const buttonClassName = [
+    styles.button,
+    buttonToneClassNames[color][variant],
+    className,
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   return (
     <AntButton
       {...props}
       className={buttonClassName}
       htmlType={htmlType}
-      style={{ ...buttonStyles[color][variant], ...style }}
       variant={variant}
     >
       {children}

@@ -76,3 +76,31 @@
   align-items: center;
   justify-content: center;
 }
+
+.fundingIcon {
+  font-size: 18px;
+}
+
+.fundingIconCompleted {
+  color: #1cb791;
+}
+
+.fundingIconFailed {
+  color: #db3529;
+}
+
+.tagCompleted,
+.tagOpened {
+  color: #1cb791;
+  background: #2bcca433;
+}
+
+.tagPending {
+  color: #a65f00;
+  background: #fef9c2;
+}
+
+.tagFailed {
+  color: #db3529;
+  background: #ffe2e2;
+}
