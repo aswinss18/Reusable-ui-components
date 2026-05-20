@@ -45,13 +45,22 @@ export default function ButtonGroup({
     <Flex className={wrapperClassName} gap={gap} wrap>
       {buttons.map((button, index) => {
         const { key, label, className: buttonClassName = "", ...buttonProps } = button;
+        const resolvedButtonClassName = [
+          styles.itemButton,
+          matchWidth ? styles.matchWidthButton : "",
+          buttonClassName,
+        ]
+          .filter(Boolean)
+          .join(" ");
 
         return (
-          <div key={key ?? `button-group-item-${index}`} className={styles.item}>
-            <Button {...buttonProps} className={buttonClassName}>
-              {label}
-            </Button>
-          </div>
+          <Button
+            key={key ?? `button-group-item-${index}`}
+            {...buttonProps}
+            className={resolvedButtonClassName}
+          >
+            {label}
+          </Button>
         );
       })}
     </Flex>
