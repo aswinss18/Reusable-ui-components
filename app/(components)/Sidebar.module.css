@@ -55,6 +55,8 @@
 }
 
 .menu :global(.ant-menu-item-selected:hover) {
+  background: #4341a5 !important;
+  box-shadow: 0 10px 24px rgba(67, 65, 165, 0.3);
   color: #ffffff !important;
 }
 

@@ -81,7 +81,7 @@ export default function Header({
             <BellOutlined className={styles.bellIcon} />
           </Badge>
 
-          <Divider className={styles.divider} type="vertical" />
+          <Divider className={styles.divider} orientation="vertical" />
 
           <Flex align="center" gap={12}>
             <Avatar className={styles.avatar} size={34}>
@@ -100,7 +100,7 @@ export default function Header({
             </Flex>
           </Flex>
 
-          <Divider className={styles.divider} type="vertical" />
+          <Divider className={styles.divider} orientation="vertical" />
 
           <Flex align="center" className={styles.trailingAction} justify="center">
             {trailingAction}

@@ -113,7 +113,7 @@ export default function CompanyInfoCard({
             </Flex>
           </Flex>
 
-          <Divider className={styles.divider} type="vertical" />
+          <Divider className={styles.divider} orientation="vertical" />
 
           <Flex className={styles.rightColumn} vertical gap={18}>
             <ContactItem
