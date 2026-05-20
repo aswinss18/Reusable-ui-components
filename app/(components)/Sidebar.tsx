@@ -6,7 +6,6 @@ import {
   RightOutlined,
   RiseOutlined,
   TeamOutlined,
-  TransactionOutlined,
   UsergroupAddOutlined,
 } from "@ant-design/icons";
 import { Badge, Flex, Layout, Menu, Typography } from "antd";
@@ -16,12 +15,16 @@ import { isValidElement } from "react";
 import type { ReactNode } from "react";
 import styles from "./Sidebar.module.css";
 
+function ChargesIcon() {
+  return <span className={styles.currencyIcon}>₹</span>;
+}
+
 export const sidebarIconMap = {
   overview: <RiseOutlined />,
   leads: <UsergroupAddOutlined />,
   partners: <TeamOutlined />,
   limits: <CreditCardOutlined />,
-  charges: <TransactionOutlined />,
+  charges: <ChargesIcon />,
   activity: <HistoryOutlined />,
 };
 
@@ -33,6 +36,7 @@ export type SidebarMenuItem = {
   icon?: SidebarIconKey | ReactNode;
   path?: string;
   badge?: number;
+  height?: 44 | 46 | 52;
   active?: boolean;
   hasArrow?: boolean;
   suffix?: ReactNode;
@@ -100,10 +104,22 @@ function resolveSidebarIcon(icon?: SidebarIconKey | ReactNode) {
   return isValidElement(icon) ? icon : null;
 }
 
+function resolveItemClassName(item: SidebarMenuItem) {
+  if (item.height === 46) {
+    return styles.itemMedium;
+  }
+
+  if (item.height === 52) {
+    return styles.itemTall;
+  }
+
+  return styles.itemDefault;
+}
+
 export default function Sidebar({
   data,
   activeKey,
-  width = 308,
+  width = 280,
   className = "",
   onItemClick,
 }: SidebarProps) {
@@ -147,6 +163,7 @@ export default function Sidebar({
             <Menu
               className={styles.menu}
               items={section.items.map((item) => ({
+                className: resolveItemClassName(item),
                 disabled: item.disabled,
                 icon: <span className={styles.menuIcon}>{resolveSidebarIcon(item.icon)}</span>,
                 key: item.key,

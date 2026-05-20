@@ -10,6 +10,9 @@ const sidebarMenu = [
     section: "MAIN MENU",
     items: [
       {
+        active: true,
+        hasArrow: true,
+        height: 44,
         icon: "overview",
         key: "overview",
         label: "Overview",
@@ -17,14 +20,14 @@ const sidebarMenu = [
       },
       {
         badge: 3,
+        height: 46,
         icon: "leads",
         key: "leads",
         label: "Leads",
         path: "/modal",
       },
       {
-        active: true,
-        hasArrow: true,
+        height: 44,
         icon: "partners",
         key: "partners",
         label: "My Partners",
@@ -36,18 +39,21 @@ const sidebarMenu = [
     section: "PARTNER MANAGEMENT",
     items: [
       {
+        height: 44,
         icon: "limits",
         key: "limits",
         label: "Limits",
         path: "/limit-card",
       },
       {
+        height: 52,
         icon: "charges",
         key: "charges",
         label: "Charges",
         path: "/price-card",
       },
       {
+        height: 52,
         icon: "activity",
         key: "activity",
         label: "Activity Log",
@@ -77,7 +83,7 @@ export default function SidebarShowcase() {
 
         <div className="overflow-hidden rounded-[28px] border border-[#ebe9f7] bg-[#fbfaff]">
           <Flex>
-            <Sidebar activeKey="leads" data={sidebarMenu} />
+            <Sidebar activeKey="overview" data={sidebarMenu} />
 
             <Flex className="min-h-[760px] flex-1 bg-white p-8" vertical gap={28}>
               <BreadCrumb
@@ -132,7 +138,7 @@ export default function SidebarShowcase() {
                   Alternate Active State
                 </p>
                 <div className="mt-6">
-                  <Sidebar activeKey="limits" data={sidebarMenu} width={308} />
+                  <Sidebar activeKey="limits" data={sidebarMenu} width={280} />
                 </div>
               </div>
             </Flex>
