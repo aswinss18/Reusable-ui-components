@@ -20,21 +20,18 @@ export default function ContactCardShowcase() {
         </div>
 
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          <ContactCard
-            email="contact@techcorp.com"
-            partner="TechCorp Solutions"
-            variant="success"
-          />
-          <ContactCard
-            email="contact@techcorp.com"
-            partner="TechCorp Solutions"
-            variant="danger"
-          />
-          <ContactCard
-            email="contact@techcorp.com"
-            partner="TechCorp Solutions"
-            variant="warning"
-          />
+          {["success", "danger", "warning"].map((variant) => (
+            <ContactCard key={variant} variant={variant as "success" | "danger" | "warning"}>
+              <ContactCard.Row>
+                <ContactCard.Text>Partner:</ContactCard.Text>
+                <ContactCard.Text>TechCorp Solutions</ContactCard.Text>
+              </ContactCard.Row>
+              <ContactCard.Row>
+                <ContactCard.Text>Email:</ContactCard.Text>
+                <ContactCard.Text>contact@techcorp.com</ContactCard.Text>
+              </ContactCard.Row>
+            </ContactCard>
+          ))}
         </div>
       </section>
     </main>

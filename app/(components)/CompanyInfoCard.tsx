@@ -8,137 +8,166 @@ import {
   PhoneOutlined,
   TeamOutlined,
 } from "@ant-design/icons";
-import { Button, Card, Divider, Flex, Tag, Typography } from "antd";
+import { Button, Divider, Tag, Typography } from "antd";
 import type { CardProps } from "antd";
 import type { ReactNode } from "react";
+import InfoCard from "./InfoCard";
 import styles from "./CompanyInfoCard.module.css";
 
 export type CompanyInfoCardProps = {
-  title?: string;
-  companyName: string;
-  category: string;
-  taxId: string;
-  registeredOn: string;
-  gstNumber: string;
-  primaryContact: string;
-  email: string;
-  phone: string;
-  address: string;
-  onEdit?: () => void;
-} & Omit<CardProps, "children" | "title" | "extra">;
+  children: ReactNode;
+} & Omit<CardProps, "title" | "extra">;
 
-type InfoItemProps = {
-  label: string;
-  value: string;
+type SlotProps = {
+  children: ReactNode;
+};
+
+type ButtonSlotProps = {
+  onClick?: () => void;
 };
 
 type ContactItemProps = {
-  icon: ReactNode;
-  label: string;
-  value: string;
+  children: ReactNode;
+  icon?: ReactNode;
 };
 
-function InfoItem({ label, value }: InfoItemProps) {
-  return (
-    <Flex className={styles.infoItem} vertical gap={4}>
-      <Typography.Text className={styles.label}>{label}</Typography.Text>
-      <Typography.Text className={styles.value}>{value}</Typography.Text>
-    </Flex>
-  );
-}
-
-function ContactItem({ icon, label, value }: ContactItemProps) {
-  return (
-    <Flex align="flex-start" className={styles.contactItem} gap={12}>
-      <Flex align="center" className={styles.contactIcon} justify="center">
-        {icon}
-      </Flex>
-      <Flex className={styles.contactText} vertical gap={2}>
-        <Typography.Text className={styles.label}>{label}</Typography.Text>
-        <Typography.Text className={styles.value}>{value}</Typography.Text>
-      </Flex>
-    </Flex>
-  );
-}
-
-export default function CompanyInfoCard({
-  title = "Company Information",
-  companyName,
-  category,
-  taxId,
-  registeredOn,
-  gstNumber,
-  primaryContact,
-  email,
-  phone,
-  address,
-  onEdit,
+function CompanyInfoCardRoot({
+  children,
   className = "",
   ...props
 }: CompanyInfoCardProps) {
   const cardClassName = [styles.card, className].filter(Boolean).join(" ");
 
   return (
-    <Card className={cardClassName} {...props}>
-      <Flex className={styles.container} vertical>
-        <Flex align="center" justify="space-between">
-          <Flex align="center" gap={12}>
-            <BankOutlined className={styles.headerIcon} />
-            <Typography.Text className={styles.title}>{title}</Typography.Text>
-          </Flex>
-
-          <Button
-            aria-label="Edit company information"
-            className={styles.editButton}
-            icon={<EditOutlined className={styles.editIcon} />}
-            onClick={onEdit}
-            type="text"
-          />
-        </Flex>
-
-        <Flex className={styles.content} gap={28}>
-          <Flex className={styles.leftColumn} gap={24}>
-            <Flex className={styles.leftGroup} vertical gap={22}>
-              <InfoItem label="Company Name" value={companyName} />
-              <InfoItem label="Tax ID" value={taxId} />
-              <InfoItem label="GST Number" value={gstNumber} />
-            </Flex>
-
-            <Flex className={styles.leftGroup} vertical gap={22}>
-              <Flex className={styles.infoItem} vertical gap={4}>
-                <Typography.Text className={styles.label}>Category</Typography.Text>
-                <Tag className={styles.categoryTag}>{category}</Tag>
-              </Flex>
-              <InfoItem label="Registered On" value={registeredOn} />
-            </Flex>
-          </Flex>
-
-          <Divider className={styles.divider} orientation="vertical" />
-
-          <Flex className={styles.rightColumn} vertical gap={18}>
-            <ContactItem
-              icon={<TeamOutlined className={styles.contactIconGraphic} />}
-              label="Primary Contact"
-              value={primaryContact}
-            />
-            <ContactItem
-              icon={<MailOutlined className={styles.contactIconGraphic} />}
-              label="Email"
-              value={email}
-            />
-            <ContactItem
-              icon={<PhoneOutlined className={styles.contactIconGraphic} />}
-              label="Phone"
-              value={phone}
-            />
-            <ContactItem
-              icon={<EnvironmentOutlined className={styles.contactIconGraphic} />}
-              label="Address"
-              value={address}
-            />
-          </Flex>
-        </Flex>
-      </Flex>
-    </Card>
+    <InfoCard bodyClassName={styles.body} className={cardClassName} {...props}>
+      {children}
+    </InfoCard>
   );
 }
+
+function CompanyInfoCardContainer({ children }: SlotProps) {
+  return (
+    <InfoCard.Stack className={styles.container}>
+      {children}
+    </InfoCard.Stack>
+  );
+}
+
+function CompanyInfoCardHeader({ children }: SlotProps) {
+  return (
+    <InfoCard.Row align="center" justify="space-between">
+      {children}
+    </InfoCard.Row>
+  );
+}
+
+function CompanyInfoCardHeaderTitle({ children }: SlotProps) {
+  return (
+    <InfoCard.Row align="center" gap={12}>
+      <BankOutlined className={styles.headerIcon} />
+      <Typography.Text className={styles.title}>{children}</Typography.Text>
+    </InfoCard.Row>
+  );
+}
+
+function CompanyInfoCardEditButton({ onClick }: ButtonSlotProps) {
+  return (
+    <Button
+      aria-label="Edit company information"
+      className={styles.editButton}
+      icon={<EditOutlined className={styles.editIcon} />}
+      onClick={onClick}
+      type="text"
+    />
+  );
+}
+
+function CompanyInfoCardContent({ children }: SlotProps) {
+  return (
+    <InfoCard.Row className={styles.content} gap={28}>
+      {children}
+    </InfoCard.Row>
+  );
+}
+
+function CompanyInfoCardLeftColumn({ children }: SlotProps) {
+  return <InfoCard.Row className={styles.leftColumn} gap={24}>{children}</InfoCard.Row>;
+}
+
+function CompanyInfoCardLeftGroup({ children }: SlotProps) {
+  return (
+    <InfoCard.Stack className={styles.leftGroup} gap={22}>
+      {children}
+    </InfoCard.Stack>
+  );
+}
+
+function CompanyInfoCardRightColumn({ children }: SlotProps) {
+  return (
+    <InfoCard.Stack className={styles.rightColumn} gap={18}>
+      {children}
+    </InfoCard.Stack>
+  );
+}
+
+function CompanyInfoCardDivider() {
+  return <Divider className={styles.divider} orientation="vertical" />;
+}
+
+function CompanyInfoCardInfoItem({ children }: SlotProps) {
+  return (
+    <InfoCard.Stack className={styles.infoItem} gap={4}>
+      {children}
+    </InfoCard.Stack>
+  );
+}
+
+function CompanyInfoCardContactItem({ children, icon }: ContactItemProps) {
+  return (
+    <InfoCard.Row align="flex-start" className={styles.contactItem} gap={12}>
+      <InfoCard.Row align="center" className={styles.contactIcon} justify="center">
+        {icon}
+      </InfoCard.Row>
+      <InfoCard.Stack className={styles.contactText} gap={2}>
+        {children}
+      </InfoCard.Stack>
+    </InfoCard.Row>
+  );
+}
+
+function CompanyInfoCardLabel({ children }: SlotProps) {
+  return <Typography.Text className={styles.label}>{children}</Typography.Text>;
+}
+
+function CompanyInfoCardValue({ children }: SlotProps) {
+  return <Typography.Text className={styles.value}>{children}</Typography.Text>;
+}
+
+function CompanyInfoCardCategoryTag({ children }: SlotProps) {
+  return <Tag className={styles.categoryTag}>{children}</Tag>;
+}
+
+const CompanyInfoCard = Object.assign(CompanyInfoCardRoot, {
+  Container: CompanyInfoCardContainer,
+  Header: CompanyInfoCardHeader,
+  HeaderTitle: CompanyInfoCardHeaderTitle,
+  EditButton: CompanyInfoCardEditButton,
+  Content: CompanyInfoCardContent,
+  LeftColumn: CompanyInfoCardLeftColumn,
+  LeftGroup: CompanyInfoCardLeftGroup,
+  RightColumn: CompanyInfoCardRightColumn,
+  Divider: CompanyInfoCardDivider,
+  InfoItem: CompanyInfoCardInfoItem,
+  ContactItem: CompanyInfoCardContactItem,
+  Label: CompanyInfoCardLabel,
+  Value: CompanyInfoCardValue,
+  CategoryTag: CompanyInfoCardCategoryTag,
+  Icons: {
+    Team: <TeamOutlined className={styles.contactIconGraphic} />,
+    Mail: <MailOutlined className={styles.contactIconGraphic} />,
+    Phone: <PhoneOutlined className={styles.contactIconGraphic} />,
+    Environment: <EnvironmentOutlined className={styles.contactIconGraphic} />,
+  },
+});
+
+export default CompanyInfoCard;

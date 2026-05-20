@@ -1,0 +1,104 @@
+.card {
+  height: 100%;
+  cursor: pointer;
+  border: 2px solid #dcd9ef;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.card:hover {
+  border-color: #6f68c8;
+  box-shadow: 0 16px 36px rgba(65, 64, 153, 0.08);
+  transform: translateY(-1px);
+}
+
+.card:focus-visible {
+  outline: 3px solid rgba(65, 64, 153, 0.16);
+  outline-offset: 2px;
+}
+
+.cardSelected,
+.cardSelected:hover {
+  border-color: #4b49b6;
+  box-shadow: 0 14px 28px rgba(75, 73, 182, 0.08);
+}
+
+.body {
+  height: 100%;
+  padding: 24px 24px 22px;
+}
+
+.content {
+  height: 100%;
+  min-height: 164px;
+}
+
+.iconWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  background: #4b49b6;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.iconGlyph {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.checkIcon {
+  font-size: 30px;
+  color: #4b49b6;
+}
+
+.copy {
+  margin-top: 22px;
+}
+
+.title {
+  margin: 0 !important;
+  color: #30285f !important;
+  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif !important;
+  font-size: 24px !important;
+  font-style: normal;
+  font-weight: 600 !important;
+  line-height: 1.18 !important;
+  letter-spacing: -0.02em;
+}
+
+.description {
+  margin: 0 !important;
+  color: #817da6 !important;
+  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif !important;
+  font-size: 17px !important;
+  font-style: normal;
+  font-weight: 400 !important;
+  line-height: 1.4 !important;
+}
+
+@media (max-width: 768px) {
+  .card :global(.ant-card-body) {
+    padding: 20px;
+  }
+
+  .content {
+    min-height: 152px;
+  }
+
+  .title {
+    font-size: 21px !important;
+  }
+
+  .description {
+    font-size: 16px !important;
+  }
+}

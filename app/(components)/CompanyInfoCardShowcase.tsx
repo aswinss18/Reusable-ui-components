@@ -19,17 +19,67 @@ export default function CompanyInfoCardShowcase() {
           </p>
         </div>
 
-        <CompanyInfoCard
-          address="123 Business Park, Mumbai, Maharashtra 400001"
-          category="Enterprise"
-          companyName="Alpha Finance"
-          email="contact@alphafinance.com"
-          gstNumber="1200ABCDE1234F2568"
-          phone="+91 98765 43210"
-          primaryContact="Rajesh Kumar"
-          registeredOn="15/01/2025"
-          taxId="ABCDE1234F"
-        />
+        <CompanyInfoCard>
+          <CompanyInfoCard.Container>
+            <CompanyInfoCard.Header>
+              <CompanyInfoCard.HeaderTitle>Company Information</CompanyInfoCard.HeaderTitle>
+              <CompanyInfoCard.EditButton />
+            </CompanyInfoCard.Header>
+
+            <CompanyInfoCard.Content>
+              <CompanyInfoCard.LeftColumn>
+                <CompanyInfoCard.LeftGroup>
+                  <CompanyInfoCard.InfoItem>
+                    <CompanyInfoCard.Label>Company Name</CompanyInfoCard.Label>
+                    <CompanyInfoCard.Value>Alpha Finance</CompanyInfoCard.Value>
+                  </CompanyInfoCard.InfoItem>
+                  <CompanyInfoCard.InfoItem>
+                    <CompanyInfoCard.Label>Tax ID</CompanyInfoCard.Label>
+                    <CompanyInfoCard.Value>ABCDE1234F</CompanyInfoCard.Value>
+                  </CompanyInfoCard.InfoItem>
+                  <CompanyInfoCard.InfoItem>
+                    <CompanyInfoCard.Label>GST Number</CompanyInfoCard.Label>
+                    <CompanyInfoCard.Value>1200ABCDE1234F2568</CompanyInfoCard.Value>
+                  </CompanyInfoCard.InfoItem>
+                </CompanyInfoCard.LeftGroup>
+
+                <CompanyInfoCard.LeftGroup>
+                  <CompanyInfoCard.InfoItem>
+                    <CompanyInfoCard.Label>Category</CompanyInfoCard.Label>
+                    <CompanyInfoCard.CategoryTag>Enterprise</CompanyInfoCard.CategoryTag>
+                  </CompanyInfoCard.InfoItem>
+                  <CompanyInfoCard.InfoItem>
+                    <CompanyInfoCard.Label>Registered On</CompanyInfoCard.Label>
+                    <CompanyInfoCard.Value>15/01/2025</CompanyInfoCard.Value>
+                  </CompanyInfoCard.InfoItem>
+                </CompanyInfoCard.LeftGroup>
+              </CompanyInfoCard.LeftColumn>
+
+              <CompanyInfoCard.Divider />
+
+              <CompanyInfoCard.RightColumn>
+                <CompanyInfoCard.ContactItem icon={CompanyInfoCard.Icons.Team}>
+                  <CompanyInfoCard.Label>Primary Contact</CompanyInfoCard.Label>
+                  <CompanyInfoCard.Value>Rajesh Kumar</CompanyInfoCard.Value>
+                </CompanyInfoCard.ContactItem>
+                <CompanyInfoCard.ContactItem icon={CompanyInfoCard.Icons.Mail}>
+                  <CompanyInfoCard.Label>Email</CompanyInfoCard.Label>
+                  <CompanyInfoCard.Value>contact@alphafinance.com</CompanyInfoCard.Value>
+                </CompanyInfoCard.ContactItem>
+                <CompanyInfoCard.ContactItem icon={CompanyInfoCard.Icons.Phone}>
+                  <CompanyInfoCard.Label>Phone</CompanyInfoCard.Label>
+                  <CompanyInfoCard.Value>+91 98765 43210</CompanyInfoCard.Value>
+                </CompanyInfoCard.ContactItem>
+                <CompanyInfoCard.ContactItem icon={CompanyInfoCard.Icons.Environment}>
+                  <CompanyInfoCard.Label>Address</CompanyInfoCard.Label>
+                  <CompanyInfoCard.Value>
+                    123 Business Park, Mumbai, Maharashtra 400001
+                  </CompanyInfoCard.Value>
+                </CompanyInfoCard.ContactItem>
+              </CompanyInfoCard.RightColumn>
+            </CompanyInfoCard.Content>
+          </CompanyInfoCard.Container>
+        </CompanyInfoCard>
       </section>
     </main>
   );

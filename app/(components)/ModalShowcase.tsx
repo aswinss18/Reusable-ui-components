@@ -209,11 +209,16 @@ export default function ModalShowcase() {
               width={410}
             >
               <div className="space-y-6">
-                <ContactCard
-                  email="contact@techcorp.com"
-                  partner="TechCorp Solutions"
-                  variant="danger"
-                />
+                <ContactCard variant="danger">
+                  <ContactCard.Row>
+                    <ContactCard.Text>Partner:</ContactCard.Text>
+                    <ContactCard.Text>TechCorp Solutions</ContactCard.Text>
+                  </ContactCard.Row>
+                  <ContactCard.Row>
+                    <ContactCard.Text>Email:</ContactCard.Text>
+                    <ContactCard.Text>contact@techcorp.com</ContactCard.Text>
+                  </ContactCard.Row>
+                </ContactCard>
 
                 <div className="space-y-2">
                   <label
@@ -261,17 +266,69 @@ export default function ModalShowcase() {
               title="Company Profile"
               width={960}
             >
-              <CompanyInfoCard
-                address="123 Business Park, Mumbai, Maharashtra 400001"
-                category="Enterprise"
-                companyName="Alpha Finance"
-                email="contact@alphafinance.com"
-                gstNumber="1200ABCDE1234F2568"
-                phone="+91 98765 43210"
-                primaryContact="Rajesh Kumar"
-                registeredOn="15/01/2025"
-                taxId="ABCDE1234F"
-              />
+              <CompanyInfoCard>
+                <CompanyInfoCard.Container>
+                  <CompanyInfoCard.Header>
+                    <CompanyInfoCard.HeaderTitle>Company Information</CompanyInfoCard.HeaderTitle>
+                    <CompanyInfoCard.EditButton />
+                  </CompanyInfoCard.Header>
+
+                  <CompanyInfoCard.Content>
+                    <CompanyInfoCard.LeftColumn>
+                      <CompanyInfoCard.LeftGroup>
+                        <CompanyInfoCard.InfoItem>
+                          <CompanyInfoCard.Label>Company Name</CompanyInfoCard.Label>
+                          <CompanyInfoCard.Value>Alpha Finance</CompanyInfoCard.Value>
+                        </CompanyInfoCard.InfoItem>
+                        <CompanyInfoCard.InfoItem>
+                          <CompanyInfoCard.Label>Tax ID</CompanyInfoCard.Label>
+                          <CompanyInfoCard.Value>ABCDE1234F</CompanyInfoCard.Value>
+                        </CompanyInfoCard.InfoItem>
+                        <CompanyInfoCard.InfoItem>
+                          <CompanyInfoCard.Label>GST Number</CompanyInfoCard.Label>
+                          <CompanyInfoCard.Value>1200ABCDE1234F2568</CompanyInfoCard.Value>
+                        </CompanyInfoCard.InfoItem>
+                      </CompanyInfoCard.LeftGroup>
+
+                      <CompanyInfoCard.LeftGroup>
+                        <CompanyInfoCard.InfoItem>
+                          <CompanyInfoCard.Label>Category</CompanyInfoCard.Label>
+                          <CompanyInfoCard.CategoryTag>Enterprise</CompanyInfoCard.CategoryTag>
+                        </CompanyInfoCard.InfoItem>
+                        <CompanyInfoCard.InfoItem>
+                          <CompanyInfoCard.Label>Registered On</CompanyInfoCard.Label>
+                          <CompanyInfoCard.Value>15/01/2025</CompanyInfoCard.Value>
+                        </CompanyInfoCard.InfoItem>
+                      </CompanyInfoCard.LeftGroup>
+                    </CompanyInfoCard.LeftColumn>
+
+                    <CompanyInfoCard.Divider />
+
+                    <CompanyInfoCard.RightColumn>
+                      <CompanyInfoCard.ContactItem icon={CompanyInfoCard.Icons.Team}>
+                        <CompanyInfoCard.Label>Primary Contact</CompanyInfoCard.Label>
+                        <CompanyInfoCard.Value>Rajesh Kumar</CompanyInfoCard.Value>
+                      </CompanyInfoCard.ContactItem>
+                      <CompanyInfoCard.ContactItem icon={CompanyInfoCard.Icons.Mail}>
+                        <CompanyInfoCard.Label>Email</CompanyInfoCard.Label>
+                        <CompanyInfoCard.Value>contact@alphafinance.com</CompanyInfoCard.Value>
+                      </CompanyInfoCard.ContactItem>
+                      <CompanyInfoCard.ContactItem icon={CompanyInfoCard.Icons.Phone}>
+                        <CompanyInfoCard.Label>Phone</CompanyInfoCard.Label>
+                        <CompanyInfoCard.Value>+91 98765 43210</CompanyInfoCard.Value>
+                      </CompanyInfoCard.ContactItem>
+                      <CompanyInfoCard.ContactItem
+                        icon={CompanyInfoCard.Icons.Environment}
+                      >
+                        <CompanyInfoCard.Label>Address</CompanyInfoCard.Label>
+                        <CompanyInfoCard.Value>
+                          123 Business Park, Mumbai, Maharashtra 400001
+                        </CompanyInfoCard.Value>
+                      </CompanyInfoCard.ContactItem>
+                    </CompanyInfoCard.RightColumn>
+                  </CompanyInfoCard.Content>
+                </CompanyInfoCard.Container>
+              </CompanyInfoCard>
             </Modal>
 
             <Modal
@@ -313,9 +370,18 @@ export default function ModalShowcase() {
                 </div>
 
                 <div className="grid gap-4 md:grid-cols-3">
-                  <PriceCard title="Monthly Fee" value="₹2,500" />
-                  <PriceCard title="Setup Charges" value="₹12,000" />
-                  <PriceCard title="Support SLA" value="24 Hours" />
+                  <PriceCard>
+                    <PriceCard.Title>Monthly Fee</PriceCard.Title>
+                    <PriceCard.Value>Rs.2,500</PriceCard.Value>
+                  </PriceCard>
+                  <PriceCard>
+                    <PriceCard.Title>Setup Charges</PriceCard.Title>
+                    <PriceCard.Value>Rs.12,000</PriceCard.Value>
+                  </PriceCard>
+                  <PriceCard>
+                    <PriceCard.Title>Support SLA</PriceCard.Title>
+                    <PriceCard.Value>24 Hours</PriceCard.Value>
+                  </PriceCard>
                 </div>
 
                 <Space size={[8, 8]} wrap>

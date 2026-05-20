@@ -1,28 +1,42 @@
 "use client";
 
-import { Card, Flex, Typography } from "antd";
+import { Typography } from "antd";
 import type { CardProps } from "antd";
+import type { ReactNode } from "react";
+import InfoCard from "./InfoCard";
 import styles from "./PriceCard.module.css";
 
 export type PriceCardProps = {
-  title: string;
-  value: string;
-} & Omit<CardProps, "children" | "title" | "variant">;
+  children: ReactNode;
+} & Omit<CardProps, "title" | "variant">;
 
-export default function PriceCard({
-  title,
-  value,
-  className = "",
-  ...props
-}: PriceCardProps) {
+type SlotProps = {
+  children: ReactNode;
+};
+
+function PriceCardRoot({ children, className = "", ...props }: PriceCardProps) {
   const cardClassName = [styles.card, className].filter(Boolean).join(" ");
 
   return (
-    <Card className={cardClassName} {...props}>
-      <Flex vertical gap={4}>
-        <Typography.Text className={styles.title}>{title}</Typography.Text>
-        <Typography.Text className={styles.value}>{value}</Typography.Text>
-      </Flex>
-    </Card>
+    <InfoCard bodyClassName={styles.body} className={cardClassName} {...props}>
+      <InfoCard.Stack gap={4}>
+        {children}
+      </InfoCard.Stack>
+    </InfoCard>
   );
 }
+
+function PriceCardTitle({ children }: SlotProps) {
+  return <Typography.Text className={styles.title}>{children}</Typography.Text>;
+}
+
+function PriceCardValue({ children }: SlotProps) {
+  return <Typography.Text className={styles.value}>{children}</Typography.Text>;
+}
+
+const PriceCard = Object.assign(PriceCardRoot, {
+  Title: PriceCardTitle,
+  Value: PriceCardValue,
+});
+
+export default PriceCard;

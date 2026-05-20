@@ -1,19 +1,21 @@
 "use client";
 
-import { Card, Flex, Typography } from "antd";
+import { Typography } from "antd";
 import type { CardProps } from "antd";
-import type { CSSProperties } from "react";
+import type { CSSProperties, ReactNode } from "react";
+import InfoCard from "./InfoCard";
 import styles from "./ContactCard.module.css";
 
 type ContactCardVariant = "danger" | "success" | "warning";
 
 export type ContactCardProps = {
-  partner: string;
-  email: string;
-  partnerLabel?: string;
-  emailLabel?: string;
+  children: ReactNode;
   variant?: ContactCardVariant;
-} & Omit<CardProps, "children" | "title" | "variant">;
+} & Omit<CardProps, "title" | "variant">;
+
+type SlotProps = {
+  children: ReactNode;
+};
 
 const toneStyles: Record<ContactCardVariant, CSSProperties> = {
   danger: {
@@ -30,11 +32,8 @@ const toneStyles: Record<ContactCardVariant, CSSProperties> = {
   },
 };
 
-export default function ContactCard({
-  partner,
-  email,
-  partnerLabel = "Partner:",
-  emailLabel = "Email:",
+function ContactCardRoot({
+  children,
   variant = "success",
   className = "",
   style,
@@ -43,30 +42,42 @@ export default function ContactCard({
 }: ContactCardProps) {
   const cardClassName = [styles.card, className].filter(Boolean).join(" ");
 
-  const bodyStyles = typeof cardStyles === 'object' && cardStyles?.body 
-    ? { padding: "12px 16px", ...cardStyles.body }
-    : { padding: "12px 16px" };
+  const bodyStyles =
+    typeof cardStyles === "object" && cardStyles?.body
+      ? { padding: "12px 16px", ...cardStyles.body }
+      : { padding: "12px 16px" };
 
   return (
-    <Card
+    <InfoCard
       {...props}
+      bodyClassName={styles.body}
       className={cardClassName}
       style={{ ...toneStyles[variant], ...style }}
-      styles={{
-        body: bodyStyles,
-      }}
+      styles={{ body: bodyStyles }}
       variant="borderless"
     >
-      <Flex gap={4} vertical>
-        <Flex gap={4} wrap>
-          <Typography.Text className={styles.text}>{partnerLabel}</Typography.Text>
-          <Typography.Text className={styles.text}>{partner}</Typography.Text>
-        </Flex>
-        <Flex gap={4} wrap>
-          <Typography.Text className={styles.text}>{emailLabel}</Typography.Text>
-          <Typography.Text className={styles.text}>{email}</Typography.Text>
-        </Flex>
-      </Flex>
-    </Card>
+      <InfoCard.Stack gap={4}>
+        {children}
+      </InfoCard.Stack>
+    </InfoCard>
   );
 }
+
+function ContactCardRow({ children }: SlotProps) {
+  return (
+    <InfoCard.Row gap={4} wrap>
+      {children}
+    </InfoCard.Row>
+  );
+}
+
+function ContactCardText({ children }: SlotProps) {
+  return <Typography.Text className={styles.text}>{children}</Typography.Text>;
+}
+
+const ContactCard = Object.assign(ContactCardRoot, {
+  Row: ContactCardRow,
+  Text: ContactCardText,
+});
+
+export default ContactCard;

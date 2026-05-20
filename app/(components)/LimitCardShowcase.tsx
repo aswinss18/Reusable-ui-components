@@ -20,27 +20,29 @@ export default function LimitCardShowcase() {
         </div>
 
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          <LimitCard
-            currentValue="46"
-            title="Daily Limit Used"
-            totalValue="50"
-            utilizedPercent={96}
-            variant="danger"
-          />
-          <LimitCard
-            currentValue="46"
-            title="Monthly Limit used"
-            totalValue="500"
-            utilizedPercent={24}
-            variant="success"
-          />
-          <LimitCard
-            currentValue="12"
-            title="Quarterly Limit used"
-            totalValue="40"
-            utilizedPercent={58}
-            variant="warning"
-          />
+          <LimitCard utilizedPercent={96} variant="danger">
+            <LimitCard.Title>Daily Limit Used</LimitCard.Title>
+            <LimitCard.Value>
+              <LimitCard.CurrentValue>46</LimitCard.CurrentValue>
+              <LimitCard.TotalValue>/50</LimitCard.TotalValue>
+            </LimitCard.Value>
+          </LimitCard>
+
+          <LimitCard utilizedPercent={24} variant="success">
+            <LimitCard.Title>Monthly Limit used</LimitCard.Title>
+            <LimitCard.Value>
+              <LimitCard.CurrentValue>46</LimitCard.CurrentValue>
+              <LimitCard.TotalValue>/500</LimitCard.TotalValue>
+            </LimitCard.Value>
+          </LimitCard>
+
+          <LimitCard utilizedPercent={58} variant="warning">
+            <LimitCard.Title>Quarterly Limit used</LimitCard.Title>
+            <LimitCard.Value>
+              <LimitCard.CurrentValue>12</LimitCard.CurrentValue>
+              <LimitCard.TotalValue>/40</LimitCard.TotalValue>
+            </LimitCard.Value>
+          </LimitCard>
         </div>
       </section>
     </main>

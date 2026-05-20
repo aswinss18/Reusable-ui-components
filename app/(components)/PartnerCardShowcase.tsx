@@ -20,27 +20,72 @@ export default function PartnerCardShowcase() {
         </div>
 
         <div className="flex flex-col gap-7">
-          <PartnerCard
-            accountsOpen="6,800"
-            avatarText="G"
-            growth="+8%"
-            growthTone="positive"
-            partnerCode="PTR-2025-003"
-            partnerName="Gamma Solutions"
-            partnerStatus="Production"
-            revenue="₹28,500"
-          />
+          <PartnerCard>
+            <PartnerCard.Row>
+              <PartnerCard.Identity>
+                <PartnerCard.Avatar>G</PartnerCard.Avatar>
+                <PartnerCard.IdentityText>
+                  <PartnerCard.Name>Gamma Solutions</PartnerCard.Name>
+                  <PartnerCard.Code>PTR-2025-003</PartnerCard.Code>
+                </PartnerCard.IdentityText>
+              </PartnerCard.Identity>
 
-          <PartnerCard
-            accountsOpen="2,100"
-            avatarText="D"
-            growth="-5%"
-            growthTone="neutral"
-            partnerCode="PTR-2025-004"
-            partnerName="Delta Corp"
-            revenue="₹12,000"
-            state="disabled"
-          />
+              <PartnerCard.Metrics>
+                <PartnerCard.Metric kind="revenue">
+                  <PartnerCard.MetricLabel>Revenue</PartnerCard.MetricLabel>
+                  <PartnerCard.MetricValue>Rs.28,500</PartnerCard.MetricValue>
+                </PartnerCard.Metric>
+                <PartnerCard.Metric kind="accounts">
+                  <PartnerCard.MetricLabel>Accounts Open</PartnerCard.MetricLabel>
+                  <PartnerCard.MetricValue>6,800</PartnerCard.MetricValue>
+                </PartnerCard.Metric>
+                <PartnerCard.Metric kind="growth">
+                  <PartnerCard.MetricLabel>Growth</PartnerCard.MetricLabel>
+                  <PartnerCard.GrowthTag tone="positive">+8%</PartnerCard.GrowthTag>
+                </PartnerCard.Metric>
+                <PartnerCard.Metric kind="status">
+                  <PartnerCard.MetricLabel>Status</PartnerCard.MetricLabel>
+                  <PartnerCard.MetricValue>Production</PartnerCard.MetricValue>
+                </PartnerCard.Metric>
+              </PartnerCard.Metrics>
+
+              <PartnerCard.Actions>
+                <PartnerCard.ManageButton>Manage</PartnerCard.ManageButton>
+              </PartnerCard.Actions>
+            </PartnerCard.Row>
+          </PartnerCard>
+
+          <PartnerCard state="disabled">
+            <PartnerCard.DisabledBadge>Disabled</PartnerCard.DisabledBadge>
+            <PartnerCard.Row>
+              <PartnerCard.Identity>
+                <PartnerCard.Avatar>D</PartnerCard.Avatar>
+                <PartnerCard.IdentityText>
+                  <PartnerCard.Name>Delta Corp</PartnerCard.Name>
+                  <PartnerCard.Code>PTR-2025-004</PartnerCard.Code>
+                </PartnerCard.IdentityText>
+              </PartnerCard.Identity>
+
+              <PartnerCard.Metrics>
+                <PartnerCard.Metric kind="revenue">
+                  <PartnerCard.MetricLabel>Revenue</PartnerCard.MetricLabel>
+                  <PartnerCard.MetricValue>Rs.12,000</PartnerCard.MetricValue>
+                </PartnerCard.Metric>
+                <PartnerCard.Metric kind="accounts">
+                  <PartnerCard.MetricLabel>Accounts Open</PartnerCard.MetricLabel>
+                  <PartnerCard.MetricValue>2,100</PartnerCard.MetricValue>
+                </PartnerCard.Metric>
+                <PartnerCard.Metric kind="growth">
+                  <PartnerCard.MetricLabel>Growth</PartnerCard.MetricLabel>
+                  <PartnerCard.GrowthTag tone="neutral">-5%</PartnerCard.GrowthTag>
+                </PartnerCard.Metric>
+              </PartnerCard.Metrics>
+
+              <PartnerCard.Actions>
+                <PartnerCard.ManageButton>Manage</PartnerCard.ManageButton>
+              </PartnerCard.Actions>
+            </PartnerCard.Row>
+          </PartnerCard>
         </div>
       </section>
     </main>

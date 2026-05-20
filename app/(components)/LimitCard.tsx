@@ -1,19 +1,23 @@
 "use client";
 
-import { Card, Flex, Typography, Progress } from "antd";
+import { Progress, Typography } from "antd";
 import type { CardProps } from "antd";
+import type { ReactNode } from "react";
+import InfoCard from "./InfoCard";
 import styles from "./LimitCard.module.css";
 
 type LimitCardVariant = "danger" | "success" | "warning";
 
 export type LimitCardProps = {
-  title: string;
-  currentValue: string;
-  totalValue: string;
+  children: ReactNode;
   utilizedPercent: number;
   variant?: LimitCardVariant;
   utilizedLabel?: string;
-} & Omit<CardProps, "children" | "title" | "variant">;
+} & Omit<CardProps, "title" | "variant">;
+
+type SlotProps = {
+  children: ReactNode;
+};
 
 const progressColors: Record<LimitCardVariant, string> = {
   danger: "#D62A23",
@@ -21,10 +25,8 @@ const progressColors: Record<LimitCardVariant, string> = {
   warning: "#F0B100",
 };
 
-export default function LimitCard({
-  title,
-  currentValue,
-  totalValue,
+function LimitCardRoot({
+  children,
   utilizedPercent,
   variant = "danger",
   utilizedLabel = "Utilized",
@@ -35,34 +37,19 @@ export default function LimitCard({
   const boundedPercent = Math.max(0, Math.min(100, utilizedPercent));
 
   return (
-    <Card className={cardClassName} {...props}>
-      <Flex className={styles.content} justify="space-between" align="center">
-        {/* Left Block: Title and Value */}
-        <Flex className={styles.leftBlock} vertical justify="center">
-          <Typography.Text className={styles.title}>
-            {title}
-          </Typography.Text>
-          <Flex align="baseline" className={styles.value}>
-            <Typography.Text className={styles.valuePrimary}>
-              {currentValue}
-            </Typography.Text>
-            <Typography.Text className={styles.valueSecondary}>
-              /{totalValue}
-            </Typography.Text>
-          </Flex>
-        </Flex>
+    <InfoCard bodyClassName={styles.body} className={cardClassName} {...props}>
+      <InfoCard.Row className={styles.content} justify="space-between" align="center">
+        <InfoCard.Stack className={styles.leftBlock} justify="center">
+          {children}
+        </InfoCard.Stack>
 
-        {/* Right Block: Progress Circle */}
-        <Flex
+        <InfoCard.Stack
           align="center"
           className={styles.rightBlock}
-          vertical
           justify="center"
         >
-          <Typography.Text className={styles.utilized}>
-            {utilizedLabel}
-          </Typography.Text>
-          <Flex className={styles.progressContainer}>
+          <Typography.Text className={styles.utilized}>{utilizedLabel}</Typography.Text>
+          <InfoCard.Row className={styles.progressContainer}>
             <Progress
               type="circle"
               percent={boundedPercent}
@@ -77,9 +64,38 @@ export default function LimitCard({
                 </Typography.Text>
               )}
             />
-          </Flex>
-        </Flex>
-      </Flex>
-    </Card>
+          </InfoCard.Row>
+        </InfoCard.Stack>
+      </InfoCard.Row>
+    </InfoCard>
   );
 }
+
+function LimitCardTitle({ children }: SlotProps) {
+  return <Typography.Text className={styles.title}>{children}</Typography.Text>;
+}
+
+function LimitCardValue({ children }: SlotProps) {
+  return (
+    <InfoCard.Row align="baseline" className={styles.value}>
+      {children}
+    </InfoCard.Row>
+  );
+}
+
+function LimitCardCurrentValue({ children }: SlotProps) {
+  return <Typography.Text className={styles.valuePrimary}>{children}</Typography.Text>;
+}
+
+function LimitCardTotalValue({ children }: SlotProps) {
+  return <Typography.Text className={styles.valueSecondary}>{children}</Typography.Text>;
+}
+
+const LimitCard = Object.assign(LimitCardRoot, {
+  Title: LimitCardTitle,
+  Value: LimitCardValue,
+  CurrentValue: LimitCardCurrentValue,
+  TotalValue: LimitCardTotalValue,
+});
+
+export default LimitCard;

@@ -21,49 +21,125 @@ export default function LeadCardShowcase() {
         </div>
 
         <div className="flex flex-col gap-6">
-          <LeadCard
-            actions={
-              <>
-                <Button style={{ minWidth: 74 }}>Approve</Button>
-                <Button color="danger" style={{ minWidth: 71 }} variant="outlined">
-                  Reject
-                </Button>
-              </>
-            }
-            appliedOn="2026-03-15"
-            avatarText="T"
-            category="Enterprise"
-            companyName="Tech Solutions Inc"
-            contactPerson="Rajesh Kumar"
-            emailAddress="rajesh.kumar@techsol.com"
-            mobileNumber="+91 9999999999"
-            subtitle="PTR-2025-001"
-          />
+          <LeadCard>
+            <LeadCard.Container>
+              <LeadCard.Avatar>T</LeadCard.Avatar>
+              <LeadCard.Content>
+                <LeadCard.Header>
+                  <LeadCard.HeaderText>
+                    <LeadCard.TitleRow>
+                      <LeadCard.CompanyName>Tech Solutions Inc</LeadCard.CompanyName>
+                      <LeadCard.CategoryTag>Enterprise</LeadCard.CategoryTag>
+                    </LeadCard.TitleRow>
+                    <LeadCard.Subtitle>PTR-2025-001</LeadCard.Subtitle>
+                  </LeadCard.HeaderText>
+                  <LeadCard.HeaderActions>
+                    <Button style={{ minWidth: 74 }}>Approve</Button>
+                    <Button color="danger" style={{ minWidth: 71 }} variant="outlined">
+                      Reject
+                    </Button>
+                  </LeadCard.HeaderActions>
+                </LeadCard.Header>
 
-          <LeadCard
-            appliedOn="2026-03-14"
-            avatarText="L"
-            category="SME"
-            companyName="LeadBridge Commerce"
-            contactPerson="Anita Menon"
-            emailAddress="anita@leadbridge.com"
-            mobileNumber="+91 9876543210"
-            status="approved"
-            subtitle="leadbridge@company.com"
-          />
+                <LeadCard.Details>
+                  <LeadCard.DetailItem withBorder>
+                    <LeadCard.DetailLabel>Contact Person</LeadCard.DetailLabel>
+                    <LeadCard.DetailValue>Rajesh Kumar</LeadCard.DetailValue>
+                  </LeadCard.DetailItem>
+                  <LeadCard.DetailItem withBorder>
+                    <LeadCard.DetailLabel>Mobile Number</LeadCard.DetailLabel>
+                    <LeadCard.DetailValue>+91 9999999999</LeadCard.DetailValue>
+                  </LeadCard.DetailItem>
+                  <LeadCard.DetailItem>
+                    <LeadCard.DetailLabel>Email Address</LeadCard.DetailLabel>
+                    <LeadCard.DetailValue>rajesh.kumar@techsol.com</LeadCard.DetailValue>
+                  </LeadCard.DetailItem>
+                  <LeadCard.EditAction />
+                </LeadCard.Details>
 
-          <LeadCard
-            appliedOn="2026-03-12"
-            avatarText="Q"
-            category="Startup"
-            companyName="QuickPay Solutions"
-            contactPerson="Rajesh Kumar"
-            emailAddress="rajesh.kumar@techsol.com"
-            mobileNumber="+91 9999999999"
-            rejectionReason="Incomplete documentation and insufficient business track record"
-            status="rejected"
-            subtitle="info@quickpay.com"
-          />
+                <LeadCard.AppliedOn>Applied on: 2026-03-15</LeadCard.AppliedOn>
+              </LeadCard.Content>
+            </LeadCard.Container>
+          </LeadCard>
+
+          <LeadCard>
+            <LeadCard.Container>
+              <LeadCard.Avatar>L</LeadCard.Avatar>
+              <LeadCard.Content>
+                <LeadCard.Header>
+                  <LeadCard.HeaderText>
+                    <LeadCard.TitleRow>
+                      <LeadCard.CompanyName>LeadBridge Commerce</LeadCard.CompanyName>
+                      <LeadCard.CategoryTag>SME</LeadCard.CategoryTag>
+                    </LeadCard.TitleRow>
+                    <LeadCard.Subtitle>leadbridge@company.com</LeadCard.Subtitle>
+                  </LeadCard.HeaderText>
+                  <LeadCard.StatusTag status="approved">Approved</LeadCard.StatusTag>
+                </LeadCard.Header>
+
+                <LeadCard.Details>
+                  <LeadCard.DetailItem withBorder>
+                    <LeadCard.DetailLabel>Contact Person</LeadCard.DetailLabel>
+                    <LeadCard.DetailValue>Anita Menon</LeadCard.DetailValue>
+                  </LeadCard.DetailItem>
+                  <LeadCard.DetailItem withBorder>
+                    <LeadCard.DetailLabel>Mobile Number</LeadCard.DetailLabel>
+                    <LeadCard.DetailValue>+91 9876543210</LeadCard.DetailValue>
+                  </LeadCard.DetailItem>
+                  <LeadCard.DetailItem>
+                    <LeadCard.DetailLabel>Email Address</LeadCard.DetailLabel>
+                    <LeadCard.DetailValue>anita@leadbridge.com</LeadCard.DetailValue>
+                  </LeadCard.DetailItem>
+                  <LeadCard.EditAction />
+                </LeadCard.Details>
+
+                <LeadCard.AppliedOn>Applied on: 2026-03-14</LeadCard.AppliedOn>
+              </LeadCard.Content>
+            </LeadCard.Container>
+          </LeadCard>
+
+          <LeadCard>
+            <LeadCard.Container>
+              <LeadCard.Avatar>Q</LeadCard.Avatar>
+              <LeadCard.Content>
+                <LeadCard.Header>
+                  <LeadCard.HeaderText>
+                    <LeadCard.TitleRow>
+                      <LeadCard.CompanyName>QuickPay Solutions</LeadCard.CompanyName>
+                      <LeadCard.CategoryTag>Startup</LeadCard.CategoryTag>
+                    </LeadCard.TitleRow>
+                    <LeadCard.Subtitle>info@quickpay.com</LeadCard.Subtitle>
+                  </LeadCard.HeaderText>
+                  <LeadCard.StatusTag status="rejected">Rejected</LeadCard.StatusTag>
+                </LeadCard.Header>
+
+                <LeadCard.Details>
+                  <LeadCard.DetailItem withBorder>
+                    <LeadCard.DetailLabel>Contact Person</LeadCard.DetailLabel>
+                    <LeadCard.DetailValue>Rajesh Kumar</LeadCard.DetailValue>
+                  </LeadCard.DetailItem>
+                  <LeadCard.DetailItem withBorder>
+                    <LeadCard.DetailLabel>Mobile Number</LeadCard.DetailLabel>
+                    <LeadCard.DetailValue>+91 9999999999</LeadCard.DetailValue>
+                  </LeadCard.DetailItem>
+                  <LeadCard.DetailItem>
+                    <LeadCard.DetailLabel>Email Address</LeadCard.DetailLabel>
+                    <LeadCard.DetailValue>rajesh.kumar@techsol.com</LeadCard.DetailValue>
+                  </LeadCard.DetailItem>
+                  <LeadCard.EditAction />
+                </LeadCard.Details>
+
+                <LeadCard.Reason>
+                  <LeadCard.ReasonLabel>Rejection Reason:</LeadCard.ReasonLabel>
+                  <LeadCard.ReasonValue>
+                    Incomplete documentation and insufficient business track record
+                  </LeadCard.ReasonValue>
+                </LeadCard.Reason>
+
+                <LeadCard.AppliedOn>Applied on: 2026-03-12</LeadCard.AppliedOn>
+              </LeadCard.Content>
+            </LeadCard.Container>
+          </LeadCard>
         </div>
       </section>
     </main>

@@ -21,24 +21,35 @@ export default function StatCardShowcase() {
         </div>
 
         <div className="grid gap-5 md:grid-cols-3">
-          <StatCard
-            change="+15%"
-            icon={<TransactionOutlined />}
-            title="Total Revenue"
-            value="₹45,000"
-          />
-          <StatCard
-            change="+15%"
-            icon={<LineChartOutlined />}
-            title="Total Accounts Opened"
-            value="300"
-          />
-          <StatCard
-            highlighted
-            subtitle="Per Account"
-            title="Monthly Pricing Plan"
-            value="₹2,500"
-          />
+          <StatCard>
+            <StatCard.TextBlock>
+              <StatCard.Title>Total Revenue</StatCard.Title>
+              <StatCard.Value>Rs.45,000</StatCard.Value>
+              <StatCard.Change>+15%</StatCard.Change>
+            </StatCard.TextBlock>
+            <StatCard.IconBox>
+              <TransactionOutlined />
+            </StatCard.IconBox>
+          </StatCard>
+
+          <StatCard>
+            <StatCard.TextBlock>
+              <StatCard.Title>Total Accounts Opened</StatCard.Title>
+              <StatCard.Value>300</StatCard.Value>
+              <StatCard.Change>+15%</StatCard.Change>
+            </StatCard.TextBlock>
+            <StatCard.IconBox>
+              <LineChartOutlined />
+            </StatCard.IconBox>
+          </StatCard>
+
+          <StatCard highlighted>
+            <StatCard.TextBlock>
+              <StatCard.Title>Monthly Pricing Plan</StatCard.Title>
+              <StatCard.Value>Rs.2,500</StatCard.Value>
+              <StatCard.Subtitle>Per Account</StatCard.Subtitle>
+            </StatCard.TextBlock>
+          </StatCard>
         </div>
       </section>
     </main>

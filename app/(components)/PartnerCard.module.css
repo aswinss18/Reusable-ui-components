@@ -5,7 +5,7 @@
   overflow: hidden;
 }
 
-.card :global(.ant-card-body) {
+.body {
   position: relative;
   padding: 13px 18px;
 }

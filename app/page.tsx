@@ -71,6 +71,11 @@ const components = [
     name: "AccountOpeningItem",
     description: "List item for account openings with status indicators.",
   },
+  {
+    href: "/doc-select-card",
+    name: "DocSelectCard",
+    description: "Selectable report option cards with default active state and click interaction.",
+  },
 ];
 
 export default function Home() {

@@ -10,7 +10,7 @@
     border-color 0.2s ease;
 }
 
-.card :global(.ant-card-body) {
+.body {
   padding: 24px;
 }
 

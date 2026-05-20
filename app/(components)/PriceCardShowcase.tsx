@@ -2,6 +2,15 @@
 
 import PriceCard from "./PriceCard";
 
+const priceItems = [
+  ["Monthly Fee", "Rs.2,500"],
+  ["Per Account", "Rs.0.15"],
+  ["Annual Plan", "Rs.25,000"],
+  ["Setup Fee", "Rs.5,000"],
+  ["Per Transaction", "Rs.2.50"],
+  ["Premium Support", "Rs.10,000"],
+] as const;
+
 export default function PriceCardShowcase() {
   return (
     <main className="flex min-h-screen items-center justify-center bg-[#f6f5fb] px-6 py-16">
@@ -20,12 +29,12 @@ export default function PriceCardShowcase() {
         </div>
 
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          <PriceCard title="Monthly Fee" value="₹2,500" />
-          <PriceCard title="Per Account" value="₹0.15" />
-          <PriceCard title="Annual Plan" value="₹25,000" />
-          <PriceCard title="Setup Fee" value="₹5,000" />
-          <PriceCard title="Per Transaction" value="₹2.50" />
-          <PriceCard title="Premium Support" value="₹10,000" />
+          {priceItems.map(([title, value]) => (
+            <PriceCard key={title}>
+              <PriceCard.Title>{title}</PriceCard.Title>
+              <PriceCard.Value>{value}</PriceCard.Value>
+            </PriceCard>
+          ))}
         </div>
       </section>
     </main>

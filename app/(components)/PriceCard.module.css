@@ -9,7 +9,7 @@
   box-shadow: none;
 }
 
-.card :global(.ant-card-body) {
+.body {
   padding: 17px;
   height: 100%;
 }
