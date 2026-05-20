@@ -30,9 +30,11 @@ export default function BreadCrumbShowcase() {
                 <Button variant="outlined">Generate Report</Button>
               </>
             }
-            backButton="/partners"
-            subtitle="Comprehensive partner information and analytics"
-            title="Alpha Finance"
+            data={{
+              backButton: "/partners",
+              subtitle: "Comprehensive partner information and analytics",
+              title: "Alpha Finance",
+            }}
           />
 
           <div className="h-px bg-[#e7e4f6]" />
@@ -41,16 +43,21 @@ export default function BreadCrumbShowcase() {
             actions={
               <Button>Approve Partner</Button>
             }
-            subtitle="Pending documents and validation checks"
-            title="Partner Review Queue"
+            data={{
+              subtitle: "Pending documents and validation checks",
+              title: "Partner Review Queue",
+            }}
           />
 
           <div className="h-px bg-[#e7e4f6]" />
 
           <BreadCrumb
-            backButton="/account-opening-item"
-            subtitle="Track onboarding activity across the latest submitted applications"
-            title="Operations Dashboard"
+            data={{
+              backButton: "/account-opening-item",
+              subtitle:
+                "Track onboarding activity across the latest submitted applications",
+              title: "Operations Dashboard",
+            }}
           />
 
           <div className="h-px bg-[#e7e4f6]" />
@@ -64,8 +71,10 @@ export default function BreadCrumbShowcase() {
                 <Button>Share Snapshot</Button>
               </Flex>
             }
-            backButton="/company-info-card"
-            title="Analytics Summary"
+            data={{
+              backButton: "/company-info-card",
+              title: "Analytics Summary",
+            }}
           />
         </div>
       </section>

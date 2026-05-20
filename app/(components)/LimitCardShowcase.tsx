@@ -21,24 +21,30 @@ export default function LimitCardShowcase() {
 
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           <LimitCard
-            currentValue="46"
-            title="Daily Limit Used"
-            totalValue="50"
-            utilizedPercent={96}
+            data={{
+              currentValue: "46",
+              title: "Daily Limit Used",
+              totalValue: "50",
+              utilizedPercent: 96,
+            }}
             variant="danger"
           />
           <LimitCard
-            currentValue="46"
-            title="Monthly Limit used"
-            totalValue="500"
-            utilizedPercent={24}
+            data={{
+              currentValue: "46",
+              title: "Monthly Limit used",
+              totalValue: "500",
+              utilizedPercent: 24,
+            }}
             variant="success"
           />
           <LimitCard
-            currentValue="12"
-            title="Quarterly Limit used"
-            totalValue="40"
-            utilizedPercent={58}
+            data={{
+              currentValue: "12",
+              title: "Quarterly Limit used",
+              totalValue: "40",
+              utilizedPercent: 58,
+            }}
             variant="warning"
           />
         </div>

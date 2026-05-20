@@ -30,39 +30,46 @@ export default function LeadCardShowcase() {
                 </Button>
               </>
             }
-            appliedOn="2026-03-15"
-            avatarText="T"
-            category="Enterprise"
-            companyName="Tech Solutions Inc"
-            contactPerson="Rajesh Kumar"
-            emailAddress="rajesh.kumar@techsol.com"
-            mobileNumber="+91 9999999999"
-            subtitle="PTR-2025-001"
+            data={{
+              appliedOn: "2026-03-15",
+              avatarText: "T",
+              category: "Enterprise",
+              companyName: "Tech Solutions Inc",
+              contactPerson: "Rajesh Kumar",
+              emailAddress: "rajesh.kumar@techsol.com",
+              mobileNumber: "+91 9999999999",
+              subtitle: "PTR-2025-001",
+            }}
           />
 
           <LeadCard
-            appliedOn="2026-03-14"
-            avatarText="L"
-            category="SME"
-            companyName="LeadBridge Commerce"
-            contactPerson="Anita Menon"
-            emailAddress="anita@leadbridge.com"
-            mobileNumber="+91 9876543210"
-            status="approved"
-            subtitle="leadbridge@company.com"
+            data={{
+              appliedOn: "2026-03-14",
+              avatarText: "L",
+              category: "SME",
+              companyName: "LeadBridge Commerce",
+              contactPerson: "Anita Menon",
+              emailAddress: "anita@leadbridge.com",
+              mobileNumber: "+91 9876543210",
+              status: "approved",
+              subtitle: "leadbridge@company.com",
+            }}
           />
 
           <LeadCard
-            appliedOn="2026-03-12"
-            avatarText="Q"
-            category="Startup"
-            companyName="QuickPay Solutions"
-            contactPerson="Rajesh Kumar"
-            emailAddress="rajesh.kumar@techsol.com"
-            mobileNumber="+91 9999999999"
-            rejectionReason="Incomplete documentation and insufficient business track record"
-            status="rejected"
-            subtitle="info@quickpay.com"
+            data={{
+              appliedOn: "2026-03-12",
+              avatarText: "Q",
+              category: "Startup",
+              companyName: "QuickPay Solutions",
+              contactPerson: "Rajesh Kumar",
+              emailAddress: "rajesh.kumar@techsol.com",
+              mobileNumber: "+91 9999999999",
+              rejectionReason:
+                "Incomplete documentation and insufficient business track record",
+              status: "rejected",
+              subtitle: "info@quickpay.com",
+            }}
           />
         </div>
       </section>

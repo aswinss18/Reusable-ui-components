@@ -9,19 +9,23 @@ export type PartnerCardState = "active" | "disabled";
 export type PartnerCardGrowthTone = "negative" | "neutral" | "positive";
 
 export type PartnerCardProps = {
+  data: PartnerCardData;
+  growthTone?: PartnerCardGrowthTone;
+  state?: PartnerCardState;
+  actionLabel?: string;
+  disabledLabel?: string;
+  onManage?: ButtonProps["onClick"];
+} & Omit<CardProps, "children" | "extra" | "title">;
+
+export type PartnerCardData = {
   avatarText: string;
   partnerName: string;
   partnerCode: string;
   revenue: string;
   accountsOpen: string;
   growth: string;
-  growthTone?: PartnerCardGrowthTone;
   partnerStatus?: string;
-  state?: PartnerCardState;
-  actionLabel?: string;
-  disabledLabel?: string;
-  onManage?: ButtonProps["onClick"];
-} & Omit<CardProps, "children" | "extra" | "title">;
+};
 
 type MetricItemProps = {
   label: string;
@@ -70,14 +74,8 @@ function MetricItem({
 }
 
 export default function PartnerCard({
-  avatarText,
-  partnerName,
-  partnerCode,
-  revenue,
-  accountsOpen,
-  growth,
+  data,
   growthTone,
-  partnerStatus,
   state = "active",
   actionLabel = "Manage",
   disabledLabel = "Disabled",
@@ -85,6 +83,15 @@ export default function PartnerCard({
   className = "",
   ...props
 }: PartnerCardProps) {
+  const {
+    avatarText,
+    partnerName,
+    partnerCode,
+    revenue,
+    accountsOpen,
+    growth,
+    partnerStatus,
+  } = data;
   const cardClassName = [
     styles.card,
     state === "disabled" ? styles.cardDisabled : "",

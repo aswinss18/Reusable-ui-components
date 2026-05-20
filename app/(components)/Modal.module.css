@@ -58,22 +58,6 @@
   padding-top: 8px;
 }
 
-.modalColored :global(.ant-modal-header) {
-  background: var(--modal-title-bg, #4a47a8);
-  margin: 0;
-  padding: 0;
-}
-
-.modalColored :global(.ant-modal-title) {
-  display: block;
-  margin: 0;
-  padding: 0;
-}
-
-.modalColored :global(.ant-modal-body) {
-  padding: 20px 28px 28px;
-}
-
 .headerInner {
   display: flex;
   align-items: center;
@@ -84,20 +68,12 @@
   padding: 28px 28px 18px;
 }
 
-.headerInnerColored {
-  padding: 20px 24px;
-}
-
 .title {
   color: #2c275f;
   font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
   font-size: 20px;
   font-weight: 600;
   line-height: 1.2;
-}
-
-.titleColored {
-  color: #ffffff;
 }
 
 .closeButton {
@@ -115,12 +91,4 @@
 
 .closeButton:hover {
   color: #414099;
-}
-
-.closeButtonColored {
-  color: #ffffff;
-}
-
-.closeButtonColored:hover {
-  color: #f3f2ff;
 }

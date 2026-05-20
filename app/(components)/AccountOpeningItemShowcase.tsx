@@ -10,46 +10,46 @@ export default function AccountOpeningItemShowcase() {
 
   const dummyData = [
     {
+      accountHolderName: "Sachin Sharma",
+      accountStatus: "opened" as const,
       date: "20-03-2026",
-      name: "Sachin Sharma",
       fundingStatus: "completed" as const,
       kycStatus: "completed" as const,
-      accountStatus: "opened" as const,
     },
     {
+      accountHolderName: "Priya Patel",
+      accountStatus: "opened" as const,
       date: "20-03-2026",
-      name: "Priya Patel",
       fundingStatus: "completed" as const,
       kycStatus: "pending" as const,
-      accountStatus: "opened" as const,
     },
     {
+      accountHolderName: "Rahul Kumar",
+      accountStatus: "failed" as const,
       date: "19-03-2026",
-      name: "Rahul Kumar",
       fundingStatus: "failed" as const,
       kycStatus: "pending" as const,
-      accountStatus: "failed" as const,
     },
     {
+      accountHolderName: "Anita Desai",
+      accountStatus: "opened" as const,
       date: "19-03-2026",
-      name: "Anita Desai",
       fundingStatus: "completed" as const,
       kycStatus: "completed" as const,
-      accountStatus: "opened" as const,
     },
     {
+      accountHolderName: "Vikram Singh",
+      accountStatus: "opened" as const,
       date: "18-03-2026",
-      name: "Vikram Singh",
       fundingStatus: "completed" as const,
       kycStatus: "pending" as const,
-      accountStatus: "opened" as const,
     },
     {
+      accountHolderName: "Meera Reddy",
+      accountStatus: "failed" as const,
       date: "18-03-2026",
-      name: "Meera Reddy",
       fundingStatus: "failed" as const,
       kycStatus: "pending" as const,
-      accountStatus: "failed" as const,
     },
   ];
 
@@ -153,12 +153,8 @@ export default function AccountOpeningItemShowcase() {
           {dummyData.map((item, index) => (
             <AccountOpeningItem
               key={index}
-              date={item.date}
-              accountHolderName={item.name}
-              fundingStatus={item.fundingStatus}
-              kycStatus={item.kycStatus}
-              accountStatus={item.accountStatus}
-              onClick={() => handleItemClick(item.name, item.date)}
+              data={item}
+              onClick={() => handleItemClick(item.accountHolderName, item.date)}
             />
           ))}
         </Flex>

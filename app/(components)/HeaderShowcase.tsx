@@ -76,11 +76,13 @@ export default function HeaderShowcase() {
 
         <div className="overflow-hidden rounded-[28px] border border-[#ebe9f7] bg-[#fbfaff]">
           <Header
-            notificationCount={1}
-            searchPlaceholder="Search..."
-            userInitials="AD"
-            userName="Admin User"
-            userRole="Super Admin"
+            data={{
+              notificationCount: 1,
+              searchPlaceholder: "Search...",
+              userInitials: "AD",
+              userName: "Admin User",
+              userRole: "Super Admin",
+            }}
           />
 
           <Flex>
@@ -96,9 +98,11 @@ export default function HeaderShowcase() {
                     <Button variant="outlined">Generate Report</Button>
                   </>
                 }
-                backButton="/sidebar"
-                subtitle="Comprehensive partner information and analytics"
-                title="Alpha Finance"
+                data={{
+                  backButton: "/sidebar",
+                  subtitle: "Comprehensive partner information and analytics",
+                  title: "Alpha Finance",
+                }}
               />
 
               <div className="grid gap-6 lg:grid-cols-2">

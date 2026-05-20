@@ -5,16 +5,20 @@ import type { CardProps } from "antd";
 import styles from "./PriceCard.module.css";
 
 export type PriceCardProps = {
-  title: string;
-  value: string;
+  data: PriceCardData;
 } & Omit<CardProps, "children" | "title" | "variant">;
 
+export type PriceCardData = {
+  title: string;
+  value: string;
+};
+
 export default function PriceCard({
-  title,
-  value,
+  data,
   className = "",
   ...props
 }: PriceCardProps) {
+  const { title, value } = data;
   const cardClassName = [styles.card, className].filter(Boolean).join(" ");
 
   return (

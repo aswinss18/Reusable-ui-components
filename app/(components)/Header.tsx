@@ -11,32 +11,39 @@ import type { ReactNode } from "react";
 import styles from "./Header.module.css";
 
 export type HeaderProps = {
+  data: HeaderData;
+  trailingAction?: ReactNode;
+  searchValue?: string;
+  onSearchChange?: InputProps["onChange"];
+  className?: string;
+};
+
+export type HeaderData = {
   logoSrc?: string;
   logoAlt?: string;
   searchPlaceholder?: string;
-  searchValue?: string;
-  onSearchChange?: InputProps["onChange"];
   notificationCount?: number;
   userInitials?: string;
   userName: ReactNode;
   userRole?: ReactNode;
-  trailingAction?: ReactNode;
-  className?: string;
 };
 
 export default function Header({
-  logoSrc = "/fino.png",
-  logoAlt = "Fino logo",
-  searchPlaceholder = "Search...",
+  data,
+  trailingAction = <LogoutOutlined className={styles.logoutIcon} />,
   searchValue,
   onSearchChange,
-  notificationCount = 1,
-  userInitials = "AD",
-  userName,
-  userRole = "Super Admin",
-  trailingAction = <LogoutOutlined className={styles.logoutIcon} />,
   className = "",
 }: HeaderProps) {
+  const {
+    logoSrc = "/fino.png",
+    logoAlt = "Fino logo",
+    searchPlaceholder = "Search...",
+    notificationCount = 1,
+    userInitials = "AD",
+    userName,
+    userRole = "Super Admin",
+  } = data;
   const headerClassName = [styles.header, className].filter(Boolean).join(" ");
 
   return (

@@ -87,9 +87,12 @@ export default function SidebarShowcase() {
                     <Button>Export Summary</Button>
                   </>
                 }
-                backButton="/"
-                subtitle="Track active partner conversations, pending follow-ups, and route transitions."
-                title="Leads Workspace"
+                data={{
+                  backButton: "/",
+                  subtitle:
+                    "Track active partner conversations, pending follow-ups, and route transitions.",
+                  title: "Leads Workspace",
+                }}
               />
 
               <div className="grid gap-6 lg:grid-cols-2">

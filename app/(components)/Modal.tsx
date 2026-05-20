@@ -4,7 +4,7 @@ import { CloseOutlined } from "@ant-design/icons";
 import { Modal as AntModal, Button, Flex, Typography } from "antd";
 import type { ModalProps as AntModalProps } from "antd";
 import { Children, Fragment, isValidElement } from "react";
-import type { CSSProperties, ReactNode } from "react";
+import type { ReactNode } from "react";
 import styles from "./Modal.module.css";
 
 type ModalActionsAlign = "right" | "space-between";
@@ -13,7 +13,6 @@ export type ModalProps = {
   title: ReactNode;
   children: ReactNode;
   onClose: () => void;
-  titleBg?: string;
   actions?: ReactNode;
   actionsAlign?: ModalActionsAlign;
   width?: number | string;
@@ -29,7 +28,6 @@ export default function Modal({
   actions,
   actionsAlign = "right",
   open,
-  titleBg,
   width = 410,
   rootClassName = "",
   footer = false,
@@ -46,33 +44,11 @@ export default function Modal({
   const hasStyledFooter = Boolean(footer);
   const modalClassName = [
     styles.modal,
-    titleBg ? styles.modalColored : "",
     hasStyledFooter ? styles.modalWithFooter : "",
     rootClassName,
   ]
     .filter(Boolean)
     .join(" ");
-  const headerInnerClassName = [
-    styles.headerInner,
-    titleBg ? styles.headerInnerColored : "",
-  ]
-    .filter(Boolean)
-    .join(" ");
-  const titleClassName = [
-    styles.title,
-    titleBg ? styles.titleColored : "",
-  ]
-    .filter(Boolean)
-    .join(" ");
-  const closeButtonClassName = [
-    styles.closeButton,
-    titleBg ? styles.closeButtonColored : "",
-  ]
-    .filter(Boolean)
-    .join(" ");
-  const modalStyle = titleBg
-    ? ({ "--modal-title-bg": titleBg } as CSSProperties)
-    : undefined;
   const actionsContent = actions ? (
     <Flex
       align="center"
@@ -100,16 +76,15 @@ export default function Modal({
       onCancel={onClose}
       open={open}
       rootClassName={modalClassName}
-      style={modalStyle}
       title={
-        <Flex justify="space-between" align="center" className={headerInnerClassName}>
-          <Typography className={titleClassName}>{title}</Typography>
+        <Flex justify="space-between" align="center" className={styles.headerInner}>
+          <Typography className={styles.title}>{title}</Typography>
           <Button
             type="text"
             icon={<CloseOutlined />}
             onClick={onClose}
             aria-label="Close modal"
-            className={closeButtonClassName}
+            className={styles.closeButton}
           />
         </Flex>
       }

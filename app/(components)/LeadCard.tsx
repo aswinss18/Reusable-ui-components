@@ -9,6 +9,13 @@ import styles from "./LeadCard.module.css";
 export type LeadCardStatus = "approved" | "pending" | "rejected";
 
 export type LeadCardProps = {
+  data: LeadCardData;
+  actions?: ReactNode;
+  onEdit?: () => void;
+  showEditAction?: boolean;
+} & Omit<CardProps, "actions" | "children" | "extra" | "title">;
+
+export type LeadCardData = {
   avatarText: string;
   companyName: string;
   category?: string;
@@ -19,11 +26,8 @@ export type LeadCardProps = {
   appliedOn: string;
   status?: LeadCardStatus;
   statusLabel?: string;
-  actions?: ReactNode;
   rejectionReason?: string;
-  onEdit?: () => void;
-  showEditAction?: boolean;
-} & Omit<CardProps, "actions" | "children" | "extra" | "title">;
+};
 
 type DetailItemProps = {
   label: string;
@@ -69,23 +73,26 @@ function DetailItem({ label, value, withBorder = false }: DetailItemProps) {
 }
 
 export default function LeadCard({
-  avatarText,
-  companyName,
-  category,
-  subtitle,
-  contactPerson,
-  mobileNumber,
-  emailAddress,
-  appliedOn,
-  status = "pending",
-  statusLabel,
+  data,
   actions,
-  rejectionReason,
   onEdit,
   showEditAction = true,
   className = "",
   ...props
 }: LeadCardProps) {
+  const {
+    avatarText,
+    companyName,
+    category,
+    subtitle,
+    contactPerson,
+    mobileNumber,
+    emailAddress,
+    appliedOn,
+    status = "pending",
+    statusLabel,
+    rejectionReason,
+  } = data;
   const cardClassName = [styles.card, className].filter(Boolean).join(" ");
   const showRejectionReason = status === "rejected" && Boolean(rejectionReason);
   const showHeaderActions = Boolean(actions);

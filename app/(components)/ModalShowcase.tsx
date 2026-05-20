@@ -34,7 +34,7 @@ const modalCards = [
   },
   {
     key: "approval" as const,
-    blurb: "410px, colored title, styled footer",
+    blurb: "410px, styled footer, approval flow",
     label: "Branded Approval",
   },
   {
@@ -205,13 +205,14 @@ export default function ModalShowcase() {
               onClose={closeModal}
               open={activeModal === "approval"}
               title="Approve Partner"
-              titleBg="#4a47a8"
               width={410}
             >
               <div className="space-y-6">
                 <ContactCard
-                  email="contact@techcorp.com"
-                  partner="TechCorp Solutions"
+                  data={{
+                    email: "contact@techcorp.com",
+                    partner: "TechCorp Solutions",
+                  }}
                   variant="danger"
                 />
 
@@ -262,15 +263,17 @@ export default function ModalShowcase() {
               width={960}
             >
               <CompanyInfoCard
-                address="123 Business Park, Mumbai, Maharashtra 400001"
-                category="Enterprise"
-                companyName="Alpha Finance"
-                email="contact@alphafinance.com"
-                gstNumber="1200ABCDE1234F2568"
-                phone="+91 98765 43210"
-                primaryContact="Rajesh Kumar"
-                registeredOn="15/01/2025"
-                taxId="ABCDE1234F"
+                data={{
+                  address: "123 Business Park, Mumbai, Maharashtra 400001",
+                  category: "Enterprise",
+                  companyName: "Alpha Finance",
+                  email: "contact@alphafinance.com",
+                  gstNumber: "1200ABCDE1234F2568",
+                  phone: "+91 98765 43210",
+                  primaryContact: "Rajesh Kumar",
+                  registeredOn: "15/01/2025",
+                  taxId: "ABCDE1234F",
+                }}
               />
             </Modal>
 
@@ -298,7 +301,6 @@ export default function ModalShowcase() {
               onClose={closeModal}
               open={activeModal === "pricing"}
               title="Pricing Summary"
-              titleBg="#34326e"
               width={720}
             >
               <div className="space-y-6">
@@ -313,9 +315,9 @@ export default function ModalShowcase() {
                 </div>
 
                 <div className="grid gap-4 md:grid-cols-3">
-                  <PriceCard title="Monthly Fee" value="₹2,500" />
-                  <PriceCard title="Setup Charges" value="₹12,000" />
-                  <PriceCard title="Support SLA" value="24 Hours" />
+                  <PriceCard data={{ title: "Monthly Fee", value: "₹2,500" }} />
+                  <PriceCard data={{ title: "Setup Charges", value: "₹12,000" }} />
+                  <PriceCard data={{ title: "Support SLA", value: "24 Hours" }} />
                 </div>
 
                 <Space size={[8, 8]} wrap>
@@ -399,18 +401,22 @@ export default function ModalShowcase() {
 
                 <div className="space-y-3">
                   <AccountOpeningItem
-                    accountHolderName="Aarav Capital"
-                    accountStatus="opened"
-                    date="19 May 2026"
-                    fundingStatus="completed"
-                    kycStatus="completed"
+                    data={{
+                      accountHolderName: "Aarav Capital",
+                      accountStatus: "opened",
+                      date: "19 May 2026",
+                      fundingStatus: "completed",
+                      kycStatus: "completed",
+                    }}
                   />
                   <AccountOpeningItem
-                    accountHolderName="Northgate Traders"
-                    accountStatus="failed"
-                    date="19 May 2026"
-                    fundingStatus="failed"
-                    kycStatus="pending"
+                    data={{
+                      accountHolderName: "Northgate Traders",
+                      accountStatus: "failed",
+                      date: "19 May 2026",
+                      fundingStatus: "failed",
+                      kycStatus: "pending",
+                    }}
                   />
                 </div>
               </div>

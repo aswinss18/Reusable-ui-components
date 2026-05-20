@@ -9,12 +9,16 @@ type KYCStatus = "completed" | "pending";
 type AccountStatus = "opened" | "failed";
 
 export type AccountOpeningItemProps = {
+  data: AccountOpeningItemData;
+  onClick?: () => void;
+};
+
+export type AccountOpeningItemData = {
   date: string;
   accountHolderName: string;
   fundingStatus: FundingStatus;
   kycStatus: KYCStatus;
   accountStatus: AccountStatus;
-  onClick?: () => void;
 };
 
 const fundingStatusConfig = {
@@ -57,13 +61,16 @@ const accountStatusConfig = {
 };
 
 export default function AccountOpeningItem({
-  date,
-  accountHolderName,
-  fundingStatus,
-  kycStatus,
-  accountStatus,
+  data,
   onClick,
 }: AccountOpeningItemProps) {
+  const {
+    date,
+    accountHolderName,
+    fundingStatus,
+    kycStatus,
+    accountStatus,
+  } = data;
   const fundingConfig = fundingStatusConfig[fundingStatus];
   const kycConfig = kycStatusConfig[kycStatus];
   const accountConfig = accountStatusConfig[accountStatus];

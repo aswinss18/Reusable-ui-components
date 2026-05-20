@@ -14,6 +14,11 @@ import type { ReactNode } from "react";
 import styles from "./CompanyInfoCard.module.css";
 
 export type CompanyInfoCardProps = {
+  data: CompanyInfoCardData;
+  onEdit?: () => void;
+} & Omit<CardProps, "children" | "title" | "extra">;
+
+export type CompanyInfoCardData = {
   title?: string;
   companyName: string;
   category: string;
@@ -24,8 +29,7 @@ export type CompanyInfoCardProps = {
   email: string;
   phone: string;
   address: string;
-  onEdit?: () => void;
-} & Omit<CardProps, "children" | "title" | "extra">;
+};
 
 type InfoItemProps = {
   label: string;
@@ -62,20 +66,23 @@ function ContactItem({ icon, label, value }: ContactItemProps) {
 }
 
 export default function CompanyInfoCard({
-  title = "Company Information",
-  companyName,
-  category,
-  taxId,
-  registeredOn,
-  gstNumber,
-  primaryContact,
-  email,
-  phone,
-  address,
+  data,
   onEdit,
   className = "",
   ...props
 }: CompanyInfoCardProps) {
+  const {
+    title = "Company Information",
+    companyName,
+    category,
+    taxId,
+    registeredOn,
+    gstNumber,
+    primaryContact,
+    email,
+    phone,
+    address,
+  } = data;
   const cardClassName = [styles.card, className].filter(Boolean).join(" ");
 
   return (

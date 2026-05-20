@@ -20,12 +20,12 @@ export default function PriceCardShowcase() {
         </div>
 
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          <PriceCard title="Monthly Fee" value="₹2,500" />
-          <PriceCard title="Per Account" value="₹0.15" />
-          <PriceCard title="Annual Plan" value="₹25,000" />
-          <PriceCard title="Setup Fee" value="₹5,000" />
-          <PriceCard title="Per Transaction" value="₹2.50" />
-          <PriceCard title="Premium Support" value="₹10,000" />
+          <PriceCard data={{ title: "Monthly Fee", value: "â‚¹2,500" }} />
+          <PriceCard data={{ title: "Per Account", value: "â‚¹0.15" }} />
+          <PriceCard data={{ title: "Annual Plan", value: "â‚¹25,000" }} />
+          <PriceCard data={{ title: "Setup Fee", value: "â‚¹5,000" }} />
+          <PriceCard data={{ title: "Per Transaction", value: "â‚¹2.50" }} />
+          <PriceCard data={{ title: "Premium Support", value: "â‚¹10,000" }} />
         </div>
       </section>
     </main>

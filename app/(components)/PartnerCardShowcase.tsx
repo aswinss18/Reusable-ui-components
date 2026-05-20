@@ -21,24 +21,28 @@ export default function PartnerCardShowcase() {
 
         <div className="flex flex-col gap-7">
           <PartnerCard
-            accountsOpen="6,800"
-            avatarText="G"
-            growth="+8%"
+            data={{
+              accountsOpen: "6,800",
+              avatarText: "G",
+              growth: "+8%",
+              partnerCode: "PTR-2025-003",
+              partnerName: "Gamma Solutions",
+              partnerStatus: "Production",
+              revenue: "â‚¹28,500",
+            }}
             growthTone="positive"
-            partnerCode="PTR-2025-003"
-            partnerName="Gamma Solutions"
-            partnerStatus="Production"
-            revenue="₹28,500"
           />
 
           <PartnerCard
-            accountsOpen="2,100"
-            avatarText="D"
-            growth="-5%"
+            data={{
+              accountsOpen: "2,100",
+              avatarText: "D",
+              growth: "-5%",
+              partnerCode: "PTR-2025-004",
+              partnerName: "Delta Corp",
+              revenue: "â‚¹12,000",
+            }}
             growthTone="neutral"
-            partnerCode="PTR-2025-004"
-            partnerName="Delta Corp"
-            revenue="₹12,000"
             state="disabled"
           />
         </div>

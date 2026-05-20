@@ -20,15 +20,17 @@ export default function CompanyInfoCardShowcase() {
         </div>
 
         <CompanyInfoCard
-          address="123 Business Park, Mumbai, Maharashtra 400001"
-          category="Enterprise"
-          companyName="Alpha Finance"
-          email="contact@alphafinance.com"
-          gstNumber="1200ABCDE1234F2568"
-          phone="+91 98765 43210"
-          primaryContact="Rajesh Kumar"
-          registeredOn="15/01/2025"
-          taxId="ABCDE1234F"
+          data={{
+            address: "123 Business Park, Mumbai, Maharashtra 400001",
+            category: "Enterprise",
+            companyName: "Alpha Finance",
+            email: "contact@alphafinance.com",
+            gstNumber: "1200ABCDE1234F2568",
+            phone: "+91 98765 43210",
+            primaryContact: "Rajesh Kumar",
+            registeredOn: "15/01/2025",
+            taxId: "ABCDE1234F",
+          }}
         />
       </section>
     </main>

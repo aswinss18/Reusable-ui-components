@@ -7,11 +7,15 @@ import Link from "next/link";
 import styles from "./BreadCrumb.module.css";
 
 export type BreadCrumbProps = {
+  data: BreadCrumbData;
+  actions?: ReactNode;
+  className?: string;
+};
+
+export type BreadCrumbData = {
   title: ReactNode;
   subtitle?: ReactNode;
   backButton?: string;
-  actions?: ReactNode;
-  className?: string;
 };
 
 function formatBackLabel(route: string) {
@@ -30,12 +34,11 @@ function formatBackLabel(route: string) {
 }
 
 export default function BreadCrumb({
-  title,
-  subtitle,
-  backButton,
+  data,
   actions,
   className = "",
 }: BreadCrumbProps) {
+  const { title, subtitle, backButton } = data;
   const wrapperClassName = [styles.wrapper, className].filter(Boolean).join(" ");
 
   return (

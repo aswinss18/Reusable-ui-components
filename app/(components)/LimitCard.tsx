@@ -7,13 +7,17 @@ import styles from "./LimitCard.module.css";
 type LimitCardVariant = "danger" | "success" | "warning";
 
 export type LimitCardProps = {
+  data: LimitCardData;
+  variant?: LimitCardVariant;
+} & Omit<CardProps, "children" | "title" | "variant">;
+
+export type LimitCardData = {
   title: string;
   currentValue: string;
   totalValue: string;
   utilizedPercent: number;
-  variant?: LimitCardVariant;
   utilizedLabel?: string;
-} & Omit<CardProps, "children" | "title" | "variant">;
+};
 
 const progressColors: Record<LimitCardVariant, string> = {
   danger: "#D62A23",
@@ -22,15 +26,18 @@ const progressColors: Record<LimitCardVariant, string> = {
 };
 
 export default function LimitCard({
-  title,
-  currentValue,
-  totalValue,
-  utilizedPercent,
+  data,
   variant = "danger",
-  utilizedLabel = "Utilized",
   className = "",
   ...props
 }: LimitCardProps) {
+  const {
+    title,
+    currentValue,
+    totalValue,
+    utilizedPercent,
+    utilizedLabel = "Utilized",
+  } = data;
   const cardClassName = [styles.card, className].filter(Boolean).join(" ");
   const boundedPercent = Math.max(0, Math.min(100, utilizedPercent));
 

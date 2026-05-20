@@ -21,18 +21,15 @@ export default function ContactCardShowcase() {
 
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           <ContactCard
-            email="contact@techcorp.com"
-            partner="TechCorp Solutions"
+            data={{ email: "contact@techcorp.com", partner: "TechCorp Solutions" }}
             variant="success"
           />
           <ContactCard
-            email="contact@techcorp.com"
-            partner="TechCorp Solutions"
+            data={{ email: "contact@techcorp.com", partner: "TechCorp Solutions" }}
             variant="danger"
           />
           <ContactCard
-            email="contact@techcorp.com"
-            partner="TechCorp Solutions"
+            data={{ email: "contact@techcorp.com", partner: "TechCorp Solutions" }}
             variant="warning"
           />
         </div>

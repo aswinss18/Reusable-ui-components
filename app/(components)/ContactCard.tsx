@@ -8,12 +8,16 @@ import styles from "./ContactCard.module.css";
 type ContactCardVariant = "danger" | "success" | "warning";
 
 export type ContactCardProps = {
+  data: ContactCardData;
+  variant?: ContactCardVariant;
+} & Omit<CardProps, "children" | "title" | "variant">;
+
+export type ContactCardData = {
   partner: string;
   email: string;
   partnerLabel?: string;
   emailLabel?: string;
-  variant?: ContactCardVariant;
-} & Omit<CardProps, "children" | "title" | "variant">;
+};
 
 const toneStyles: Record<ContactCardVariant, CSSProperties> = {
   danger: {
@@ -31,16 +35,19 @@ const toneStyles: Record<ContactCardVariant, CSSProperties> = {
 };
 
 export default function ContactCard({
-  partner,
-  email,
-  partnerLabel = "Partner:",
-  emailLabel = "Email:",
+  data,
   variant = "success",
   className = "",
   style,
   styles: cardStyles,
   ...props
 }: ContactCardProps) {
+  const {
+    partner,
+    email,
+    partnerLabel = "Partner:",
+    emailLabel = "Email:",
+  } = data;
   const cardClassName = [styles.card, className].filter(Boolean).join(" ");
 
   const bodyStyles = typeof cardStyles === 'object' && cardStyles?.body 

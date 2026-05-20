@@ -22,22 +22,20 @@ export default function StatCardShowcase() {
 
         <div className="grid gap-5 md:grid-cols-3">
           <StatCard
-            change="+15%"
+            data={{ change: "+15%", title: "Total Revenue", value: "â‚¹45,000" }}
             icon={<TransactionOutlined />}
-            title="Total Revenue"
-            value="₹45,000"
           />
           <StatCard
-            change="+15%"
+            data={{ change: "+15%", title: "Total Accounts Opened", value: "300" }}
             icon={<LineChartOutlined />}
-            title="Total Accounts Opened"
-            value="300"
           />
           <StatCard
+            data={{
+              subtitle: "Per Account",
+              title: "Monthly Pricing Plan",
+              value: "â‚¹2,500",
+            }}
             highlighted
-            subtitle="Per Account"
-            title="Monthly Pricing Plan"
-            value="₹2,500"
           />
         </div>
       </section>
