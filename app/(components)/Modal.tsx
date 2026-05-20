@@ -4,7 +4,7 @@ import { CloseOutlined } from "@ant-design/icons";
 import { Modal as AntModal, Button, Flex, Typography } from "antd";
 import type { ModalProps as AntModalProps } from "antd";
 import { Children, Fragment, isValidElement } from "react";
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import styles from "./Modal.module.css";
 
 type ModalActionsAlign = "right" | "space-between";
@@ -15,10 +15,12 @@ export type ModalProps = {
   onClose: () => void;
   actions?: ReactNode;
   actionsAlign?: ModalActionsAlign;
+  closeOnBackdropClick?: boolean;
+  fitContentWidth?: boolean;
   width?: number | string;
 } & Omit<
   AntModalProps,
-  "children" | "closable" | "closeIcon" | "title" | "onCancel" | "width"
+  "children" | "closable" | "closeIcon" | "title" | "onCancel" | "width" | "maskClosable"
 >;
 
 export default function Modal({
@@ -27,10 +29,13 @@ export default function Modal({
   onClose,
   actions,
   actionsAlign = "right",
+  closeOnBackdropClick = true,
+  fitContentWidth = false,
   open,
   width = 410,
   rootClassName = "",
   footer = false,
+  style,
   ...props
 }: ModalProps) {
   const rawActionItems = Children.toArray(actions);
@@ -44,11 +49,19 @@ export default function Modal({
   const hasStyledFooter = Boolean(footer);
   const modalClassName = [
     styles.modal,
+    fitContentWidth ? styles.modalFitContent : "",
     hasStyledFooter ? styles.modalWithFooter : "",
     rootClassName,
   ]
     .filter(Boolean)
     .join(" ");
+  const modalStyle: CSSProperties = fitContentWidth
+    ? {
+        ...style,
+        maxWidth: "calc(100vw - 32px)",
+        minWidth: typeof width === "number" ? `${width}px` : width,
+      }
+    : (style ?? {});
   const actionsContent = actions ? (
     <Flex
       align="center"
@@ -73,9 +86,11 @@ export default function Modal({
       centered
       closable={false}
       footer={footerContent}
+      maskClosable={closeOnBackdropClick}
       onCancel={onClose}
       open={open}
       rootClassName={modalClassName}
+      style={modalStyle}
       title={
         <Flex justify="space-between" align="center" className={styles.headerInner}>
           <Typography className={styles.title}>{title}</Typography>
@@ -88,7 +103,7 @@ export default function Modal({
           />
         </Flex>
       }
-      width={width}
+      width={fitContentWidth ? "fit-content" : width}
     >
       <>
         {children}

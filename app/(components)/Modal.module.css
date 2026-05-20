@@ -25,6 +25,12 @@
   padding: 0 28px 28px;
 }
 
+.modalFitContent :global(.ant-modal),
+.modalFitContent :global(.ant-modal-content) {
+  width: fit-content;
+  max-width: calc(100vw - 32px);
+}
+
 .modalWithFooter :global(.ant-modal-footer) {
   margin: 0;
   min-height: 102px;

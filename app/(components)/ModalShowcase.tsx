@@ -50,7 +50,7 @@ const modalCards = [
   {
     key: "review" as const,
     blurb: "880px, tabs and list content, footer CTA",
-    label: "Operations Review",
+    label: "Operations Reviews",
   },
 ];
 
@@ -79,7 +79,7 @@ function ModalLaunchCard({
 export default function ModalShowcase() {
   const [activeModal, setActiveModal] = useState<ModalExample>("approval");
   const mounted = useSyncExternalStore(
-    () => () => {},
+    () => () => { },
     () => true,
     () => false,
   );
@@ -136,7 +136,6 @@ export default function ModalShowcase() {
                   </Button>
                 </>
               }
-              mask={{ closable: true }}
               onClose={closeModal}
               open={activeModal === "compact"}
               title="Create Partner"
@@ -201,7 +200,6 @@ export default function ModalShowcase() {
               }
               actionsAlign="space-between"
               footer
-              mask={{ closable: true }}
               onClose={closeModal}
               open={activeModal === "approval"}
               title="Approve Partner"
@@ -256,7 +254,6 @@ export default function ModalShowcase() {
               }
               actionsAlign="right"
               footer
-              mask={{ closable: true }}
               onClose={closeModal}
               open={activeModal === "company"}
               title="Company Profile"
@@ -297,7 +294,6 @@ export default function ModalShowcase() {
                 </>
               }
               footer
-              mask={{ closable: true }}
               onClose={closeModal}
               open={activeModal === "pricing"}
               title="Pricing Summary"
@@ -347,8 +343,9 @@ export default function ModalShowcase() {
                   </Button>
                 </>
               }
+              closeOnBackdropClick={false}
               footer
-              mask={{ closable: true }}
+              fitContentWidth
               onClose={closeModal}
               open={activeModal === "review"}
               title="Operations Review"
