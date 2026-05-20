@@ -7,6 +7,11 @@ const components = [
     description: "Primary, secondary, danger, and neutral button variants.",
   },
   {
+    href: "/button-group",
+    name: "ButtonGroup",
+    description: "Config-driven action row that renders multiple buttons from one array.",
+  },
+  {
     href: "/bread-crumb",
     name: "BreadCrumb",
     description: "Dynamic page header with optional back route, subtitle, and actions.",
