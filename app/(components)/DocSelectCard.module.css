@@ -1,0 +1,61 @@
+.card {
+  align-self: stretch;
+  justify-self: stretch;
+  border-radius: 10px;
+  border: 2px solid #D9D9D9;
+  background: #FFFFFF;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-height: 140px;
+}
+
+.card:hover {
+  border-color: #414099;
+  background: rgba(65, 64, 153, 0.02);
+}
+
+.card.selected {
+  border: 2px solid #414099;
+  background: rgba(65, 64, 153, 0.05);
+}
+
+.iconContainer {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  background: #414099;
+  flex-shrink: 0;
+}
+
+.iconContainer :global(svg),
+.iconContainer :global(.anticon) {
+  font-size: 28px;
+  color: #FFFFFF;
+}
+
+.checkIcon {
+  font-size: 24px;
+  color: #414099;
+  flex-shrink: 0;
+}
+
+.title {
+  color: #332556;
+  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  margin: 0;
+}
+
+.description {
+  color: rgba(51, 37, 86, 0.60);
+  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  margin: 0;
+}
