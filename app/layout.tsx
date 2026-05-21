@@ -10,6 +10,7 @@ import BreadCrumb from "./(components)/BreadCrumb";
 import Button from "./(components)/Button";
 import type { SidebarMenuSection } from "./(components)/Sidebar";
 import "./globals.css";
+import styles from "./layout.module.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -112,19 +113,19 @@ function LayoutContent({ children }: { children: React.ReactNode }) {
   ) : undefined;
 
   return (
-    <Layout style={{ minHeight: "100vh" }}>
+    <Layout className={styles.appLayout}>
       <Header data={headerData} />
-      <Layout>
-        <Sidebar data={sidebarData} collapsible={false} />
-        <Layout.Content style={{ background: "#f6f5fb" }}>
-          <div style={{ padding: "24px" }}>
+      <Layout className={styles.mainLayout}>
+        <Sidebar data={sidebarData} collapsible={true} />
+        <Layout.Content className={`${styles.contentLayout} content-scrollbar`}>
+          <Flex vertical className={styles.contentInner}>
             {breadcrumbData && (
-              <Flex style={{ marginBottom: "24px" }}>
+              <Flex className={styles.breadcrumbWrapper}>
                 <BreadCrumb data={breadcrumbData} actions={breadcrumbActions} />
               </Flex>
             )}
             {children}
-          </div>
+          </Flex>
         </Layout.Content>
       </Layout>
     </Layout>

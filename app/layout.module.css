@@ -1,0 +1,24 @@
+.appLayout {
+  min-height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.mainLayout {
+  height: calc(100vh - 64px);
+  overflow: hidden;
+}
+
+.contentLayout {
+  background: #f6f5fb;
+  overflow: auto;
+  position: relative;
+}
+
+.contentInner {
+  padding: 24px;
+}
+
+.breadcrumbWrapper {
+  margin-bottom: 24px;
+}

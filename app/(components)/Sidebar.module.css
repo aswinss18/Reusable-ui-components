@@ -5,7 +5,7 @@
 
 .inner {
   height: 100vh;
-  padding: 24px;
+  padding: 24px 24px 24px 24px;
   gap: 24px;
   display: flex;
   flex-direction: column;
@@ -66,6 +66,10 @@
 
 .scrollContainer::-webkit-scrollbar-thumb:hover {
   background: rgba(65, 64, 153, 0.35);
+}
+
+.scrollContainer::-webkit-scrollbar-button {
+  display: none;
 }
 
 /* Firefox scrollbar */

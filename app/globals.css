@@ -76,3 +76,38 @@ body {
 .border-danger-custom {
   border-color: var(--danger);
 }
+
+/* Custom scrollbar for content area - minimal modern design */
+.content-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.content-scrollbar::-webkit-scrollbar-track {
+  background: #EBE9E9;
+  border-radius: 3px;
+}
+
+.content-scrollbar::-webkit-scrollbar-thumb {
+  background: #8B5CF6;
+  border-radius: 3px;
+  transition: background 0.2s ease;
+}
+
+.content-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #7C3AED;
+}
+
+.content-scrollbar::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.content-scrollbar::-webkit-scrollbar-button {
+  display: none;
+}
+
+/* Firefox scrollbar */
+.content-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #8B5CF6 #EBE9E9;
+}
