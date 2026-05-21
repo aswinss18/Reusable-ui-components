@@ -56,6 +56,7 @@ export default function Header({
           preview={false}
           src={logoSrc}
           width={178.27}
+         
         />
 
         <Flex align="center" className={styles.rightSection} gap={16}>
@@ -94,8 +95,6 @@ export default function Header({
               ) : null}
             </Flex>
           </Flex>
-
-          <Divider className={styles.divider} orientation="vertical" />
 
           <Flex align="center" className={styles.trailingAction} justify="center">
             {trailingAction}

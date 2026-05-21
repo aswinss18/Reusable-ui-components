@@ -88,8 +88,7 @@ export default function ModalShowcase() {
   const openModal = (example: ModalExample) => setActiveModal(example);
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-[#f6f5fb] px-6 py-16">
-      <section className="flex w-full max-w-6xl flex-col gap-10 rounded-[32px] bg-white px-8 py-10 shadow-[0_20px_60px_rgba(65,64,153,0.08)] sm:px-12">
+    <section className="flex w-full flex-col gap-10 rounded-[32px] bg-white px-8 py-10 shadow-[0_20px_60px_rgba(65,64,153,0.08)] sm:px-12">
         <div className="space-y-3 text-center sm:text-left">
           <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">
             Reusable Modal
@@ -423,6 +422,5 @@ export default function ModalShowcase() {
           </>
         ) : null}
       </section>
-    </main>
   );
 }
