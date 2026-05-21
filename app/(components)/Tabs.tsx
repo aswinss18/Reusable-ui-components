@@ -1,8 +1,9 @@
 "use client";
 
-import { Badge, Flex, Tabs as AntTabs, Typography } from "antd";
+import { Flex, Tabs as AntTabs, Typography } from "antd";
 import { useState } from "react";
 import type { ReactNode } from "react";
+import Tag from "./Tag";
 import styles from "./Tabs.module.css";
 
 type TabsType = "filter" | "navigation";
@@ -24,18 +25,18 @@ export type TabsProps = {
   onChange?: (key: string) => void;
 };
 
-function resolveFilterBadgeClassName(color?: string) {
+function resolveCountBgColor(color?: string): "#ED1B2F" | "#0CC496" | "#332556" {
   const normalizedColor = color?.toLowerCase();
 
   if (normalizedColor === "#0cc496") {
-    return styles.filterBadgeSuccess;
+    return "#0CC496";
   }
 
-  if (normalizedColor === "#000000") {
-    return styles.filterBadgeNeutral;
+  if (normalizedColor === "#000000" || normalizedColor === "#332556") {
+    return "#332556";
   }
 
-  return styles.filterBadgeDanger;
+  return "#ED1B2F";
 }
 
 function FilterTabLabel({ item }: { item: TabsItem }) {
@@ -43,11 +44,9 @@ function FilterTabLabel({ item }: { item: TabsItem }) {
     <Flex align="center" gap={8}>
       <Typography.Text className={styles.filterTabText}>{item.label}</Typography.Text>
       {typeof item.badgeCount === "number" ? (
-        <Badge
-          count={item.badgeCount}
-          className={[styles.filterBadge, resolveFilterBadgeClassName(item.badgeColor)].join(" ")}
-          overflowCount={999}
-        />
+        <Tag type="count" countBgColor={resolveCountBgColor(item.badgeColor)} >
+          {item.badgeCount}
+        </Tag>
       ) : null}
     </Flex>
   );

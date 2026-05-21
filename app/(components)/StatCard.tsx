@@ -1,8 +1,9 @@
 "use client";
 
-import { Card, Tag, Flex, Typography } from "antd";
+import { Card, Flex, Typography } from "antd";
 import type { CardProps } from "antd";
 import type { ReactNode } from "react";
+import Tag from "./Tag";
 import styles from "./StatCard.module.css";
 
 export type StatCardProps = {
@@ -36,7 +37,11 @@ export default function StatCard({
         <Flex className={styles.textBlock} vertical>
           <Typography.Text className={styles.title}>{title}</Typography.Text>
           <Typography.Text className={styles.value}>{value}</Typography.Text>
-          {change ? <Tag className={styles.pill}>{change}</Tag> : null}
+          {change ? (
+            <Tag type="change" >
+              {change}
+            </Tag>
+          ) : null}
           {subtitle ? <Typography.Text className={styles.subtitle}>{subtitle}</Typography.Text> : null}
         </Flex>
         {icon ? <Flex className={styles.iconBox}>{icon}</Flex> : null}

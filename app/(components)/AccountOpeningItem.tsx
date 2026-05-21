@@ -1,7 +1,8 @@
 "use client";
 
-import { Flex, Typography, Tag } from "antd";
+import { Flex, Typography } from "antd";
 import { CheckCircleFilled, CloseCircleFilled } from "@ant-design/icons";
+import Tag from "./Tag";
 import styles from "./AccountOpeningItem.module.css";
 
 type FundingStatus = "completed" | "failed";
@@ -35,22 +36,22 @@ const fundingStatusConfig = {
 const kycStatusConfig = {
   completed: {
     label: "Completed",
-    toneClassName: styles.tagCompleted,
+    statusValue: "Completed" as const,
   },
   pending: {
     label: "Pending",
-    toneClassName: styles.tagPending,
+    statusValue: "Pending" as const,
   },
 };
 
 const accountStatusConfig = {
   opened: {
     label: "Opened",
-    toneClassName: styles.tagOpened,
+    statusValue: "Opened" as const,
   },
   failed: {
     label: "Failed",
-    toneClassName: styles.tagFailed,
+    statusValue: "Failed" as const,
   },
 };
 
@@ -92,13 +93,13 @@ export default function AccountOpeningItem({
       </Flex>
 
       <Flex className={styles.kycColumn} align="center" justify="center">
-        <Tag className={[styles.tag, kycConfig.toneClassName].join(" ")}>
+        <Tag type="status" statusValue={kycConfig.statusValue} >
           {kycConfig.label}
         </Tag>
       </Flex>
 
       <Flex className={styles.accountColumn} align="center" justify="center">
-        <Tag className={[styles.tag, accountConfig.toneClassName].join(" ")}>
+        <Tag type="status" statusValue={accountConfig.statusValue} >
           {accountConfig.label}
         </Tag>
       </Flex>
