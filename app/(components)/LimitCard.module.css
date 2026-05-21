@@ -5,11 +5,7 @@
   min-height: 152px;
   border: 1px solid #4140991a;
   border-radius: 10px;
-  background: linear-gradient(to bottom left,
-      #ffffff 0%,
-      #f7f7ff 38%,
-      #ededff 55.87%,
-      #e7e7ff 100%);
+  background: linear-gradient(21.917deg, rgba(220, 220, 250, 0.559) 26.633%, #ffffff 74.319%);
   box-shadow: none;
 }
 
@@ -103,32 +99,34 @@
   justify-content: center;
 }
 
+
+
 .progress :global(.ant-progress-circle-trail) {
-  stroke: #d9d9d9;
+  stroke: #e9e8f0;
 }
 
 .progressDanger :global(.ant-progress-circle-path) {
-  stroke: #d62a23;
+  stroke: #ef4339;
 }
 
 .progressSuccess :global(.ant-progress-circle-path) {
-  stroke: #00a63e;
+  stroke: #12b347;
 }
 
 .progressWarning :global(.ant-progress-circle-path) {
-  stroke: #f0b100;
+  stroke: #f0b126;
 }
 
-.progressContainer :global(.ant-progress-circle-text) {
-  font-size: 20px !important;
-  color: #332556 !important;
-  font-weight: 400;
-  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
-  line-height: 1;
+.progressIndicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
 .progressText {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   color: #332556;
@@ -137,12 +135,11 @@
   font-style: normal;
   font-weight: 400;
   line-height: 1;
-  margin: 0;
+  white-space: nowrap;
 }
 
 .progressPercent {
   font-size: 0.8em;
   color: inherit;
-  margin: 0;
   margin-left: 2px;
 }
