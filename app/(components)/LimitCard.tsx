@@ -1,5 +1,4 @@
 "use client";
-import { useEffect, useState } from "react";
 import { Card, Flex, Typography, Progress } from "antd";
 import type { CardProps } from "antd";
 import styles from "./LimitCard.module.css";
@@ -42,11 +41,6 @@ export default function LimitCard({
   const boundedPercent = Math.max(0, Math.min(100, utilizedPercent));
 
   // Start at 0, flip to real value after mount — AntD's CSS transition does the rest
-  const [animatedPercent, setAnimatedPercent] = useState(0);
-  useEffect(() => {
-    setAnimatedPercent(boundedPercent);
-  }, [boundedPercent]);
-
   const cardClassName = [styles.card, className].filter(Boolean).join(" ");
 
   const progressClassName = [
@@ -90,7 +84,7 @@ export default function LimitCard({
             <Progress
               className={progressClassName}
               type="circle"
-              percent={animatedPercent}
+              percent={boundedPercent}
               strokeColor={progressStrokeColors[variant]}
               railColor="#D9D9D9"
               strokeWidth={10}

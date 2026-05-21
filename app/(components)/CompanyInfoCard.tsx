@@ -53,11 +53,11 @@ function InfoItem({ label, value }: InfoItemProps) {
 
 function ContactItem({ icon, label, value }: ContactItemProps) {
   return (
-    <Flex align="flex-start" className={styles.contactItem} gap={12}>
+    <Flex align="flex-start" className={styles.contactItem} gap={8}>
       <Flex align="center" className={styles.contactIcon} justify="center">
         {icon}
       </Flex>
-      <Flex className={styles.contactText} vertical gap={2}>
+      <Flex className={styles.contactText} vertical gap={0}>
         <Typography.Text className={styles.label}>{label}</Typography.Text>
         <Typography.Text className={styles.value}>{value}</Typography.Text>
       </Flex>
@@ -88,41 +88,38 @@ export default function CompanyInfoCard({
   return (
     <Card className={cardClassName} {...props}>
       <Flex className={styles.container} vertical>
-        <Flex align="center" justify="space-between">
-          <Flex align="center" gap={12}>
+        <Flex align="center" className={styles.header}>
+          <Flex align="center" className={styles.titleGroup}>
             <BankOutlined className={styles.headerIcon} />
             <Typography.Text className={styles.title}>{title}</Typography.Text>
           </Flex>
-
-          <Button
-            aria-label="Edit company information"
-            className={styles.editButton}
-            icon={<EditOutlined className={styles.editIcon} />}
-            onClick={onEdit}
-            type="text"
-          />
         </Flex>
 
-        <Flex className={styles.content} gap={28}>
-          <Flex className={styles.leftColumn} gap={24}>
-            <Flex className={styles.leftGroup} vertical gap={22}>
-              <InfoItem label="Company Name" value={companyName} />
-              <InfoItem label="Tax ID" value={taxId} />
-              <InfoItem label="GST Number" value={gstNumber} />
-            </Flex>
+        <Button
+          aria-label="Edit company information"
+          className={styles.editButton}
+          icon={<EditOutlined className={styles.editIcon} />}
+          onClick={onEdit}
+          type="text"
+        />
 
-            <Flex className={styles.leftGroup} vertical gap={22}>
-              <Flex className={styles.infoItem} vertical gap={4}>
+        <Flex className={styles.content}>
+          <div className={styles.leftSection}>
+            <div className={styles.infoGrid}>
+              <InfoItem label="Company Name" value={companyName} />
+              <Flex className={styles.categoryItem} vertical>
                 <Typography.Text className={styles.label}>Category</Typography.Text>
                 <Tag className={styles.categoryTag}>{category}</Tag>
               </Flex>
+              <InfoItem label="Tax ID" value={taxId} />
               <InfoItem label="Registered On" value={registeredOn} />
-            </Flex>
-          </Flex>
+              <InfoItem label="GST Number" value={gstNumber} />
+            </div>
+          </div>
 
           <Divider className={styles.divider} orientation="vertical" />
 
-          <Flex className={styles.rightColumn} vertical gap={18}>
+          <Flex className={styles.rightColumn} vertical gap={12}>
             <ContactItem
               icon={<TeamOutlined className={styles.contactIconGraphic} />}
               label="Primary Contact"
