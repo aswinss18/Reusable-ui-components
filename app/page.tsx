@@ -81,6 +81,11 @@ const components = [
     name: "DocSelectCard",
     description: "Selectable document cards with icons and descriptions.",
   },
+  {
+    href: "/tag",
+    name: "Tag",
+    description: "Versatile tag component with status, count, change, and default variants.",
+  },
 ];
 
 export default function Home() {

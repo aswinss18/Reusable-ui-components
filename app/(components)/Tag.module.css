@@ -1,0 +1,141 @@
+.tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 8px;
+  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  white-space: nowrap;
+  margin: 0;
+}
+
+/* Border radius variants */
+.rounded {
+  border-radius: 50px;
+}
+
+.defaultRadius {
+  border-radius: 8px;
+}
+
+/* Default type */
+.default {
+  border: 1px solid rgba(65, 64, 153, 0.30);
+  color: #414099;
+  background: transparent;
+}
+
+/* Status type - Completed/Opened */
+.statusCompleted {
+  color: #1CB791;
+  background: rgba(43, 204, 164, 0.20);
+  border: none;
+}
+
+.statusCompletedOutline {
+  color: #1CB791;
+  background: rgba(43, 204, 164, 0.20);
+  border: 1px solid #1CB791;
+}
+
+/* Status type - Pending */
+.statusPending {
+  color: #A65F00;
+  background: #FEF9C2;
+  border: none;
+}
+
+.statusPendingOutline {
+  color: #A65F00;
+  background: #FEF9C2;
+  border: 1px solid #A65F00;
+}
+
+/* Status type - Failed */
+.statusFailed {
+  color: #DB3529;
+  background: #FFE2E2;
+  border: none;
+}
+
+.statusFailedOutline {
+  color: #DB3529;
+  background: #FFE2E2;
+  border: 1px solid #DB3529;
+}
+
+/* Status type - Success */
+.statusSuccess {
+  color: #0CC496;
+  background: rgba(12, 196, 150, 0.10);
+  border: none;
+}
+
+.statusSuccessOutline {
+  color: #0CC496;
+  background: rgba(12, 196, 150, 0.10);
+  border: 1px solid #0CC496;
+}
+
+/* Status type - Approved */
+.statusApproved {
+  color: #008236;
+  background: #DCFCE7;
+  border: none;
+}
+
+.statusApprovedOutline {
+  color: #008236;
+  background: #DCFCE7;
+  border: 1px solid #008236;
+}
+
+/* Status type - Rejected */
+.statusRejected {
+  color: #C10007;
+  background: #FFE2E2;
+  border: none;
+}
+
+.statusRejectedOutline {
+  color: #C10007;
+  background: #FFE2E2;
+  border: 1px solid #C10007;
+}
+
+/* Count type */
+.count {
+  color: #FFFFFF;
+  border: none;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.10), 0 1px 2px -1px rgba(0, 0, 0, 0.10);
+}
+
+.countRed {
+  background: #ED1B2F;
+}
+
+.countGreen {
+  background: #0CC496;
+}
+
+.countPurple {
+  background: #332556;
+}
+
+/* Change type */
+.change {
+  border: none;
+}
+
+.changePositive {
+  color: #008236;
+  background: #DCFCE7;
+}
+
+.changeNegative {
+  color: #C10007;
+  background: #FFE2E2;
+}
