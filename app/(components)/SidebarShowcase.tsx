@@ -4,15 +4,16 @@ import { Flex } from "antd";
 import BreadCrumb from "./BreadCrumb";
 import Button from "./Button";
 import Sidebar from "./Sidebar";
+import type { SidebarMenuSection } from "./Sidebar";
 
-const sidebarMenu = [
+const sidebarMenu: SidebarMenuSection[] = [
   {
     section: "MAIN MENU",
     items: [
       {
         active: true,
         hasArrow: true,
-        height: 44,
+        height: 44 as const,
         icon: "overview",
         key: "overview",
         label: "Overview",
@@ -20,14 +21,14 @@ const sidebarMenu = [
       },
       {
         badge: 3,
-        height: 46,
+        height: 46 as const,
         icon: "leads",
         key: "leads",
         label: "Leads",
         path: "/modal",
       },
       {
-        height: 44,
+        height: 44 as const,
         icon: "partners",
         key: "partners",
         label: "My Partners",
@@ -39,21 +40,21 @@ const sidebarMenu = [
     section: "PARTNER MANAGEMENT",
     items: [
       {
-        height: 44,
+        height: 44 as const,
         icon: "limits",
         key: "limits",
         label: "Limits",
         path: "/limit-card",
       },
       {
-        height: 52,
+        height: 52 as const,
         icon: "charges",
         key: "charges",
         label: "Charges",
         path: "/price-card",
       },
       {
-        height: 52,
+        height: 52 as const,
         icon: "activity",
         key: "activity",
         label: "Activity Log",
