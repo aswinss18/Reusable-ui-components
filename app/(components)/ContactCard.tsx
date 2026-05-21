@@ -46,17 +46,18 @@ export default function ContactCard({
     <Card
       {...props}
       className={cardClassName}
+      classNames={{ body: styles.body }}
       variant="borderless"
     >
-      <Flex gap={4} vertical>
-        <Flex gap={4} wrap>
-          <Typography.Text className={styles.text}>{partnerLabel}</Typography.Text>
-          <Typography.Text className={styles.text}>{partner}</Typography.Text>
-        </Flex>
-        <Flex gap={4} wrap>
-          <Typography.Text className={styles.text}>{emailLabel}</Typography.Text>
-          <Typography.Text className={styles.text}>{email}</Typography.Text>
-        </Flex>
+      <Flex className={styles.content} vertical>
+        <Typography.Text className={styles.line}>
+          <span className={styles.label}>{partnerLabel}</span>
+          <span className={styles.value}>{` ${partner}`}</span>
+        </Typography.Text>
+        <Typography.Text className={styles.line}>
+          <span className={styles.label}>{emailLabel}</span>
+          <span className={styles.value}>{` ${email}`}</span>
+        </Typography.Text>
       </Flex>
     </Card>
   );
