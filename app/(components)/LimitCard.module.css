@@ -85,24 +85,45 @@
 }
 
 .progressContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 76px;
   height: 76px;
+  flex-shrink: 0;
 }
 
-/* Ant Design Progress overrides */
 .progressContainer :global(.ant-progress) {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 76px !important;
+  height: 76px !important;
+  line-height: 76px;
 }
 
+.progressContainer :global(.ant-progress-inner) {
+  width: 76px !important;
+  height: 76px !important;
+}
 
+/* THE FLASH FIX: replace AntD's transform-based centering with inset+flex */
+.progressContainer :global(.ant-progress-text) {
+  position: absolute !important;
+  inset: 0 !important;
+  top: unset !important;
+  left: unset !important;
+  width: 100% !important;
+  height: 100% !important;
+  transform: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 !important;
+  line-height: 1 !important;
+}
 
 .progress :global(.ant-progress-circle-trail) {
   stroke: #e9e8f0;
+}
+
+/* THE ANIMATION: AntD already transitions stroke-dashoffset; we just control speed/easing */
+.progressContainer :global(.ant-progress-circle-path) {
+  transition: stroke-dashoffset 0.9s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .progressDanger :global(.ant-progress-circle-path) {
@@ -117,29 +138,21 @@
   stroke: #f0b126;
 }
 
-.progressIndicator {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-}
-
 .progressText {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: #332556;
-  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1;
-  white-space: nowrap;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #332556 !important;
+  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif !important;
+  font-size: 20px !important;
+  font-weight: 400 !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
 }
 
 .progressPercent {
-  font-size: 0.8em;
-  color: inherit;
-  margin-left: 2px;
+  font-size: 0.75em !important;
+  color: inherit !important;
+  margin-left: 1px !important;
+  line-height: 1 !important;
 }

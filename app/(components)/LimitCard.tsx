@@ -1,5 +1,5 @@
 "use client";
-
+import { useEffect, useState } from "react";
 import { Card, Flex, Typography, Progress } from "antd";
 import type { CardProps } from "antd";
 import styles from "./LimitCard.module.css";
@@ -38,8 +38,17 @@ export default function LimitCard({
     utilizedPercent,
     utilizedLabel = "Utilized",
   } = data;
-  const cardClassName = [styles.card, className].filter(Boolean).join(" ");
+
   const boundedPercent = Math.max(0, Math.min(100, utilizedPercent));
+
+  // Start at 0, flip to real value after mount — AntD's CSS transition does the rest
+  const [animatedPercent, setAnimatedPercent] = useState(0);
+  useEffect(() => {
+    setAnimatedPercent(boundedPercent);
+  }, [boundedPercent]);
+
+  const cardClassName = [styles.card, className].filter(Boolean).join(" ");
+
   const progressClassName = [
     styles.progress,
     variant === "success"
@@ -80,18 +89,17 @@ export default function LimitCard({
           <Flex className={styles.progressContainer}>
             <Progress
               className={progressClassName}
-              classNames={{ indicator: styles.progressIndicator }}
               type="circle"
-              percent={boundedPercent}
+              percent={animatedPercent}
               strokeColor={progressStrokeColors[variant]}
-              railColor="#e9e8f0"
+              railColor="#D9D9D9"
+              strokeWidth={10}
               size={76}
-              strokeWidth={8}
               format={() => (
-                <span className={styles.progressText}>
+                <Typography.Text className={styles.progressText}>
                   {boundedPercent}
-                  <span className={styles.progressPercent}>%</span>
-                </span>
+                  <Typography.Text className={styles.progressPercent}>%</Typography.Text>
+                </Typography.Text>
               )}
             />
           </Flex>
