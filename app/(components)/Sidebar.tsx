@@ -3,15 +3,17 @@
 import {
   CreditCardOutlined,
   HistoryOutlined,
+  MenuFoldOutlined,
+  MenuUnfoldOutlined,
   RightOutlined,
   RiseOutlined,
   TeamOutlined,
   UsergroupAddOutlined,
 } from "@ant-design/icons";
-import { Badge, Flex, Layout, Menu, Typography } from "antd";
+import { Badge, Button, Flex, Layout, Menu, Tooltip, Typography } from "antd";
 import type { MenuProps } from "antd";
 import { useRouter } from "next/navigation";
-import { isValidElement } from "react";
+import { isValidElement, useState } from "react";
 import type { ReactNode } from "react";
 import styles from "./Sidebar.module.css";
 
@@ -52,8 +54,12 @@ export type SidebarProps = {
   data: SidebarMenuSection[];
   activeKey?: string;
   width?: number | string;
+  collapsedWidth?: number;
   className?: string;
+  collapsible?: boolean;
+  defaultCollapsed?: boolean;
   onItemClick?: (item: SidebarMenuItem) => void;
+  onCollapse?: (collapsed: boolean) => void;
 };
 
 function SidebarItemLabel({
@@ -120,10 +126,16 @@ export default function Sidebar({
   data,
   activeKey,
   width = 280,
+  collapsedWidth = 80,
   className = "",
+  collapsible = false,
+  defaultCollapsed = false,
   onItemClick,
+  onCollapse,
 }: SidebarProps) {
   const router = useRouter();
+  const [collapsed, setCollapsed] = useState(defaultCollapsed);
+  
   const sidebarClassName = [styles.sidebar, className].filter(Boolean).join(" ");
 
   const itemMap = Object.fromEntries(
@@ -146,38 +158,70 @@ export default function Sidebar({
     }
   };
 
+  const handleCollapse = () => {
+    const newCollapsed = !collapsed;
+    setCollapsed(newCollapsed);
+    onCollapse?.(newCollapsed);
+  };
+
   return (
     <Layout.Sider
       className={sidebarClassName}
       theme="light"
       trigger={null}
       width={width}
+      collapsedWidth={collapsedWidth}
+      collapsed={collapsed}
+      collapsible={collapsible}
     >
       <Flex className={styles.inner} vertical>
-        {data.map((section) => (
-          <Flex key={section.section} className={styles.section} vertical>
-            <Typography.Text className={styles.sectionTitle}>
-              {section.section}
-            </Typography.Text>
+        <Flex className={styles.scrollContainer} vertical>
+          {data.map((section) => (
+            <Flex key={section.section} className={styles.section} vertical>
+              {!collapsed && (
+                <Typography.Text className={styles.sectionTitle}>
+                  {section.section}
+                </Typography.Text>
+              )}
 
-            <Menu
-              className={styles.menu}
-              items={section.items.map((item) => ({
-                className: resolveItemClassName(item),
-                disabled: item.disabled,
-                icon: <span className={styles.menuIcon}>{resolveSidebarIcon(item.icon)}</span>,
-                key: item.key,
-                label: (
-                  <SidebarItemLabel active={derivedActiveKey === item.key} item={item} />
-                ),
-              }))}
-              mode="inline"
-              onClick={handleMenuClick}
-              selectable
-              selectedKeys={derivedActiveKey ? [derivedActiveKey] : []}
-            />
-          </Flex>
-        ))}
+              <Menu
+                className={styles.menu}
+                items={section.items.map((item) => ({
+                  className: resolveItemClassName(item),
+                  disabled: item.disabled,
+                  icon: (
+                    <Tooltip
+                      title={collapsed ? item.label : ""}
+                      placement="right"
+                    >
+                      <span className={styles.menuIcon}>
+                        {resolveSidebarIcon(item.icon)}
+                      </span>
+                    </Tooltip>
+                  ),
+                  key: item.key,
+                  label: !collapsed ? (
+                    <SidebarItemLabel active={derivedActiveKey === item.key} item={item} />
+                  ) : null,
+                }))}
+                mode="inline"
+                onClick={handleMenuClick}
+                selectable
+                selectedKeys={derivedActiveKey ? [derivedActiveKey] : []}
+                inlineCollapsed={collapsed}
+              />
+            </Flex>
+          ))}
+        </Flex>
+
+        {collapsible && (
+          <Button
+            className={styles.collapseButton}
+            icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+            onClick={handleCollapse}
+            type="text"
+          />
+        )}
       </Flex>
     </Layout.Sider>
   );

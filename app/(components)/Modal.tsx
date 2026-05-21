@@ -86,7 +86,7 @@ export default function Modal({
       centered
       closable={false}
       footer={footerContent}
-      maskClosable={closeOnBackdropClick}
+      mask={{ closable: closeOnBackdropClick }}
       onCancel={onClose}
       open={open}
       rootClassName={modalClassName}

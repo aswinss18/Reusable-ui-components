@@ -115,7 +115,7 @@ function LayoutContent({ children }: { children: React.ReactNode }) {
     <Layout style={{ minHeight: "100vh" }}>
       <Header data={headerData} />
       <Layout>
-        <Sidebar data={sidebarData} />
+        <Sidebar data={sidebarData} collapsible={false} />
         <Layout.Content style={{ background: "#f6f5fb" }}>
           <div style={{ padding: "24px" }}>
             {breadcrumbData && (

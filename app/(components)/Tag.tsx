@@ -105,7 +105,7 @@ export default function Tag({
   };
 
   return (
-    <AntTag className={getTagClasses()} bordered={false}>
+    <AntTag className={getTagClasses()} variant="filled">
       {children}
     </AntTag>
   );
