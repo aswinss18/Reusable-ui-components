@@ -2,23 +2,57 @@
   min-height: 100vh;
   max-height: 100vh;
   overflow: hidden;
+  background: #f6f5fb;
 }
 
 .mainLayout {
   height: calc(100vh - 64px);
   overflow: hidden;
+  background: #f6f5fb;
 }
 
 .contentLayout {
-  background: #f6f5fb;
+  background: #f6f5fb !important;
   overflow: auto;
   position: relative;
 }
 
 .contentInner {
   padding: 24px;
+  background: #f6f5fb;
 }
 
 .breadcrumbWrapper {
   margin-bottom: 24px;
+}
+
+.skeletonHeader {
+  height: 64px;
+  padding: 0;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(65, 64, 153, 0.1);
+  line-height: 64px;
+}
+
+.skeletonHeader :global(.ant-skeleton),
+.skeletonHeader :global(.ant-skeleton-element),
+.skeletonHeader :global(.ant-skeleton-input),
+.skeletonHeader :global(.ant-skeleton-avatar),
+.skeletonHeader :global(.ant-skeleton-button) {
+  margin: 0 !important;
+  padding: 0 !important;
+  vertical-align: middle;
+}
+
+.skeletonSidebar {
+  background: #ffffff !important;
+  border-right: 1px solid rgba(65, 64, 153, 0.1);
+}
+
+.skeletonCard {
+  width: 100%;
+  padding: 40px;
+  background: #ffffff;
+  border-radius: 32px;
+  box-shadow: 0 20px 60px rgba(65, 64, 153, 0.08);
 }

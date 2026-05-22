@@ -2,8 +2,10 @@
 
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Work_Sans } from "next/font/google";
-import { Flex, Layout } from "antd";
+
+import { Flex, Layout, Skeleton } from "antd";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import Header from "./(components)/Header";
 import Sidebar from "./(components)/Sidebar";
 import BreadCrumb from "./(components)/BreadCrumb";
@@ -55,6 +57,15 @@ const componentTitles: Record<string, { title: string; subtitle: string; showAct
 
 function LayoutContent({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Small delay to ensure styles are loaded
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 100);
+    return () => clearTimeout(timer);
+  }, []);
 
   const sidebarData: SidebarMenuSection[] = [
     {
@@ -111,6 +122,49 @@ function LayoutContent({ children }: { children: React.ReactNode }) {
       <Button>Generate Report</Button>
     </>
   ) : undefined;
+
+  if (isLoading) {
+    return (
+      <Layout className={styles.appLayout}>
+        <Layout.Header className={styles.skeletonHeader}>
+          <Flex align="center" justify="space-between" style={{ height: '100%', padding: '0 24px' }}>
+            <Skeleton.Input active size="small" style={{ width: 178, height: 26 }} />
+            <Flex align="center" gap={16}>
+              <Skeleton.Input active size="large" style={{ width: 300 }} />
+              <Skeleton.Avatar active size={24} shape="circle" />
+              <Skeleton.Avatar active size={34} shape="circle" />
+              <Skeleton.Avatar active size={20} shape="circle" />
+            </Flex>
+          </Flex>
+        </Layout.Header>
+        <Layout className={styles.mainLayout}>
+          <Layout.Sider className={styles.skeletonSidebar} width={280}>
+            <Flex vertical gap={24} style={{ padding: '24px' }}>
+              <Flex vertical gap={12}>
+                <Skeleton.Input active size="small" style={{ width: 100, height: 12 }} />
+                <Skeleton.Button active block style={{ height: 44 }} />
+                <Skeleton.Button active block style={{ height: 44 }} />
+              </Flex>
+              <Flex vertical gap={12}>
+                <Skeleton.Input active size="small" style={{ width: 150, height: 12 }} />
+                <Skeleton.Button active block style={{ height: 44 }} />
+                <Skeleton.Button active block style={{ height: 44 }} />
+                <Skeleton.Button active block style={{ height: 44 }} />
+                <Skeleton.Button active block style={{ height: 44 }} />
+              </Flex>
+            </Flex>
+          </Layout.Sider>
+          <Layout.Content className={`${styles.contentLayout} content-scrollbar`}>
+            <Flex vertical className={styles.contentInner}>
+              <Flex className={styles.skeletonCard} vertical gap={16}>
+                <Skeleton active title={{ width: '40%' }} paragraph={{ rows: 4 }} />
+              </Flex>
+            </Flex>
+          </Layout.Content>
+        </Layout>
+      </Layout>
+    );
+  }
 
   return (
     <Layout className={styles.appLayout}>

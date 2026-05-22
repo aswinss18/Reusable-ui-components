@@ -176,27 +176,31 @@
   font-style: normal;
   font-weight: 600;
   line-height: 1;
-  background: rgba(237, 27, 47, 0.12);
+  background: #ffe5e8;
   border: none;
   border-radius: 0 8px 8px 0;
 }
 
 .cardDisabled .avatar {
-  background: #dbd9e4;
+  background: #e8e6f0;
+  color: #b8b5c8;
 }
 
-.cardDisabled .partnerName,
+.cardDisabled .partnerName {
+  color: #c5c3d1;
+}
+
 .cardDisabled .metricValue {
-  color: rgba(51, 37, 86, 0.42);
+  color: #b8b5c8;
 }
 
 .cardDisabled .metricLabel {
-  color: rgba(51, 37, 86, 0.38);
+  color: #d1cfd9;
 }
 
 .cardDisabled .partnerCodeTag {
-  color: #cbc7d8;
-  background: #f4f3f8;
+  color: #d1cfd9;
+  background: #f8f7fb;
 }
 
 @media (max-width: 960px) {
