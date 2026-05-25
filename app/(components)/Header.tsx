@@ -15,7 +15,6 @@ import {
   Image,
   Input,
   Layout,
-  List,
   Popover,
   Typography,
 } from "antd";
@@ -52,7 +51,6 @@ export type SearchItem = {
 };
 
 type SearchOption = {
-  key: string;
   value: string;
   label: ReactNode;
   searchItem: SearchItem;
@@ -152,8 +150,7 @@ export default function Header({
       const avatar = getSearchAvatar(item);
 
       return {
-        key: item.id.toString(),
-        value: item.title,
+        value: item.id.toString(),
         label: (
           <Flex align="center" justify="space-between" className={styles.searchItem}>
             <Flex align="center" gap={12} className={styles.searchItemMain}>
@@ -187,42 +184,56 @@ export default function Header({
     onSearchChange?.(value);
   };
 
+  const handleSearchSelect = (value: string, option: SearchOption) => {
+    const nextValue = option.searchItem.title;
+
+    if (searchValue === undefined) {
+      setInternalSearchValue(nextValue);
+    }
+
+    onSearchSelect?.(value, option);
+  };
+
   const notificationContent = (
     <Flex vertical className={`${styles.notificationContent} notification-list`}>
-      <List
-        dataSource={notifications}
-        renderItem={(item) => {
+      {notifications.length > 0 ? (
+        notifications.map((item) => {
           const avatar = getNotificationAvatar(item.title);
 
           return (
-            <List.Item className={`${styles.notificationItem} notification-item`}>
-              <List.Item.Meta
-                avatar={
-                  <Avatar className={`${styles.notificationAvatar} ${avatar.toneClass}`}>
-                    {avatar.letter}
-                  </Avatar>
-                }
-                title={
-                  <Typography.Text strong className={styles.notificationTitle}>
-                    {item.title}
-                  </Typography.Text>
-                }
-                description={
-                  <Flex vertical gap={4}>
-                    <Typography.Text className={styles.notificationDescription}>
-                      {item.description}
-                    </Typography.Text>
-                    <Typography.Text type="secondary" className={styles.notificationTime}>
-                      {item.time}
-                    </Typography.Text>
-                  </Flex>
-                }
-              />
-            </List.Item>
+            <Flex
+              key={item.id}
+              align="flex-start"
+              className={`${styles.notificationItem} notification-item`}
+              gap={12}
+            >
+              <Avatar className={`${styles.notificationAvatar} ${avatar.toneClass}`}>
+                {avatar.letter}
+              </Avatar>
+              <Flex flex={1} vertical gap={4}>
+                <Typography.Text strong className={styles.notificationTitle}>
+                  {item.title}
+                </Typography.Text>
+                <Typography.Text className={styles.notificationDescription}>
+                  {item.description}
+                </Typography.Text>
+                <Typography.Text type="secondary" className={styles.notificationTime}>
+                  {item.time}
+                </Typography.Text>
+              </Flex>
+            </Flex>
           );
-        }}
-        locale={{ emptyText: "No notifications" }}
-      />
+        })
+      ) : (
+        <Empty
+          description={
+            <Typography.Text className={styles.notificationDescription}>
+              No notifications
+            </Typography.Text>
+          }
+          image={Empty.PRESENTED_IMAGE_SIMPLE}
+        />
+      )}
     </Flex>
   );
 
@@ -253,7 +264,7 @@ export default function Header({
               />
             }
             onChange={handleSearchChange}
-            onSelect={onSearchSelect}
+            onSelect={handleSearchSelect}
             options={searchOptions}
             placeholder={searchPlaceholder}
             popupMatchSelectWidth={400}

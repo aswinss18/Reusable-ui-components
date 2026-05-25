@@ -236,9 +236,9 @@
 }
 
 .notificationBadge :global(.ant-badge-dot) {
-  width: 12px;
-  min-width: 12px;
-  height: 12px;
+  width: 8px;
+  min-width: 8px;
+  height: 8px;
   background: #ff2432;
   box-shadow: 0 0 0 2px #ffffff;
   inset-inline-end: 1px;
