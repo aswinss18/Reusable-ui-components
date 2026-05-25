@@ -10,6 +10,7 @@ import {
   AutoComplete,
   Badge,
   Divider,
+  Empty,
   Flex,
   Image,
   Input,
@@ -18,7 +19,7 @@ import {
   Popover,
   Typography,
 } from "antd";
-import { useState, type ReactNode } from "react";
+import { useMemo, useState, type ReactNode } from "react";
 import Button from "./Button";
 import Modal from "./Modal";
 import styles from "./Header.module.css";
@@ -79,6 +80,7 @@ export default function Header({
 }: HeaderProps) {
   const [popoverOpen, setPopoverOpen] = useState(false);
   const [logoutModalOpen, setLogoutModalOpen] = useState(false);
+  const [internalSearchValue, setInternalSearchValue] = useState("");
 
   const {
     logoSrc = "/fino.png",
@@ -104,6 +106,7 @@ export default function Header({
     "#ed1b2f": styles.avatarToneDanger,
     "#ff9800": styles.avatarToneWarning,
   };
+  const resolvedSearchValue = searchValue ?? internalSearchValue;
 
   const handleLogout = () => {
     console.log("Logout");
@@ -133,34 +136,54 @@ export default function Header({
     };
   };
 
-  const searchOptions: SearchOption[] = searchItems.map((item) => {
-    const avatar = getSearchAvatar(item);
+  const searchOptions: SearchOption[] = useMemo(() => {
+    const normalizedQuery = resolvedSearchValue.trim().toLowerCase();
+    const filteredItems = !normalizedQuery
+      ? searchItems
+      : searchItems.filter((item) =>
+          [item.title, item.subtitle, item.timestamp, item.category]
+            .join(" ")
+            .toLowerCase()
+            .includes(normalizedQuery),
+        );
 
-    return {
-      value: item.id.toString(),
-      label: (
-        <Flex align="center" justify="space-between" className={styles.searchItem}>
-          <Flex align="center" gap={12} className={styles.searchItemMain}>
-            <Avatar size={44} className={`${styles.searchAvatar} ${avatar.toneClass}`}>
-              {avatar.letter}
-            </Avatar>
-            <Flex vertical gap={4} className={styles.searchCopy}>
-              <Typography.Text strong className={styles.searchTitle}>
-                {item.title}
-              </Typography.Text>
-              <Typography.Text className={styles.searchSubtitle}>
-                {item.subtitle} - {item.timestamp}
-              </Typography.Text>
+    return filteredItems.map((item) => {
+      const avatar = getSearchAvatar(item);
+
+      return {
+        value: item.title,
+        label: (
+          <Flex align="center" justify="space-between" className={styles.searchItem}>
+            <Flex align="center" gap={12} className={styles.searchItemMain}>
+              <Avatar size={44} className={`${styles.searchAvatar} ${avatar.toneClass}`}>
+                {avatar.letter}
+              </Avatar>
+              <Flex vertical gap={4} className={styles.searchCopy}>
+                <Typography.Text strong className={styles.searchTitle}>
+                  {item.title}
+                </Typography.Text>
+                <Typography.Text className={styles.searchSubtitle}>
+                  {item.subtitle} - {item.timestamp}
+                </Typography.Text>
+              </Flex>
             </Flex>
+            <Typography.Text className={styles.searchCategory}>
+              {item.category}
+            </Typography.Text>
           </Flex>
-          <Typography.Text className={styles.searchCategory}>
-            {item.category}
-          </Typography.Text>
-        </Flex>
-      ),
-      searchItem: item,
-    };
-  });
+        ),
+        searchItem: item,
+      };
+    });
+  }, [resolvedSearchValue, searchItems]);
+
+  const handleSearchChange = (value: string) => {
+    if (searchValue === undefined) {
+      setInternalSearchValue(value);
+    }
+
+    onSearchChange?.(value);
+  };
 
   const notificationContent = (
     <Flex vertical className={`${styles.notificationContent} notification-list`}>
@@ -215,13 +238,24 @@ export default function Header({
           <AutoComplete
             className={styles.search}
             classNames={{ popup: { root: styles.searchDropdown } }}
-            notFoundContent={null}
-            onChange={onSearchChange}
+            filterOption={false}
+            notFoundContent={
+              <Empty
+                className={styles.searchEmpty}
+                description={
+                  <Typography.Text className={styles.searchEmptyText}>
+                    No matching results
+                  </Typography.Text>
+                }
+                image={Empty.PRESENTED_IMAGE_SIMPLE}
+              />
+            }
+            onChange={handleSearchChange}
             onSelect={onSearchSelect}
             options={searchOptions}
             placeholder={searchPlaceholder}
             popupMatchSelectWidth={400}
-            value={searchValue}
+            value={resolvedSearchValue}
           >
             <Input
               prefix={<SearchOutlined className={styles.searchIcon} />}
@@ -239,9 +273,7 @@ export default function Header({
           >
             <Badge
               className={styles.notificationBadge}
-              count={notificationCount}
-              overflowCount={99}
-              size="small"
+              dot={notificationCount > 0}
             >
               <BellOutlined className={styles.bellIcon} />
             </Badge>

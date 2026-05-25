@@ -82,7 +82,7 @@ export default function DataGrid({
     paginatedData.length < pageSize
       ? pageSize - paginatedData.length
       : 0;
-  const tableData = [
+  const tableData: DataGridRow[] = [
     ...paginatedData,
     ...createPlaceholderRows({
       count: placeholderCount,
@@ -245,7 +245,7 @@ function createPlaceholderRows({
   data: DataGridRow[];
   pageSize: number;
   startIndex: number;
-}) {
+}): DataGridRow[] {
   if (count <= 0 || data.length === 0) {
     return [];
   }

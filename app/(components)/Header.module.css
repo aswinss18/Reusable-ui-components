@@ -204,6 +204,17 @@
   background: transparent !important;
 }
 
+.searchEmpty {
+  margin: 8px 0 !important;
+}
+
+.searchEmptyText {
+  color: #8d8cab;
+  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+}
+
 .searchIcon {
   color: #8d8cab;
   font-size: 14px;
@@ -224,16 +235,14 @@
   cursor: pointer;
 }
 
-.notificationBadge :global(.ant-badge-count) {
-  min-width: 16px;
-  height: 16px;
-  line-height: 16px;
+.notificationBadge :global(.ant-badge-dot) {
+  width: 12px;
+  min-width: 12px;
+  height: 12px;
   background: #ff2432;
-  box-shadow: none;
-  color: #ffffff;
-  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
-  font-size: 10px;
-  font-weight: 600;
+  box-shadow: 0 0 0 2px #ffffff;
+  inset-inline-end: 1px;
+  top: 1px;
 }
 
 .divider {

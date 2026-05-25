@@ -3,6 +3,9 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-geist-sans: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-geist-mono: "Consolas", "SFMono-Regular", "Liberation Mono", monospace;
+  --font-work-sans: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
 
   --primary: #414099;
   --secondary: #0cc496;

@@ -1,8 +1,5 @@
 "use client";
 
-import type { Metadata } from "next";
-import { Geist, Geist_Mono, Work_Sans } from "next/font/google";
-
 import { Flex, Layout, Skeleton } from "antd";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -13,21 +10,6 @@ import Button from "./(components)/Button";
 import type { SidebarMenuSection } from "./(components)/Sidebar";
 import "./globals.css";
 import styles from "./layout.module.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-const workSans = Work_Sans({
-  variable: "--font-work-sans",
-  subsets: ["latin"],
-});
 
 const headerData = {
   userName: "Admin User",
@@ -258,10 +240,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${workSans.variable} h-full antialiased`}
-    >
+    <html lang="en" className="h-full antialiased">
       <body className="min-h-full flex flex-col">
         <LayoutContent>{children}</LayoutContent>
       </body>
