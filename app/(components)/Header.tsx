@@ -242,8 +242,9 @@ export default function Header({
       <Flex align="center" className={styles.inner} justify="space-between">
         <Image
           alt={logoAlt}
-          className={styles.logo}
           preview={false}
+          className={styles.logoImage}
+          rootClassName={styles.logo}
           src={logoSrc}
         />
 

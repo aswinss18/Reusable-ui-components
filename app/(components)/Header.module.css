@@ -8,7 +8,7 @@
   border-bottom: 1px solid #ece8fb;
 }
 
-.inner {
+.inner:global(.ant-flex) {
   width: 100%;
   height: 100%;
   padding: 0 32px;
@@ -18,19 +18,19 @@
 .logo {
   display: flex;
   align-items: center;
-  width: 178px;
-  height: 26px;
+  justify-content: flex-start;
+  width: 178.2700958251953px;
+  height: 25.576507568359375px;
   flex-shrink: 0;
 }
 
-.logo :global(.ant-image) {
+.logo:global(.ant-image) {
   display: flex;
   align-items: center;
-  width: 100%;
-  height: 100%;
+  justify-content: flex-start;
 }
 
-.logo :global(.ant-image-img) {
+.logoImage:global(.ant-image-img) {
   display: block;
   width: 100%;
   height: 100%;

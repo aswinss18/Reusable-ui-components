@@ -1,4 +1,6 @@
 .appLayout {
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
   max-height: 100vh;
   overflow: hidden;
@@ -6,96 +8,29 @@
 }
 
 .mainLayout {
+  display: flex;
   height: calc(100vh - 86px);
   overflow: hidden;
   background: #f6f5fb;
 }
 
 .contentLayout {
+  flex: 1;
   background: #f6f5fb !important;
   overflow: auto;
   position: relative;
 }
 
-.contentInner {
+.contentInner:global(.ant-flex) {
   padding: 24px;
   background: #f6f5fb;
 }
 
-.breadcrumbWrapper {
+.breadcrumbWrapper:global(.ant-flex) {
   margin-bottom: 24px;
 }
 
-.skeletonHeader {
-  display: flex;
-  align-items: center;
-  height: 86px;
-  padding: 0;
-  background: #ffffff;
-  border-bottom: 1px solid rgba(65, 64, 153, 0.1);
-  line-height: normal;
-}
-
-.skeletonHeaderInner {
-  width: 100%;
-  height: 100%;
-  padding: 0 32px;
-}
-
-.skeletonHeaderRight {
-  flex-shrink: 0;
-}
-
-.skeletonHeaderLogo :global(.ant-skeleton-input) {
-  width: 178px !important;
-  min-width: 178px !important;
-  height: 26px !important;
-}
-
-.skeletonHeaderSearch :global(.ant-skeleton-input) {
-  width: 400px !important;
-  min-width: 400px !important;
-  height: 38px !important;
-  border-radius: 14px !important;
-}
-
-.skeletonHeaderBell :global(.ant-skeleton-avatar) {
-  width: 24px !important;
-  min-width: 24px !important;
-  height: 24px !important;
-}
-
-.skeletonHeaderUser :global(.ant-skeleton-avatar) {
-  width: 34px !important;
-  min-width: 34px !important;
-  height: 34px !important;
-}
-
-.skeletonHeaderAction :global(.ant-skeleton-avatar) {
-  width: 20px !important;
-  min-width: 20px !important;
-  height: 20px !important;
-}
-
-.skeletonHeader :global(.ant-skeleton),
-.skeletonHeader :global(.ant-skeleton-element),
-.skeletonHeader :global(.ant-skeleton-input),
-.skeletonHeader :global(.ant-skeleton-avatar),
-.skeletonHeader :global(.ant-skeleton-button) {
-  margin: 0 !important;
-  padding: 0 !important;
-  vertical-align: middle;
-}
-
-.skeletonSidebar {
-  background: #ffffff !important;
-  border-right: 1px solid rgba(65, 64, 153, 0.1);
-}
-
-.skeletonCard {
-  width: 100%;
-  padding: 40px;
-  background: #ffffff;
-  border-radius: 32px;
-  box-shadow: 0 20px 60px rgba(65, 64, 153, 0.08);
+.loaderScreen:global(.ant-flex) {
+  min-height: 100vh;
+  background: #f6f5fb;
 }

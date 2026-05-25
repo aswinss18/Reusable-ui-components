@@ -3,7 +3,7 @@
   border-right: 1px solid rgba(65, 64, 153, 0.1);
 }
 
-.inner {
+.inner:global(.ant-flex) {
   height: 100vh;
   padding: 24px 24px 24px 24px;
   gap: 24px;
