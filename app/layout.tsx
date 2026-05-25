@@ -191,13 +191,13 @@ function LayoutContent({ children }: { children: React.ReactNode }) {
     return (
       <Layout className={styles.appLayout}>
         <Layout.Header className={styles.skeletonHeader}>
-          <Flex align="center" justify="space-between" style={{ height: '100%', padding: '0 24px' }}>
-            <Skeleton.Input active size="small" style={{ width: 178, height: 26 }} />
-            <Flex align="center" gap={16}>
-              <Skeleton.Input active size="large" style={{ width: 300 }} />
-              <Skeleton.Avatar active size={24} shape="circle" />
-              <Skeleton.Avatar active size={34} shape="circle" />
-              <Skeleton.Avatar active size={20} shape="circle" />
+          <Flex align="center" className={styles.skeletonHeaderInner} justify="space-between">
+            <Skeleton.Input active className={styles.skeletonHeaderLogo} size="small" />
+            <Flex align="center" className={styles.skeletonHeaderRight} gap={16}>
+              <Skeleton.Input active className={styles.skeletonHeaderSearch} size="small" />
+              <Skeleton.Avatar active className={styles.skeletonHeaderBell} shape="circle" />
+              <Skeleton.Avatar active className={styles.skeletonHeaderUser} shape="circle" />
+              <Skeleton.Avatar active className={styles.skeletonHeaderAction} shape="circle" />
             </Flex>
           </Flex>
         </Layout.Header>
