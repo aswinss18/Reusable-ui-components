@@ -52,6 +52,7 @@ export type SearchItem = {
 };
 
 type SearchOption = {
+  key: string;
   value: string;
   label: ReactNode;
   searchItem: SearchItem;
@@ -151,6 +152,7 @@ export default function Header({
       const avatar = getSearchAvatar(item);
 
       return {
+        key: item.id.toString(),
         value: item.title,
         label: (
           <Flex align="center" justify="space-between" className={styles.searchItem}>
