@@ -5,7 +5,7 @@ import type { ReactNode } from "react";
 import styles from "./Tag.module.css";
 
 type TagType = "status" | "default" | "count" | "change";
-type StatusValue = "Completed" | "Opened" | "Pending" | "Failed" | "Success" | "Approved" | "Rejected";
+type StatusValue = "completed" | "opened" | "pending" | "failed" | "success" | "approved" | "rejected";
 type CountBgColor = "#ED1B2F" | "#0CC496" | "#332556";
 
 export type TagProps = {
@@ -13,9 +13,27 @@ export type TagProps = {
   children: ReactNode;
   outline?: boolean;
   rounded?: boolean;
-  statusValue?: StatusValue;
+  statusValue?: StatusValue | string;
   countBgColor?: CountBgColor;
 };
+
+function normalizeStatusValue(value: string | undefined): StatusValue | undefined {
+  if (!value) {
+    return undefined;
+  }
+
+  const normalizedValue = value.trim().toLowerCase();
+
+  if (normalizedValue === "completed") return "completed";
+  if (normalizedValue === "opened") return "opened";
+  if (normalizedValue === "pending") return "pending";
+  if (normalizedValue === "failed") return "failed";
+  if (normalizedValue === "success") return "success";
+  if (normalizedValue === "approved") return "approved";
+  if (normalizedValue === "rejected") return "rejected";
+
+  return undefined;
+}
 
 export default function Tag({
   type,
@@ -26,23 +44,29 @@ export default function Tag({
   countBgColor,
 }: TagProps) {
   const getStatusClasses = () => {
-    if (type !== "status" || !statusValue) return "";
+    if (type !== "status") return "";
+
+    const resolvedStatusValue = normalizeStatusValue(
+      statusValue ?? (typeof children === "string" ? children : String(children)),
+    );
+
+    if (!resolvedStatusValue) return "";
 
     const baseClass = outline ? styles.statusOutline : styles.status;
 
-    switch (statusValue) {
-      case "Completed":
-      case "Opened":
+    switch (resolvedStatusValue) {
+      case "completed":
+      case "opened":
         return `${baseClass} ${outline ? styles.statusCompletedOutline : styles.statusCompleted}`;
-      case "Pending":
+      case "pending":
         return `${baseClass} ${outline ? styles.statusPendingOutline : styles.statusPending}`;
-      case "Failed":
+      case "failed":
         return `${baseClass} ${outline ? styles.statusFailedOutline : styles.statusFailed}`;
-      case "Success":
+      case "success":
         return `${baseClass} ${outline ? styles.statusSuccessOutline : styles.statusSuccess}`;
-      case "Approved":
+      case "approved":
         return `${baseClass} ${outline ? styles.statusApprovedOutline : styles.statusApproved}`;
-      case "Rejected":
+      case "rejected":
         return `${baseClass} ${outline ? styles.statusRejectedOutline : styles.statusRejected}`;
       default:
         return baseClass;

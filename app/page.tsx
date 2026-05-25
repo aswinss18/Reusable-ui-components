@@ -37,6 +37,11 @@ const components = [
     description: "Reusable dashboard card that conditionally renders activity or action lists.",
   },
   {
+    href: "/data-grid",
+    name: "DataGrid",
+    description: "Config-driven table with key-based cells, icons, component rendering, and pagination.",
+  },
+  {
     href: "/stat-card",
     name: "StatCard",
     description: "Dashboard summary cards with change pills and highlighted state.",
