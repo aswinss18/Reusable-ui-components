@@ -1,0 +1,177 @@
+.card {
+  min-height: 332px;
+  border: 1px solid #ebe9f7 !important;
+  border-radius: 16px !important;
+  background: #ffffff !important;
+  box-shadow: none !important;
+}
+
+.card :global(.ant-card-body) {
+  padding: 20px 24px 22px !important;
+}
+
+.content,
+.headerBlock,
+.itemsList,
+.activityRow,
+.actionRow,
+.identityBlock,
+.identityText {
+  min-width: 0;
+}
+
+.title {
+  color: #332556;
+  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+.subtitle {
+  color: #5e5884;
+  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+.itemsList {
+  width: 100%;
+}
+
+.activityItem,
+.actionItem {
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.activityItem:hover,
+.actionItem:hover {
+  transform: translateY(-1px);
+}
+
+.activityItem {
+  border: 1px solid transparent !important;
+  border-radius: 14px !important;
+  background: #f8f8ff !important;
+  box-shadow: none !important;
+}
+
+.activityItem :global(.ant-card-body) {
+  padding: 12px 14px !important;
+}
+
+.activityRow,
+.actionRow {
+  width: 100%;
+}
+
+.identityBlock {
+  flex: 1 1 0;
+}
+
+.activityAvatar {
+  flex-shrink: 0;
+  background: #4b49b6;
+  color: #ffffff;
+  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.actionIconAvatar {
+  flex-shrink: 0;
+  font-size: 17px;
+}
+
+.actionIconPrimary {
+  color: #4b49b6;
+  background: rgba(75, 73, 182, 0.12);
+}
+
+.actionIconDanger {
+  color: #ff4d5e;
+  background: rgba(255, 77, 94, 0.12);
+}
+
+.itemTitle {
+  color: #332556;
+  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.itemSubtitle {
+  color: #8b87a5;
+  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 19.5px;
+}
+
+.activityValueTag {
+  margin: 0;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 10px;
+  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.activityValuePositive {
+  color: #18a86f;
+  background: rgba(83, 220, 132, 0.18);
+}
+
+.activityValueNeutral {
+  color: #7e7a97;
+  background: #eceaf5;
+}
+
+.activityValueDanger {
+  color: #ed1b2f;
+  background: rgba(237, 27, 47, 0.12);
+}
+
+.actionItem {
+  border-radius: 14px !important;
+  box-shadow: none !important;
+  background: #ffffff !important;
+}
+
+.actionItem :global(.ant-card-body) {
+  padding: 12px 14px !important;
+}
+
+.actionItemPrimary {
+  border: 1px solid #d6d9f6 !important;
+}
+
+.actionItemDanger {
+  border: 1px solid #ffc8cd !important;
+  background: #fff8f8 !important;
+}
+
+.actionArrow {
+  flex-shrink: 0;
+  color: #aca7c5;
+  font-size: 12px;
+}
+
+@media (max-width: 640px) {
+  .card :global(.ant-card-body) {
+    padding: 18px !important;
+  }
+
+  .activityItem :global(.ant-card-body),
+  .actionItem :global(.ant-card-body) {
+    padding: 12px !important;
+  }
+}

@@ -27,6 +27,16 @@ const components = [
     description: "Top app header with Fino logo, search, notifications, and user controls.",
   },
   {
+    href: "/log-filter-card",
+    name: "LogFilterCard",
+    description: "Search and filter log summary card with configurable tabs and counters.",
+  },
+  {
+    href: "/dashboard-info-card",
+    name: "DashboardInfoCard",
+    description: "Reusable dashboard card that conditionally renders activity or action lists.",
+  },
+  {
     href: "/stat-card",
     name: "StatCard",
     description: "Dashboard summary cards with change pills and highlighted state.",
