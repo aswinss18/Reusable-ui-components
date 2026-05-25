@@ -67,11 +67,12 @@ export default function Modal({
       align="center"
       className={styles.footerActions}
       justify={actionsAlign === "space-between" ? "space-between" : "flex-end"}
+      gap={12}
     >
       {actionsAlign === "space-between" ? (
         <>
-          <div className={styles.footerActionStart}>{actionItems[0] ?? null}</div>
-          <div className={styles.footerActionEnd}>{actionItems[1] ?? null}</div>
+          <Flex className={styles.footerActionStart}>{actionItems[0] ?? null}</Flex>
+          <Flex className={styles.footerActionEnd}>{actionItems[1] ?? null}</Flex>
         </>
       ) : (
         actionItems
@@ -107,7 +108,7 @@ export default function Modal({
       <>
         {children}
         {actions && !hasStyledFooter ? (
-          <div className={styles.inlineActions}>{actionsContent}</div>
+          <Flex className={styles.inlineActions} gap={12}>{actionsContent}</Flex>
         ) : null}
       </>
     </AntModal>
