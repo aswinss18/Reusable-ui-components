@@ -31,6 +31,6 @@
 }
 
 .loaderScreen:global(.ant-flex) {
-  min-height: 100vh;
+  min-height: 70vh;
   background: #f6f5fb;
 }
