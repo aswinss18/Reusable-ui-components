@@ -19,9 +19,10 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  width: 178.2700958251953px;
-  height: 25.576507568359375px;
+  width: 240px;
+  /* height: 75.58px; */
   flex-shrink: 0;
+  object-fit: contain;
 }
 
 .logo:global(.ant-image) {
