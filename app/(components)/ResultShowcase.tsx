@@ -21,6 +21,27 @@ const showcaseItems = [
     message: "No rows available for this data source.",
   },
   {
+    key: "info",
+    eyebrow: "Info",
+    title: "Informational result",
+    description: "Use this when you need to communicate neutral context or the next recommended step.",
+    type: "info" as const,
+  },
+  {
+    key: "warning",
+    eyebrow: "Warning",
+    title: "Warning result",
+    description: "A cautionary state for incomplete, risky, or review-required flows before submission.",
+    type: "warning" as const,
+  },
+  {
+    key: "error",
+    eyebrow: "Error",
+    title: "Generic error result",
+    description: "A broad failure state for action errors that are not tied to a specific HTTP-style route.",
+    type: "error" as const,
+  },
+  {
     key: "not-found",
     eyebrow: "404",
     title: "Missing page result",
@@ -59,12 +80,13 @@ export default function ResultShowcase() {
           Reusable Result Component
         </p>
         <h1 className="text-3xl font-semibold text-[#1d1b4a]">
-          One result component for empty, success, and error states
+          One result component for empty, route, success, and error states
         </h1>
         <p className="max-w-3xl text-base leading-7 text-[#6b6a8f]">
           This shared component combines Ant Design&apos;s `Empty` and `Result` patterns into one
           reusable API. Empty states keep the app&apos;s purple illustration treatment, while
-          route and status scenarios render distinct Ant Design result visuals.
+          route and status scenarios render distinct Ant Design result visuals across the full
+          common result set.
         </p>
       </div>
 

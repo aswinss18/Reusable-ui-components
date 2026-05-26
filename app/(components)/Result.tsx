@@ -8,6 +8,9 @@ import styles from "./Result.module.css";
 export type ResultType =
   | "empty"
   | "datagrid"
+  | "info"
+  | "warning"
+  | "error"
   | "not-found"
   | "bad-request"
   | "confirmed"
@@ -33,6 +36,21 @@ const resultDefaults: Record<
   Exclude<ResultType, "empty" | "datagrid">,
   { status: AntResultProps["status"]; title: ReactNode; message: ReactNode }
 > = {
+  info: {
+    status: "info",
+    title: "Information",
+    message: "Here is some important context before you continue with the next action.",
+  },
+  warning: {
+    status: "warning",
+    title: "Warning",
+    message: "Please review the current state carefully before moving forward.",
+  },
+  error: {
+    status: "error",
+    title: "Action Failed",
+    message: "The requested action could not be completed successfully.",
+  },
   "not-found": {
     status: "404",
     title: "404",
@@ -58,6 +76,9 @@ const resultDefaults: Record<
 const typeClassNames: Record<ResultType, string> = {
   empty: styles.typeEmpty,
   datagrid: styles.typeDatagrid,
+  info: styles.typeResult,
+  warning: styles.typeResult,
+  error: styles.typeResult,
   "not-found": styles.typeResult,
   "bad-request": styles.typeResult,
   confirmed: styles.typeResult,
