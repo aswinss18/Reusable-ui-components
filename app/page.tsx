@@ -17,6 +17,11 @@ const components = [
     description: "Dynamic page header with optional back route, subtitle, and actions.",
   },
   {
+    href: "/result",
+    name: "Result",
+    description: "Reusable result-state wrapper for empty, success, route-error, and server-error scenarios.",
+  },
+  {
     href: "/sidebar",
     name: "Sidebar",
     description: "Grouped sidebar navigation with dynamic sections, badges, and active states.",

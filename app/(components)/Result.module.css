@@ -1,0 +1,108 @@
+.root:global(.ant-empty),
+.root:global(.ant-result) {
+  margin: 0;
+}
+
+.typeEmpty:global(.ant-empty),
+.typeDatagrid:global(.ant-empty) {
+  padding: 0;
+}
+
+.typeEmpty :global(.ant-empty-image),
+.typeDatagrid :global(.ant-empty-image) {
+  margin-bottom: 0;
+}
+
+.typeEmpty :global(.ant-empty-image) {
+  height: 160px;
+}
+
+.typeDatagrid :global(.ant-empty-image) {
+  height: 120px;
+}
+
+.typeEmpty :global(.ant-empty-image svg > g > g > ellipse),
+.typeDatagrid :global(.ant-empty-image svg > g > g > ellipse) {
+  fill: rgba(65, 64, 153, 0.1);
+}
+
+.typeEmpty :global(.ant-empty-image svg > g > g > path:nth-of-type(1)),
+.typeDatagrid :global(.ant-empty-image svg > g > g > path:nth-of-type(1)) {
+  fill: rgba(65, 64, 153, 0.38);
+}
+
+.typeEmpty :global(.ant-empty-image svg > g > g > path:nth-of-type(2)),
+.typeDatagrid :global(.ant-empty-image svg > g > g > path:nth-of-type(2)) {
+  fill: rgba(65, 64, 153, 0.06);
+}
+
+.typeEmpty :global(.ant-empty-image svg > g > g > path:nth-of-type(3)),
+.typeEmpty :global(.ant-empty-image svg > g > path),
+.typeDatagrid :global(.ant-empty-image svg > g > g > path:nth-of-type(3)),
+.typeDatagrid :global(.ant-empty-image svg > g > path) {
+  fill: rgba(65, 64, 153, 0.16);
+}
+
+.typeEmpty :global(.ant-empty-image svg > g > g > path:nth-of-type(4)),
+.typeDatagrid :global(.ant-empty-image svg > g > g > path:nth-of-type(4)) {
+  fill: rgba(65, 64, 153, 0.2);
+}
+
+.typeEmpty :global(.ant-empty-image svg > g > g:last-child),
+.typeDatagrid :global(.ant-empty-image svg > g > g:last-child) {
+  fill: #ffffff;
+}
+
+.typeResult:global(.ant-result) {
+  padding: 0;
+}
+
+.typeResult :global(.ant-result-icon) {
+  margin-bottom: 20px;
+}
+
+.typeResult :global(.ant-result-title) {
+  margin-bottom: 8px;
+  color: #1d1b4a;
+  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.typeResult :global(.ant-result-subtitle) {
+  max-width: 560px;
+  margin: 0 auto;
+  color: #6b6a8f;
+  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.typeResult :global(.ant-result-extra) {
+  margin-top: 24px;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.message:global(.ant-typography) {
+  color: #8d88a8 !important;
+  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}

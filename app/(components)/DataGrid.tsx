@@ -3,7 +3,7 @@
 import { Card, Flex, Pagination, Table, Typography } from "antd";
 import type { CardProps, PaginationProps, TableProps } from "antd";
 import { useState, type ReactNode } from "react";
-import Empty from "./Empty";
+import Result from "./Result";
 import Tag from "./Tag";
 import styles from "./DataGrid.module.css";
 
@@ -157,7 +157,7 @@ export default function DataGrid({
 }
 
 function renderEmptyState(emptyText: ReactNode) {
-  return <Empty className={styles.emptyState} message={emptyText} type="datagrid" />;
+  return <Result className={styles.emptyState} message={emptyText} type="datagrid" />;
 }
 
 function renderCell(
