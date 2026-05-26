@@ -82,7 +82,7 @@ export default function Header({
   const [internalSearchValue, setInternalSearchValue] = useState("");
 
   const {
-    logoSrc = "/fino.png",
+    logoSrc = "/fino.svg",
     logoAlt = "Fino logo",
     searchPlaceholder = "Search...",
     notificationCount = 1,
@@ -140,11 +140,11 @@ export default function Header({
     const filteredItems = !normalizedQuery
       ? searchItems
       : searchItems.filter((item) =>
-          [item.title, item.subtitle, item.timestamp, item.category]
-            .join(" ")
-            .toLowerCase()
-            .includes(normalizedQuery),
-        );
+        [item.title, item.subtitle, item.timestamp, item.category]
+          .join(" ")
+          .toLowerCase()
+          .includes(normalizedQuery),
+      );
 
     return filteredItems.map((item) => {
       const avatar = getSearchAvatar(item);
