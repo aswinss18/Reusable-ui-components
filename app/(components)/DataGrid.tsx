@@ -3,6 +3,7 @@
 import { Card, Flex, Pagination, Table, Typography } from "antd";
 import type { CardProps, PaginationProps, TableProps } from "antd";
 import { useState, type ReactNode } from "react";
+import Empty from "./Empty";
 import Tag from "./Tag";
 import styles from "./DataGrid.module.css";
 
@@ -122,7 +123,7 @@ export default function DataGrid({
             className={styles.table}
             columns={tableColumns}
             dataSource={tableData}
-            locale={{ emptyText }}
+            locale={{ emptyText: renderEmptyState(emptyText) }}
             pagination={false}
             rowKey="__dataGridRowKey"
             rowClassName={(record) => (record.__isPlaceholder ? styles.placeholderRow : "")}
@@ -153,6 +154,10 @@ export default function DataGrid({
       ) : null}
     </Flex>
   );
+}
+
+function renderEmptyState(emptyText: ReactNode) {
+  return <Empty className={styles.emptyState} message={emptyText} type="datagrid" />;
 }
 
 function renderCell(

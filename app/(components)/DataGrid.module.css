@@ -59,7 +59,7 @@
   background: #fcfcff !important;
 }
 
-.table :global(.ant-empty) {
+.emptyState:global(.ant-empty) {
   margin: 32px 0 !important;
 }
 

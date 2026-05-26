@@ -1,0 +1,31 @@
+.root:global(.ant-empty) {
+  margin: 0;
+}
+
+.root :global(.ant-empty-image) {
+  margin-bottom: 0;
+}
+
+.root :global(.ant-empty-image svg > g > g:last-child) {
+  fill: #ffffff;
+}
+
+.typeDefault :global(.ant-empty-image) {
+  height: 160px;
+}
+
+.typeDatagrid :global(.ant-empty-image) {
+  height: 220px;
+}
+
+.typeNotFound :global(.ant-empty-image) {
+  height: 160px;
+}
+
+.message:global(.ant-typography) {
+  color: #8d88a8 !important;
+  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}

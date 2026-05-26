@@ -1,18 +1,15 @@
 "use client";
 
-import { Card, Empty, Flex, Typography } from "antd";
+import { Card, Flex, Typography } from "antd";
 import Button from "./(components)/Button";
+import Empty from "./(components)/Empty";
 import styles from "./not-found.module.css";
 
 export default function NotFound() {
   return (
     <Card variant="borderless" className={styles.pageCard}>
       <Flex vertical align="center" justify="center" gap={20} className={styles.stateStack}>
-        <Empty
-          image={Empty.PRESENTED_IMAGE_DEFAULT}
-          description={false}
-          className={styles.placeholder}
-        />
+        <Empty message={null} type="not-found" />
 
         <Flex vertical align="center" gap={8} className={styles.copyBlock}>
           <Typography.Title level={1} className={styles.errorCode}>
