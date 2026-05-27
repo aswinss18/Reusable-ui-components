@@ -53,7 +53,7 @@
 .searchInput :global(.ant-input) {
   height: 100%;
   color: #332556;
-  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--app-font-family);
   font-size: 15px;
   font-weight: 500;
   line-height: 47px;
@@ -80,7 +80,7 @@
   background: #f4f4f9 !important;
   box-shadow: none !important;
   color: #7d7a99 !important;
-  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--app-font-family);
   font-size: 15px;
   font-weight: 600;
 }
@@ -114,7 +114,7 @@
 
 .statValue {
   color: #332556;
-  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--app-font-family);
   font-size: 24px;
   font-weight: 700;
   line-height: 36px;
@@ -122,7 +122,7 @@
 
 .statLabel {
   color: #807d94;
-  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--app-font-family);
   font-size: 13px;
   font-weight: 400;
   line-height: 19.5px;

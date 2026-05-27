@@ -1,7 +1,14 @@
 import "./globals.css";
-import { AntdRegistry } from "@ant-design/nextjs-registry";
-import { ConfigProvider } from "antd";
+import { Work_Sans } from "next/font/google";
 import AppShell from "./AppShell";
+import ThemeRegistry from "./ThemeRegistry";
+import { themeCssVariables } from "./theme";
+
+const workSans = Work_Sans({
+  subsets: ["latin"],
+  variable: "--font-work-sans",
+  display: "swap",
+});
 
 export default function RootLayout({
   children,
@@ -9,13 +16,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full antialiased">
+    <html
+      lang="en"
+      className={`${workSans.variable} h-full antialiased`}
+      style={themeCssVariables}
+    >
       <body className="min-h-full flex flex-col">
-        <AntdRegistry layer>
-          <ConfigProvider>
-            <AppShell>{children}</AppShell>
-          </ConfigProvider>
-        </AntdRegistry>
+        <ThemeRegistry>
+          <AppShell>{children}</AppShell>
+        </ThemeRegistry>
       </body>
     </html>
   );

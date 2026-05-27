@@ -42,7 +42,7 @@
 
 .title {
   color: #332556;
-  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--app-font-family);
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
@@ -52,7 +52,7 @@
 
 .description {
   color: rgba(51, 37, 86, 0.60);
-  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--app-font-family);
   font-size: 12px;
   font-style: normal;
   font-weight: 400;

@@ -29,7 +29,7 @@
   flex-shrink: 0;
   background: #4b49b6;
   color: #ffffff;
-  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--app-font-family);
   font-size: 24px;
   font-style: normal;
   font-weight: 500;
@@ -46,7 +46,7 @@
 .companyName {
   margin: 0;
   color: #332556;
-  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--app-font-family);
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
@@ -57,7 +57,7 @@
   margin: 0;
   padding: 2px 9px;
   color: #4b49c6;
-  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--app-font-family);
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
@@ -70,7 +70,7 @@
 .subtitle {
   margin: 0;
   color: rgba(51, 37, 86, 0.56);
-  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--app-font-family);
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -83,7 +83,7 @@
   padding: 4px 11px;
   border: none;
   border-radius: 8px;
-  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--app-font-family);
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
@@ -138,7 +138,7 @@
 .detailLabel {
   margin: 0;
   color: rgba(51, 37, 86, 0.45);
-  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--app-font-family);
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -148,7 +148,7 @@
 .detailValue {
   margin: 0;
   color: #332556;
-  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--app-font-family);
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -193,7 +193,7 @@
 .reasonLabel {
   margin: 0;
   color: #ed1b2f;
-  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--app-font-family);
   font-size: 12px;
   font-style: normal;
   font-weight: 600;
@@ -203,7 +203,7 @@
 .reasonValue {
   margin: 0;
   color: #ed1b2f;
-  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--app-font-family);
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -213,7 +213,7 @@
 .appliedOn {
   margin: 0;
   color: rgba(51, 37, 86, 0.45);
-  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--app-font-family);
   font-size: 14px;
   font-style: normal;
   font-weight: 400;

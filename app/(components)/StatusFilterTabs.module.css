@@ -34,7 +34,7 @@
 
 .tabText {
   color: #332556B2;
-  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--app-font-family);
   font-size: 14px;
   font-style: normal;
   font-weight: 600;

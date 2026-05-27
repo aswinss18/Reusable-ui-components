@@ -3,7 +3,7 @@
   min-height: 44px;
   padding-left: 8px;
   padding-right: 8px;
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--app-font-family);
   font-size: 16px;
   font-weight: 600;
   line-height: 1.2;
@@ -31,8 +31,8 @@
 .buttonPrimaryFilled:hover,
 .buttonPrimaryFilled:focus,
 .buttonPrimaryFilled:active {
-  background: var(--primary) !important;
-  border-color: var(--primary) !important;
+  background: var(--app-color-primary) !important;
+  border-color: var(--app-color-primary) !important;
   color: #ffffff !important;
 }
 
@@ -41,16 +41,16 @@
 .buttonPrimaryOutlined:focus,
 .buttonPrimaryOutlined:active {
   background: transparent !important;
-  border-color: var(--primary) !important;
-  color: var(--primary) !important;
+  border-color: var(--app-color-primary) !important;
+  color: var(--app-color-primary) !important;
 }
 
 .buttonSecondaryFilled,
 .buttonSecondaryFilled:hover,
 .buttonSecondaryFilled:focus,
 .buttonSecondaryFilled:active {
-  background: var(--secondary) !important;
-  border-color: var(--secondary) !important;
+  background: var(--app-color-secondary) !important;
+  border-color: var(--app-color-secondary) !important;
   color: #ffffff !important;
 }
 
@@ -59,16 +59,16 @@
 .buttonSecondaryOutlined:focus,
 .buttonSecondaryOutlined:active {
   background: transparent !important;
-  border-color: var(--secondary) !important;
-  color: var(--secondary) !important;
+  border-color: var(--app-color-secondary) !important;
+  color: var(--app-color-secondary) !important;
 }
 
 .buttonDangerFilled,
 .buttonDangerFilled:hover,
 .buttonDangerFilled:focus,
 .buttonDangerFilled:active {
-  background: var(--danger) !important;
-  border-color: var(--danger) !important;
+  background: var(--app-color-danger) !important;
+  border-color: var(--app-color-danger) !important;
   color: #ffffff !important;
 }
 
@@ -77,17 +77,17 @@
 .buttonDangerOutlined:focus,
 .buttonDangerOutlined:active {
   background: transparent !important;
-  border-color: var(--danger) !important;
-  color: var(--danger) !important;
+  border-color: var(--app-color-danger) !important;
+  color: var(--app-color-danger) !important;
 }
 
 .buttonNeutralFilled,
 .buttonNeutralFilled:hover,
 .buttonNeutralFilled:focus,
 .buttonNeutralFilled:active {
-  background: var(--neutral-surface) !important;
-  border-color: var(--neutral-surface) !important;
-  color: var(--neutral-text) !important;
+  background: var(--app-color-neutral-surface) !important;
+  border-color: var(--app-color-neutral-surface) !important;
+  color: var(--app-color-neutral-text) !important;
 }
 
 .buttonNeutralOutlined,
@@ -95,6 +95,6 @@
 .buttonNeutralOutlined:focus,
 .buttonNeutralOutlined:active {
   background: transparent !important;
-  border-color: var(--neutral-border) !important;
-  color: var(--neutral-text) !important;
+  border-color: var(--app-color-neutral-border) !important;
+  color: var(--app-color-neutral-text) !important;
 }

@@ -36,5 +36,5 @@
 }
 
 .loaderSpinner:global(.ant-spin) :global(.ant-spin-dot-item) {
-  background-color: var(--primary);
+  background-color: var(--app-color-primary);
 }

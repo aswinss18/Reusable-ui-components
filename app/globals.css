@@ -2,112 +2,58 @@
 
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --font-geist-sans: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-  --font-geist-mono: "Consolas", "SFMono-Regular", "Liberation Mono", monospace;
-  --font-work-sans: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-
-  --primary: #414099;
-  --secondary: #0cc496;
-  --danger: #ff2032;
-  --neutral-border: #d1d6de;
-  --neutral-text: #35363a;
-  --neutral-surface: #f3f5f8;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-
-  --color-primary: var(--primary);
-  --color-secondary: var(--secondary);
-  --color-danger: var(--danger);
-  --color-neutral-border: var(--neutral-border);
-  --color-neutral-text: var(--neutral-text);
-  --color-neutral-surface: var(--neutral-surface);
-
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-background: var(--app-color-bg-layout);
+  --color-foreground: var(--app-color-text);
+  --color-primary: var(--app-color-primary);
+  --color-secondary: var(--app-color-secondary);
+  --color-danger: var(--app-color-danger);
+  --color-neutral-border: var(--app-color-neutral-border);
+  --color-neutral-text: var(--app-color-neutral-text);
+  --color-neutral-surface: var(--app-color-neutral-surface);
+  --font-sans: var(--app-font-family);
+  --font-mono: var(--app-font-family-code);
 }
 
 body {
-  background: #f6f5fb;
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--app-color-bg-layout);
+  color: var(--app-color-text);
+  font-family: var(--app-font-family);
+  font-size: var(--app-font-size-body);
+  line-height: var(--app-line-height-body);
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color: var(--app-color-text-dark-mode);
+  }
 }
 
 html,
 body {
-  background-color: #f6f5fb;
+  background-color: var(--app-color-bg-layout);
   margin: 0;
   padding: 0;
 }
 
-/* Custom class names */
-.bg-primary-custom {
-  background-color: var(--primary);
-}
-
-.bg-secondary-custom {
-  background-color: var(--secondary);
-}
-
-.text-primary-custom {
-  color: var(--primary);
-}
-
-.text-secondary-custom {
-  color: var(--secondary);
-}
-
-.border-primary-custom {
-  border-color: var(--primary);
-}
-
-.border-secondary-custom {
-  border-color: var(--secondary);
-}
-
-.bg-danger-custom {
-  background-color: var(--danger);
-}
-
-.text-danger-custom {
-  color: var(--danger);
-}
-
-.border-danger-custom {
-  border-color: var(--danger);
-}
-
-/* Custom scrollbar for content area - minimal modern design */
 .content-scrollbar::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 
 .content-scrollbar::-webkit-scrollbar-track {
-  background: #EBE9E9;
+  background: var(--app-color-scrollbar-track);
   border-radius: 3px;
 }
 
 .content-scrollbar::-webkit-scrollbar-thumb {
-  background: #8B5CF6;
+  background: var(--app-color-scrollbar-thumb);
   border-radius: 3px;
   transition: background 0.2s ease;
 }
 
 .content-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #7C3AED;
+  background: var(--app-color-scrollbar-thumb-hover);
 }
 
 .content-scrollbar::-webkit-scrollbar-corner {
@@ -118,8 +64,7 @@ body {
   display: none;
 }
 
-/* Firefox scrollbar */
 .content-scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: #8B5CF6 #EBE9E9;
+  scrollbar-color: var(--app-color-scrollbar-thumb) var(--app-color-scrollbar-track);
 }

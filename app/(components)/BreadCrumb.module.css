@@ -20,7 +20,7 @@
 
 .backText {
   color: #414099;
-  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--app-font-family);
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -29,7 +29,7 @@
 
 .title {
   color: #332556;
-  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--app-font-family);
   font-size: 32px;
   font-style: normal;
   font-weight: 600;
@@ -39,7 +39,7 @@
 
 .subtitle {
   color: #8d8cab;
-  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--app-font-family);
   font-size: 16px;
   font-style: normal;
   font-weight: 400;

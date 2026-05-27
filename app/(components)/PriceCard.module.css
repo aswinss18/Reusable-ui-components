@@ -16,7 +16,7 @@
 
 .title {
   color: #60606C;
-  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--app-font-family);
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -26,7 +26,7 @@
 
 .value {
   color: #414099;
-  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--app-font-family);
   font-size: 24px;
   font-style: normal;
   font-weight: 700;

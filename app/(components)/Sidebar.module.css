@@ -84,7 +84,7 @@
 
 .sectionTitle {
   color: rgba(51, 37, 86, 0.6);
-  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--app-font-family);
   font-size: 12px;
   font-style: normal;
   font-weight: 600;
@@ -173,7 +173,7 @@
 
 .itemText {
   color: inherit;
-  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--app-font-family);
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -184,7 +184,7 @@
   background: #ed1b2f;
   box-shadow: none;
   color: #ffffff;
-  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--app-font-family);
   font-size: 12px;
   font-weight: 500;
   min-width: 25px;
@@ -200,7 +200,7 @@
 }
 
 .currencyIcon {
-  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--app-font-family);
   font-size: 20px;
   font-weight: 700;
   line-height: 28px;

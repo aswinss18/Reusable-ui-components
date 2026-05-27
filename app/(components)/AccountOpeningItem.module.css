@@ -43,7 +43,7 @@
 
 .date {
   color: #33255699;
-  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--app-font-family);
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -53,7 +53,7 @@
 
 .name {
   color: #332556;
-  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--app-font-family);
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
@@ -62,7 +62,7 @@
 }
 
 .tag {
-  font-family: var(--font-work-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--app-font-family);
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
