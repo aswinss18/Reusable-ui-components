@@ -1,24 +1,17 @@
 .button {
-  min-width: 112px;
-  min-height: 44px;
-  padding-left: 8px;
-  padding-right: 8px;
-  font-family: var(--app-font-family);
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: 0.01em;
-  border-radius: 10px;
+  min-width: var(--product-button-min-width);
+  min-height: var(--product-button-min-height);
+  letter-spacing: var(--product-button-letter-spacing);
   box-shadow: none;
 }
 
 .button:hover {
   transform: translateY(-1px);
-  box-shadow: 0 10px 22px rgba(65, 64, 153, 0.14);
+  box-shadow: var(--product-button-shadow);
 }
 
 .button:focus-visible {
-  outline: 3px solid rgba(65, 64, 153, 0.22);
+  outline: 3px solid var(--product-button-focus-outline);
   outline-offset: 3px;
 }
 
@@ -33,7 +26,7 @@
 .buttonPrimaryFilled:active {
   background: var(--app-color-primary) !important;
   border-color: var(--app-color-primary) !important;
-  color: #ffffff !important;
+  color: var(--app-color-text-light-solid) !important;
 }
 
 .buttonPrimaryOutlined,
@@ -49,9 +42,9 @@
 .buttonSecondaryFilled:hover,
 .buttonSecondaryFilled:focus,
 .buttonSecondaryFilled:active {
-  background: var(--app-color-secondary) !important;
-  border-color: var(--app-color-secondary) !important;
-  color: #ffffff !important;
+  background: var(--app-color-success) !important;
+  border-color: var(--app-color-success) !important;
+  color: var(--app-color-text-light-solid) !important;
 }
 
 .buttonSecondaryOutlined,
@@ -59,17 +52,17 @@
 .buttonSecondaryOutlined:focus,
 .buttonSecondaryOutlined:active {
   background: transparent !important;
-  border-color: var(--app-color-secondary) !important;
-  color: var(--app-color-secondary) !important;
+  border-color: var(--app-color-success) !important;
+  color: var(--app-color-success) !important;
 }
 
 .buttonDangerFilled,
 .buttonDangerFilled:hover,
 .buttonDangerFilled:focus,
 .buttonDangerFilled:active {
-  background: var(--app-color-danger) !important;
-  border-color: var(--app-color-danger) !important;
-  color: #ffffff !important;
+  background: var(--app-color-error) !important;
+  border-color: var(--app-color-error) !important;
+  color: var(--app-color-text-light-solid) !important;
 }
 
 .buttonDangerOutlined,
@@ -77,8 +70,8 @@
 .buttonDangerOutlined:focus,
 .buttonDangerOutlined:active {
   background: transparent !important;
-  border-color: var(--app-color-danger) !important;
-  color: var(--app-color-danger) !important;
+  border-color: var(--app-color-error) !important;
+  color: var(--app-color-error) !important;
 }
 
 .buttonNeutralFilled,

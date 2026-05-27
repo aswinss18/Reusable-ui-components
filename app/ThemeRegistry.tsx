@@ -1,6 +1,7 @@
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import { ConfigProvider } from "antd";
 import { appTheme } from "./theme";
+import ThemeTokenLogger from "./ThemeTokenLogger";
 
 export default function ThemeRegistry({
   children,
@@ -9,7 +10,10 @@ export default function ThemeRegistry({
 }>) {
   return (
     <AntdRegistry layer>
-      <ConfigProvider theme={appTheme}>{children}</ConfigProvider>
+      <ConfigProvider theme={appTheme}>
+        <ThemeTokenLogger />
+        {children}
+      </ConfigProvider>
     </AntdRegistry>
   );
 }

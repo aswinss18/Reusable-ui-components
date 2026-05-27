@@ -59,6 +59,11 @@ export const designTokens = {
     elevated: "0 20px 60px rgba(65, 64, 153, 0.08)",
     overlay: "0 30px 80px rgba(16, 18, 56, 0.18)",
     button: "0 10px 22px rgba(65, 64, 153, 0.14)",
+    buttonFocus: "rgba(65, 64, 153, 0.22)",
+  },
+  controls: {
+    buttonMinWidth: 112,
+    buttonHeight: 44,
   },
 } as const;
 
@@ -129,6 +134,8 @@ export const appTheme: ThemeConfig = {
       borderRadius: designTokens.border.radius,
       fontSize: designTokens.typography.subtitle.fontSize,
       fontWeight: designTokens.typography.fontWeightSemibold,
+      contentLineHeight: 1.2,
+      paddingInline: designTokens.spacing.xs,
       primaryShadow: designTokens.shadows.button,
     },
     Card: {
@@ -162,4 +169,9 @@ export const themeCssVariables: CSSProperties & Record<`--${string}`, string | n
   "--app-border-width": `${designTokens.border.width}px`,
   "--app-border-radius": `${designTokens.border.radius}px`,
   "--app-box-shadow": designTokens.shadows.card,
+  "--product-button-min-width": `${designTokens.controls.buttonMinWidth}px`,
+  "--product-button-min-height": `${designTokens.controls.buttonHeight}px`,
+  "--product-button-letter-spacing": "0.01em",
+  "--product-button-shadow": designTokens.shadows.button,
+  "--product-button-focus-outline": designTokens.shadows.buttonFocus,
 };
