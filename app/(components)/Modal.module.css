@@ -2,7 +2,7 @@
   padding: 0;
   overflow: hidden;
   border-radius: 18px;
-  box-shadow: 0 30px 80px rgba(16, 18, 56, 0.18);
+  box-shadow: var(--app-box-shadow-overlay);
 }
 
 .modal :global(.ant-modal-header) {
@@ -44,8 +44,8 @@
   margin: 0;
   min-height: 102px;
   padding: 16px 28px;
-  background: #f8f8ff;
-  border-top: 1px solid #d9d9d9;
+  background: var(--ui-color-surface-tint);
+  border-top: 1px solid var(--ui-color-control-border);
 }
 
 .footerActions {
@@ -94,10 +94,10 @@
 }
 
 .title {
-  color: #2c275f;
+  color: var(--ui-color-title-dark);
   font-family: var(--app-font-family);
-  font-size: 20px;
-  font-weight: 600;
+  font-size: var(--app-font-size-heading-3);
+  font-weight: var(--app-font-weight-semibold);
   line-height: 1.2;
 }
 
@@ -105,7 +105,7 @@
 .modalTitleDeep .title,
 .modalTitleBrand .closeButton,
 .modalTitleDeep .closeButton {
-  color: #ffffff;
+  color: var(--app-color-text-light-solid);
 }
 
 .closeButton {
@@ -116,13 +116,13 @@
   background: transparent;
   color: #1f1f1f;
   cursor: pointer;
-  font-size: 18px;
+  font-size: var(--app-font-size-heading-4);
   line-height: 1;
   padding: 4px;
 }
 
 .closeButton:hover {
-  color: #414099;
+  color: var(--app-color-primary);
 }
 
 .modalTitleBrand .closeButton:hover,

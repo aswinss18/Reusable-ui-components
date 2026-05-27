@@ -1,6 +1,6 @@
 .card {
   border-left: 4px solid;
-  border-radius: 10px;
+  border-radius: var(--app-border-radius);
   box-shadow: none;
   min-height: 78px;
   width: 100%;
@@ -11,18 +11,18 @@
 }
 
 .cardSuccess {
-  background: rgba(12, 196, 150, 0.1);
-  border-left-color: #0cc496;
+  background: var(--ui-color-success-tint-soft);
+  border-left-color: var(--app-color-success);
 }
 
 .cardDanger {
-  background: rgba(237, 27, 47, 0.1);
-  border-left-color: #ed1b2f;
+  background: var(--ui-color-danger-tint-soft);
+  border-left-color: var(--ui-color-danger-accent);
 }
 
 .cardWarning {
-  background: rgba(240, 177, 0, 0.1);
-  border-left-color: #f0b100;
+  background: var(--ui-color-warning-tint-soft);
+  border-left-color: var(--app-color-warning);
 }
 
 .content {
@@ -34,16 +34,16 @@
   margin: 0;
   color: #333333;
   font-family: var(--app-font-family);
-  font-size: 14px;
+  font-size: var(--app-font-size-body);
   font-style: normal;
   line-height: 21px;
   white-space: nowrap;
 }
 
 .label {
-  font-weight: 600;
+  font-weight: var(--app-font-weight-semibold);
 }
 
 .value {
-  font-weight: 400;
+  font-weight: var(--app-font-weight-regular);
 }

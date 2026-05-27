@@ -4,9 +4,9 @@
 }
 
 .card {
-  border: 1px solid #ebe9f7 !important;
-  border-radius: 14px !important;
-  background: #ffffff !important;
+  border: 1px solid var(--app-color-border-secondary) !important;
+  border-radius: var(--app-border-radius-lg) !important;
+  background: var(--app-color-bg-container) !important;
   box-shadow: none !important;
   overflow: hidden;
 }
@@ -26,7 +26,7 @@
 }
 
 .table :global(.ant-table) {
-  background: #ffffff;
+  background: var(--app-color-bg-container);
 }
 
 .table :global(.ant-table-container) {
@@ -35,12 +35,12 @@
 
 .table :global(.ant-table-thead > tr > th) {
   padding: 14px 18px !important;
-  background: #f8f8ff !important;
-  border-bottom: 1px solid #ece8fb !important;
-  color: #332556;
+  background: var(--ui-color-surface-tint) !important;
+  border-bottom: 1px solid var(--ui-color-separator) !important;
+  color: var(--ui-color-heading);
   font-family: var(--app-font-family);
-  font-size: 14px;
-  font-weight: 600;
+  font-size: var(--app-font-size-body);
+  font-weight: var(--app-font-weight-semibold);
   line-height: 21px;
 }
 
@@ -70,7 +70,7 @@
 }
 
 .placeholderRow :global(.ant-table-cell-row-hover) {
-  background: #ffffff !important;
+  background: var(--app-color-bg-container) !important;
 }
 
 .timestampValue {
@@ -88,15 +88,15 @@
 
 .timestampPrimary {
   color: #6c6886;
-  font-size: 11px;
-  font-weight: 500;
+  font-size: var(--app-font-size-micro);
+  font-weight: var(--app-font-weight-medium);
   line-height: 16px;
 }
 
 .timestampSecondary {
   color: #a09bb9;
   font-size: 10px;
-  font-weight: 400;
+  font-weight: var(--app-font-weight-regular);
   line-height: 15px;
 }
 
@@ -113,10 +113,10 @@
   min-width: 32px;
   height: 32px;
   padding: 0 8px;
-  border-radius: 10px;
-  background: #f3f2fb;
-  color: #414099;
-  font-size: 16px;
+  border-radius: var(--app-border-radius);
+  background: var(--ui-color-surface-soft);
+  color: var(--app-color-primary);
+  font-size: var(--app-font-size-subtitle);
   flex-shrink: 0;
 }
 
@@ -140,25 +140,25 @@
 
 .typographyPrimary {
   -webkit-line-clamp: 2;
-  color: #332556;
-  font-size: 12px;
-  font-weight: 600;
+  color: var(--ui-color-heading);
+  font-size: var(--app-font-size-caption);
+  font-weight: var(--app-font-weight-semibold);
   line-height: 18px;
 }
 
 .typographySecondary {
   -webkit-line-clamp: 2;
   color: #5d577f;
-  font-size: 11px;
-  font-weight: 500;
+  font-size: var(--app-font-size-micro);
+  font-weight: var(--app-font-weight-medium);
   line-height: 17px;
 }
 
 .typographyMuted {
   -webkit-line-clamp: 2;
-  color: #8d88a8;
-  font-size: 11px;
-  font-weight: 400;
+  color: var(--ui-color-muted-alt);
+  font-size: var(--app-font-size-micro);
+  font-weight: var(--app-font-weight-regular);
   line-height: 17px;
 }
 
@@ -167,18 +167,18 @@
 }
 
 .footerText {
-  color: #8d88a8;
+  color: var(--ui-color-muted-alt);
   font-family: var(--app-font-family);
-  font-size: 12px;
-  font-weight: 400;
+  font-size: var(--app-font-size-caption);
+  font-weight: var(--app-font-weight-regular);
   line-height: 18px;
 }
 
 .footerCount {
-  color: #332556;
+  color: var(--ui-color-heading);
   font-family: var(--app-font-family);
-  font-size: 12px;
-  font-weight: 600;
+  font-size: var(--app-font-size-caption);
+  font-weight: var(--app-font-weight-semibold);
   line-height: 18px;
 }
 
@@ -200,9 +200,9 @@
   height: 36px;
   margin-inline-end: 10px !important;
   line-height: 34px;
-  border-radius: 10px;
+  border-radius: var(--app-border-radius);
   border: 1px solid #ddd9ee;
-  background: #ffffff;
+  background: var(--app-color-bg-container);
   box-shadow: none;
 }
 
@@ -219,26 +219,26 @@
 .pagination :global(.ant-pagination-prev a),
 .pagination :global(.ant-pagination-next a),
 .pagination :global(.ant-pagination-item a) {
-  color: #8d88a8;
+  color: var(--ui-color-muted-alt);
   font-family: var(--app-font-family);
-  font-size: 12px;
-  font-weight: 500;
+  font-size: var(--app-font-size-caption);
+  font-weight: var(--app-font-weight-medium);
 }
 
 .pagination :global(.ant-pagination-item-active) {
-  border-color: #414099;
-  background: #414099;
+  border-color: var(--app-color-primary);
+  background: var(--app-color-primary);
 }
 
 .pagination :global(.ant-pagination-item-active a) {
-  color: #ffffff !important;
+  color: var(--app-color-text-light-solid) !important;
 }
 
 .paginationText {
   color: inherit;
   font-family: var(--app-font-family);
-  font-size: 12px;
-  font-weight: 500;
+  font-size: var(--app-font-size-caption);
+  font-weight: var(--app-font-weight-medium);
   line-height: 34px;
 }
 
@@ -255,12 +255,12 @@
 }
 
 .pagination :global(.ant-pagination-item-active:hover) {
-  border-color: #414099;
-  background: #414099;
+  border-color: var(--app-color-primary);
+  background: var(--app-color-primary);
 }
 
 .pagination :global(.ant-pagination-item-active:hover a) {
-  color: #ffffff !important;
+  color: var(--app-color-text-light-solid) !important;
 }
 
 .pagination :global(.ant-pagination-disabled) {

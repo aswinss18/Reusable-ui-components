@@ -1,9 +1,9 @@
 .card {
   align-self: stretch;
   justify-self: stretch;
-  border-radius: 10px;
-  border: 2px solid #D9D9D9;
-  background: #FFFFFF;
+  border-radius: var(--app-border-radius);
+  border: 2px solid var(--ui-color-control-border);
+  background: var(--app-color-bg-container);
   padding: 20px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -11,51 +11,51 @@
 }
 
 .card:hover {
-  border-color: #414099;
+  border-color: var(--app-color-primary);
   background: rgba(65, 64, 153, 0.02);
 }
 
 .card.selected {
-  border: 2px solid #414099;
-  background: rgba(65, 64, 153, 0.05);
+  border: 2px solid var(--app-color-primary);
+  background: var(--ui-color-primary-alpha-05);
 }
 
 .iconContainer {
   width: 56px;
   height: 56px;
   border-radius: 12px;
-  background: #414099;
+  background: var(--app-color-primary);
   flex-shrink: 0;
 }
 
 .iconContainer :global(svg),
 .iconContainer :global(.anticon) {
   font-size: 28px;
-  color: #FFFFFF;
+  color: var(--app-color-text-light-solid);
 }
 
 .checkIcon {
-  font-size: 24px;
-  color: #414099;
+  font-size: var(--app-font-size-heading-2);
+  color: var(--app-color-primary);
   flex-shrink: 0;
 }
 
 .title {
-  color: #332556;
+  color: var(--ui-color-heading);
   font-family: var(--app-font-family);
-  font-size: 16px;
+  font-size: var(--app-font-size-subtitle);
   font-style: normal;
-  font-weight: 600;
+  font-weight: var(--app-font-weight-semibold);
   line-height: 24px;
   margin: 0;
 }
 
 .description {
-  color: rgba(51, 37, 86, 0.60);
+  color: var(--ui-color-heading-muted);
   font-family: var(--app-font-family);
-  font-size: 12px;
+  font-size: var(--app-font-size-caption);
   font-style: normal;
-  font-weight: 400;
+  font-weight: var(--app-font-weight-regular);
   line-height: 16px;
   margin: 0;
 }

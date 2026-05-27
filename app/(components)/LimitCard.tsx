@@ -1,6 +1,7 @@
 "use client";
 import { Card, Flex, Typography, Progress } from "antd";
 import type { CardProps } from "antd";
+import { designTokens } from "../theme";
 import styles from "./LimitCard.module.css";
 
 type LimitCardVariant = "danger" | "success" | "warning";
@@ -19,9 +20,9 @@ export type LimitCardData = {
 };
 
 const progressStrokeColors: Record<LimitCardVariant, string> = {
-  danger: "#EF4339",
-  success: "#12B347",
-  warning: "#F0B126",
+  danger: designTokens.productColors.progressDanger,
+  success: designTokens.productColors.progressSuccess,
+  warning: designTokens.productColors.progressWarning,
 };
 
 export default function LimitCard({
@@ -86,7 +87,7 @@ export default function LimitCard({
               type="circle"
               percent={boundedPercent}
               strokeColor={progressStrokeColors[variant]}
-              railColor="#D9D9D9"
+              railColor={designTokens.productColors.controlBorder}
               strokeWidth={10}
               size={76}
               format={() => (

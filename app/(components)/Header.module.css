@@ -4,8 +4,8 @@
   height: 86px !important;
   padding: 0 !important;
   line-height: normal !important;
-  background: #ffffff !important;
-  border-bottom: 1px solid #ece8fb;
+  background: var(--app-color-bg-container) !important;
+  border-bottom: 1px solid var(--ui-color-separator);
 }
 
 .inner:global(.ant-flex) {
@@ -72,9 +72,9 @@
   width: 400px;
   height: 38px !important;
   padding: 0 16px !important;
-  border: 1px solid rgba(65, 64, 153, 0.1) !important;
-  border-radius: 14px !important;
-  background: #f8f8ff !important;
+  border: 1px solid var(--ui-color-primary-alpha-10) !important;
+  border-radius: var(--app-border-radius-lg) !important;
+  background: var(--ui-color-surface-tint) !important;
   margin: 0 !important;
 }
 
@@ -90,10 +90,10 @@
   margin: 0 !important;
   border: 0 !important;
   line-height: normal !important;
-  color: #332556;
+  color: var(--ui-color-heading);
   font-family: var(--app-font-family);
-  font-size: 14px;
-  font-weight: 400;
+  font-size: var(--app-font-size-body);
+  font-weight: var(--app-font-weight-regular);
   background: transparent;
 }
 
@@ -108,13 +108,13 @@
 .searchDropdown :global(.ant-select-dropdown) {
   padding: 12px;
   border-radius: 16px;
-  box-shadow: 0 10px 40px rgba(65, 64, 153, 0.15);
-  background: #ffffff;
+  box-shadow: 0 10px 40px var(--ui-color-primary-alpha-15);
+  background: var(--app-color-bg-container);
 }
 
 .searchDropdown :global(.rc-virtual-list-holder) {
   scrollbar-width: thin;
-  scrollbar-color: rgba(65, 64, 153, 0.2) rgba(65, 64, 153, 0.05);
+  scrollbar-color: var(--ui-color-primary-alpha-20) var(--ui-color-primary-alpha-05);
 }
 
 .searchDropdown :global(.rc-virtual-list-holder::-webkit-scrollbar) {
@@ -122,23 +122,23 @@
 }
 
 .searchDropdown :global(.rc-virtual-list-holder::-webkit-scrollbar-track) {
-  background: rgba(65, 64, 153, 0.05);
-  border-radius: 999px;
+  background: var(--ui-color-primary-alpha-05);
+  border-radius: var(--app-border-radius-pill);
 }
 
 .searchDropdown :global(.rc-virtual-list-holder::-webkit-scrollbar-thumb) {
-  border-radius: 999px;
-  background: rgba(65, 64, 153, 0.2);
+  border-radius: var(--app-border-radius-pill);
+  background: var(--ui-color-primary-alpha-20);
 }
 
 .searchDropdown :global(.rc-virtual-list-holder::-webkit-scrollbar-thumb:hover) {
-  background: rgba(65, 64, 153, 0.35);
+  background: var(--ui-color-primary-alpha-35);
 }
 
 .searchItem {
   width: 100%;
   padding: 12px 16px;
-  border-radius: 10px;
+  border-radius: var(--app-border-radius);
   transition: background 0.2s ease;
   cursor: pointer;
 }
@@ -151,12 +151,12 @@
 .searchAvatar,
 .notificationAvatar {
   flex-shrink: 0;
-  color: #ffffff;
-  font-weight: 600;
+  color: var(--app-color-text-light-solid);
+  font-weight: var(--app-font-weight-semibold);
 }
 
 .searchAvatar {
-  font-size: 16px;
+  font-size: var(--app-font-size-subtitle);
 }
 
 .searchCopy {
@@ -165,31 +165,31 @@
 }
 
 .searchTitle {
-  color: #2c275f;
-  font-size: 15px;
+  color: var(--ui-color-title-dark);
+  font-size: var(--app-font-size-body-large);
   line-height: 1.2;
 }
 
 .searchSubtitle {
-  color: #8d8cab;
-  font-size: 13px;
+  color: var(--ui-color-muted);
+  font-size: var(--app-font-size-body-small);
   line-height: 1.2;
 }
 
 .searchCategory {
   margin-left: 12px;
   flex-shrink: 0;
-  color: #8d8cab;
-  font-size: 14px;
+  color: var(--ui-color-muted);
+  font-size: var(--app-font-size-body);
 }
 
 .searchItem:hover {
-  background: #f8f8ff !important;
+  background: var(--ui-color-surface-tint) !important;
 }
 
 .searchDropdown :global(.ant-select-item) {
   padding: 0 !important;
-  border-radius: 10px;
+  border-radius: var(--app-border-radius);
 }
 
 .searchDropdown :global(.ant-select-item-option-content) {
@@ -210,15 +210,15 @@
 }
 
 .searchEmptyText {
-  color: #8d8cab;
+  color: var(--ui-color-muted);
   font-family: var(--app-font-family);
-  font-size: 13px;
-  font-weight: 400;
+  font-size: var(--app-font-size-body-small);
+  font-weight: var(--app-font-weight-regular);
 }
 
 .searchIcon {
-  color: #8d8cab;
-  font-size: 14px;
+  color: var(--ui-color-muted);
+  font-size: var(--app-font-size-body);
 }
 
 .rightSection {
@@ -227,8 +227,8 @@
 }
 
 .bellIcon {
-  color: #332556;
-  font-size: 18px;
+  color: var(--ui-color-heading);
+  font-size: var(--app-font-size-heading-4);
   cursor: pointer;
 }
 
@@ -240,8 +240,8 @@
   width: 8px;
   min-width: 8px;
   height: 8px;
-  background: #ff2432;
-  box-shadow: 0 0 0 2px #ffffff;
+  background: var(--ui-color-alert);
+  box-shadow: var(--ui-notification-ring);
   inset-inline-end: 1px;
   top: 1px;
 }
@@ -249,15 +249,15 @@
 .divider {
   height: 30px;
   margin: 0 !important;
-  border-color: #ece8fb;
+  border-color: var(--ui-color-separator);
 }
 
 .avatar {
-  background: #4b49b6;
-  color: #ffffff;
+  background: var(--ui-color-primary-accent);
+  color: var(--app-color-text-light-solid);
   font-family: var(--app-font-family);
-  font-size: 14px;
-  font-weight: 600;
+  font-size: var(--app-font-size-body);
+  font-weight: var(--app-font-weight-semibold);
 }
 
 .userText {
@@ -265,18 +265,18 @@
 }
 
 .userName {
-  color: #332556;
+  color: var(--ui-color-heading);
   font-family: var(--app-font-family);
-  font-size: 14px;
-  font-weight: 600;
+  font-size: var(--app-font-size-body);
+  font-weight: var(--app-font-weight-semibold);
   line-height: 1.2;
 }
 
 .userRole {
-  color: #8d8cab;
+  color: var(--ui-color-muted);
   font-family: var(--app-font-family);
-  font-size: 12px;
-  font-weight: 400;
+  font-size: var(--app-font-size-caption);
+  font-weight: var(--app-font-weight-regular);
   line-height: 1.2;
 }
 
@@ -286,8 +286,8 @@
 }
 
 .logoutIcon {
-  color: #ff2432;
-  font-size: 18px;
+  color: var(--ui-color-alert);
+  font-size: var(--app-font-size-heading-4);
   cursor: pointer;
 }
 
@@ -300,39 +300,39 @@
 .notificationItem {
   margin: 4px 0;
   padding: 12px 16px;
-  border-radius: 8px;
+  border-radius: var(--app-border-radius-sm);
   transition: background 0.2s ease;
   cursor: pointer;
 }
 
 .notificationTitle {
-  font-size: 14px;
+  font-size: var(--app-font-size-body);
 }
 
 .notificationDescription {
-  color: #6b6a8f;
-  font-size: 13px;
+  color: var(--app-color-text-secondary);
+  font-size: var(--app-font-size-body-small);
 }
 
 .notificationTime {
-  font-size: 12px;
+  font-size: var(--app-font-size-caption);
 }
 
 .logoutMessage {
-  color: #6b6a8f;
-  font-size: 15px;
+  color: var(--app-color-text-secondary);
+  font-size: var(--app-font-size-body-large);
 }
 
 .avatarTonePrimary {
-  background: #4b49b6;
+  background: var(--ui-color-primary-accent);
 }
 
 .avatarToneSuccess {
-  background: #0cc496;
+  background: var(--app-color-success);
 }
 
 .avatarToneDanger {
-  background: #ed1b2f;
+  background: var(--ui-color-danger-accent);
 }
 
 .avatarToneWarning {
@@ -341,7 +341,7 @@
 
 :global(.notification-list) {
   scrollbar-width: thin;
-  scrollbar-color: #8b5cf6 #ebe9e9;
+  scrollbar-color: var(--app-color-scrollbar-thumb) var(--app-color-scrollbar-track);
 }
 
 :global(.notification-list::-webkit-scrollbar) {
@@ -349,12 +349,12 @@
 }
 
 :global(.notification-list::-webkit-scrollbar-track) {
-  background: #ebe9e9;
+  background: var(--app-color-scrollbar-track);
   border-radius: 3px;
 }
 
 :global(.notification-list::-webkit-scrollbar-thumb) {
-  background: #8b5cf6;
+  background: var(--app-color-scrollbar-thumb);
   border-radius: 3px;
 }
 

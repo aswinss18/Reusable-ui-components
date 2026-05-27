@@ -1,6 +1,6 @@
 .sidebar {
-  background: #ffffff !important;
-  border-right: 1px solid rgba(65, 64, 153, 0.1);
+  background: var(--app-color-bg-container) !important;
+  border-right: 1px solid var(--ui-color-primary-alpha-10);
 }
 
 .inner:global(.ant-flex) {
@@ -14,8 +14,8 @@
 .collapseButton {
   width: 36px !important;
   height: 36px !important;
-  border-radius: 10px !important;
-  background: rgba(65, 64, 153, 0.08) !important;
+  border-radius: var(--app-border-radius) !important;
+  background: var(--ui-color-primary-alpha-08) !important;
   cursor: pointer;
   transition: all 0.2s ease;
   margin-top: 8px;
@@ -28,12 +28,12 @@
 }
 
 .collapseButton:hover {
-  background: rgba(65, 64, 153, 0.15) !important;
+  background: var(--ui-color-primary-alpha-15) !important;
 }
 
 .collapseButton :global(.anticon) {
-  font-size: 16px;
-  color: #414099;
+  font-size: var(--app-font-size-subtitle);
+  color: var(--app-color-primary);
 }
 
 .scrollContainer {
@@ -54,18 +54,18 @@
 }
 
 .scrollContainer::-webkit-scrollbar-track {
-  background: rgba(65, 64, 153, 0.05);
+  background: var(--ui-color-primary-alpha-05);
   border-radius: 3px;
 }
 
 .scrollContainer::-webkit-scrollbar-thumb {
-  background: rgba(65, 64, 153, 0.2);
+  background: var(--ui-color-primary-alpha-20);
   border-radius: 3px;
   transition: background 0.2s ease;
 }
 
 .scrollContainer::-webkit-scrollbar-thumb:hover {
-  background: rgba(65, 64, 153, 0.35);
+  background: var(--ui-color-primary-alpha-35);
 }
 
 .scrollContainer::-webkit-scrollbar-button {
@@ -75,7 +75,7 @@
 /* Firefox scrollbar */
 .scrollContainer {
   scrollbar-width: thin;
-  scrollbar-color: rgba(65, 64, 153, 0.2) rgba(65, 64, 153, 0.05);
+  scrollbar-color: var(--ui-color-primary-alpha-20) var(--ui-color-primary-alpha-05);
 }
 
 .section {
@@ -83,11 +83,11 @@
 }
 
 .sectionTitle {
-  color: rgba(51, 37, 86, 0.6);
+  color: var(--ui-color-heading-muted);
   font-family: var(--app-font-family);
-  font-size: 12px;
+  font-size: var(--app-font-size-caption);
   font-style: normal;
-  font-weight: 600;
+  font-weight: var(--app-font-weight-semibold);
   letter-spacing: 0.6px;
   line-height: 16px;
   text-transform: uppercase;
@@ -103,8 +103,8 @@
   margin: 0 0 4px !important;
   padding-inline: 16px !important;
   width: 100%;
-  color: #332556;
-  border-radius: 14px;
+  color: var(--ui-color-heading);
+  border-radius: var(--app-border-radius-lg);
 }
 
 .menu :global(.ant-menu-item).itemDefault,
@@ -127,24 +127,22 @@
 }
 
 .menu :global(.ant-menu-item:hover) {
-  background: rgba(65, 64, 153, 0.08) !important;
-  color: #332556 !important;
+  background: var(--ui-color-primary-alpha-08) !important;
+  color: var(--ui-color-heading) !important;
 }
 
 .menu :global(.ant-menu-item-selected) {
-  background: #414099 !important;
+  background: var(--app-color-primary) !important;
   box-shadow:
-    0 10px 7.5px rgba(0, 0, 0, 0.1),
-    0 4px 3px rgba(0, 0, 0, 0.1);
-  color: #ffffff !important;
+    var(--ui-sidebar-active-shadow);
+  color: var(--app-color-text-light-solid) !important;
 }
 
 .menu :global(.ant-menu-item-selected:hover) {
-  background: #414099 !important;
+  background: var(--app-color-primary) !important;
   box-shadow:
-    0 10px 7.5px rgba(0, 0, 0, 0.1),
-    0 4px 3px rgba(0, 0, 0, 0.1);
-  color: #ffffff !important;
+    var(--ui-sidebar-active-shadow);
+  color: var(--app-color-text-light-solid) !important;
 }
 
 .menu :global(.ant-menu-title-content) {
@@ -153,7 +151,7 @@
 
 .menu :global(.ant-menu-item-selected .ant-menu-title-content),
 .menu :global(.ant-menu-item-selected .ant-menu-item-icon) {
-  color: #ffffff !important;
+  color: var(--app-color-text-light-solid) !important;
 }
 
 .menuIcon {
@@ -162,7 +160,7 @@
   justify-content: center;
   width: 20px;
   min-width: 20px;
-  font-size: 18px;
+  font-size: var(--app-font-size-heading-4);
   line-height: 1;
   color: inherit;
 }
@@ -174,34 +172,34 @@
 .itemText {
   color: inherit;
   font-family: var(--app-font-family);
-  font-size: 14px;
+  font-size: var(--app-font-size-body);
   font-style: normal;
-  font-weight: 500;
+  font-weight: var(--app-font-weight-medium);
   line-height: 20px;
 }
 
 .itemBadge :global(.ant-badge-count) {
-  background: #ed1b2f;
+  background: var(--ui-color-danger-accent);
   box-shadow: none;
-  color: #ffffff;
+  color: var(--app-color-text-light-solid);
   font-family: var(--app-font-family);
-  font-size: 12px;
-  font-weight: 500;
+  font-size: var(--app-font-size-caption);
+  font-weight: var(--app-font-weight-medium);
   min-width: 25px;
   height: 22px;
   line-height: 16px;
   padding: 3px 9px;
-  border-radius: 8px;
+  border-radius: var(--app-border-radius-sm);
 }
 
 .activeArrow {
-  font-size: 12px;
-  color: #ffffff;
+  font-size: var(--app-font-size-caption);
+  color: var(--app-color-text-light-solid);
 }
 
 .currencyIcon {
   font-family: var(--app-font-family);
-  font-size: 20px;
-  font-weight: 700;
+  font-size: var(--app-font-size-heading-3);
+  font-weight: var(--app-font-weight-bold);
   line-height: 28px;
 }

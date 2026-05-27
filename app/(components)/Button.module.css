@@ -1,17 +1,17 @@
 .button {
-  min-width: var(--product-button-min-width);
-  min-height: var(--product-button-min-height);
-  letter-spacing: var(--product-button-letter-spacing);
+  min-width: var(--ui-button-min-width);
+  min-height: var(--ui-button-min-height);
+  letter-spacing: var(--ui-button-letter-spacing);
   box-shadow: none;
 }
 
 .button:hover {
   transform: translateY(-1px);
-  box-shadow: var(--product-button-shadow);
+  box-shadow: var(--ui-button-shadow);
 }
 
 .button:focus-visible {
-  outline: 3px solid var(--product-button-focus-outline);
+  outline: 3px solid var(--ui-button-focus-outline);
   outline-offset: 3px;
 }
 

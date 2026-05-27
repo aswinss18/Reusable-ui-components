@@ -15,7 +15,7 @@
 }
 
 .itemButton {
-  min-width: 140px;
+  min-width: var(--ui-button-group-item-min-width);
 }
 
 .matchWidth {

@@ -2,9 +2,9 @@
   width: 983px;
   max-width: 100%;
   min-height: 286px;
-  border: 1px solid rgba(65, 64, 153, 0.1);
-  border-radius: 14px;
-  background: #ffffff;
+  border: 1px solid var(--ui-color-primary-alpha-10);
+  border-radius: var(--app-border-radius-lg);
+  background: var(--app-color-bg-container);
   box-shadow: none;
 }
 
@@ -30,11 +30,11 @@
 .headerIcon,
 .editIcon,
 .contactIconGraphic {
-  color: #3d3ccc;
+  color: var(--ui-color-primary-icon);
 }
 
 .headerIcon {
-  font-size: 20px;
+  font-size: var(--app-font-size-heading-3);
 }
 
 .editButton {
@@ -45,7 +45,7 @@
   min-width: 16px;
   height: 16px;
   padding: 0;
-  color: #3d3ccc;
+  color: var(--ui-color-primary-icon);
 }
 
 .editButton :global(.ant-btn-icon) {
@@ -55,16 +55,16 @@
 }
 
 .editIcon {
-  font-size: 16px;
+  font-size: var(--app-font-size-subtitle);
 }
 
 .title {
   margin: 0;
-  color: #332556;
+  color: var(--ui-color-heading);
   font-family: var(--app-font-family);
-  font-size: 16px;
+  font-size: var(--app-font-size-subtitle);
   font-style: normal;
-  font-weight: 500;
+  font-weight: var(--app-font-weight-medium);
   line-height: 16px;
 }
 
@@ -100,7 +100,7 @@
   top: -12.5px;
   height: 206px;
   margin: 0;
-  border-color: rgba(65, 64, 153, 0.1);
+  border-color: var(--ui-color-primary-alpha-10);
 }
 
 .infoItem,
@@ -122,26 +122,26 @@
 }
 
 .contactIconGraphic {
-  font-size: 16px;
+  font-size: var(--app-font-size-subtitle);
 }
 
 .label {
   margin: 0;
-  color: rgba(51, 37, 86, 0.6);
+  color: var(--ui-color-heading-muted);
   font-family: var(--app-font-family);
-  font-size: 12px;
+  font-size: var(--app-font-size-caption);
   font-style: normal;
-  font-weight: 400;
+  font-weight: var(--app-font-weight-regular);
   line-height: 16px;
 }
 
 .value {
   margin: 0;
-  color: #332556;
+  color: var(--ui-color-heading);
   font-family: var(--app-font-family);
-  font-size: 14px;
+  font-size: var(--app-font-size-body);
   font-style: normal;
-  font-weight: 500;
+  font-weight: var(--app-font-weight-medium);
   line-height: 20px;
 }
 
@@ -154,15 +154,15 @@
   height: 22px;
   margin: 0;
   padding: 0 8px;
-  color: #414099;
+  color: var(--app-color-primary);
   font-family: var(--app-font-family);
-  font-size: 12px;
+  font-size: var(--app-font-size-caption);
   font-style: normal;
-  font-weight: 500;
+  font-weight: var(--app-font-weight-medium);
   line-height: 16px;
-  background: #ffffff;
+  background: var(--app-color-bg-container);
   border: 1px solid rgba(65, 64, 153, 0.3);
-  border-radius: 8px;
+  border-radius: var(--app-border-radius-sm);
 }
 
 @media (max-width: 1040px) {

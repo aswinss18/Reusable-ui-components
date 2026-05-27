@@ -8,9 +8,9 @@
   padding: 5px;
   height: 36px;
   align-items: center;
-  border: 2px solid #d9d9d9;
+  border: 2px solid var(--ui-color-control-border);
   border-radius: 50px;
-  background: #ffffff;
+  background: var(--app-color-bg-container);
 }
 
 .filterTab {
@@ -29,20 +29,20 @@
 }
 
 .filterTabActive {
-  background: #414099;
+  background: var(--app-color-primary);
 }
 
 .filterTabActive .filterTabText {
-  color: #ffffff !important;
+  color: var(--app-color-text-light-solid) !important;
 }
 
 .filterTabText {
   margin: 0;
-  color: #332556b2;
+  color: var(--ui-color-heading-disabled);
   font-family: var(--app-font-family);
-  font-size: 14px;
+  font-size: var(--app-font-size-body);
   font-style: normal;
-  font-weight: 600;
+  font-weight: var(--app-font-weight-semibold);
   line-height: 20px;
   white-space: nowrap;
 }
@@ -56,19 +56,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--app-border-radius-sm);
+  border: 1px solid var(--ui-color-contrast-border);
   box-shadow: none;
-  font-size: 12px;
-  font-weight: 700;
+  font-size: var(--app-font-size-caption);
+  font-weight: var(--app-font-weight-bold);
 }
 
 .filterBadgeDanger :global(.ant-badge-count) {
-  background: #ed1b2f;
+  background: var(--ui-color-danger-accent);
 }
 
 .filterBadgeSuccess :global(.ant-badge-count) {
-  background: #0cc496;
+  background: var(--app-color-success);
 }
 
 .filterBadgeNeutral :global(.ant-badge-count) {
@@ -77,17 +77,17 @@
 
 .navigationTabs {
   width: 100%;
-  background: #ffffff;
+  background: var(--app-color-bg-container);
 }
 
 .navigationTabs :global(.ant-tabs-nav) {
   margin: 0;
   padding: 0 24px;
-  border-bottom: 1px solid #e7e4f6;
+  border-bottom: 1px solid var(--ui-color-separator-alt);
 }
 
 .navigationTabs :global(.ant-tabs-nav::before) {
-  border-bottom: 1px solid #e7e4f6;
+  border-bottom: 1px solid var(--ui-color-separator-alt);
 }
 
 .navigationTabs :global(.ant-tabs-tab) {
@@ -95,22 +95,22 @@
 }
 
 .navigationTabs :global(.ant-tabs-tab .ant-tabs-tab-btn) {
-  color: #8d8cab;
+  color: var(--ui-color-muted);
   font-family: var(--app-font-family);
-  font-size: 16px;
+  font-size: var(--app-font-size-subtitle);
   font-style: normal;
-  font-weight: 600;
+  font-weight: var(--app-font-weight-semibold);
   line-height: 1.35;
 }
 
 .navigationTabs :global(.ant-tabs-tab-active .ant-tabs-tab-btn) {
-  color: #414099 !important;
+  color: var(--app-color-primary) !important;
 }
 
 .navigationTabs :global(.ant-tabs-ink-bar) {
   height: 3px !important;
-  background: #414099;
-  border-radius: 999px;
+  background: var(--app-color-primary);
+  border-radius: var(--app-border-radius-pill);
 }
 
 .navigationTabs :global(.ant-tabs-content-holder) {

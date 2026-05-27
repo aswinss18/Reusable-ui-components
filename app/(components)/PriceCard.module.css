@@ -3,9 +3,9 @@
   min-width: 300.33px;
   height: 86px;
   min-height: 86px;
-  border: 1px solid #4140991A;
-  border-radius: 10px;
-  background: linear-gradient(180deg, #FAFAFF 0%, #F0F0FF 20%);
+  border: 1px solid var(--ui-color-primary-border-subtle);
+  border-radius: var(--app-border-radius);
+  background: linear-gradient(180deg, #FAFAFF 0%, var(--ui-color-surface-highlight) 20%);
   box-shadow: none;
 }
 
@@ -17,19 +17,19 @@
 .title {
   color: #60606C;
   font-family: var(--app-font-family);
-  font-size: 12px;
+  font-size: var(--app-font-size-caption);
   font-style: normal;
-  font-weight: 400;
+  font-weight: var(--app-font-weight-regular);
   line-height: normal;
   margin: 0;
 }
 
 .value {
-  color: #414099;
+  color: var(--app-color-primary);
   font-family: var(--app-font-family);
-  font-size: 24px;
+  font-size: var(--app-font-size-heading-2);
   font-style: normal;
-  font-weight: 700;
+  font-weight: var(--app-font-weight-bold);
   line-height: normal;
   margin: 0;
 }
