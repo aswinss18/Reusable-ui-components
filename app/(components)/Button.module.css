@@ -91,3 +91,24 @@
   border-color: var(--app-color-neutral-border) !important;
   color: var(--app-color-neutral-text) !important;
 }
+
+@media (max-width: 1024px) {
+  .button {
+    min-width: 100px;
+    min-height: 40px;
+    height: 40px;
+    padding-inline: 14px !important;
+    font-size: var(--app-font-size-body) !important;
+    line-height: 1.2 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .button {
+    min-width: 92px;
+    min-height: 38px;
+    height: 38px;
+    padding-inline: 12px !important;
+    font-size: var(--app-font-size-body-small) !important;
+  }
+}

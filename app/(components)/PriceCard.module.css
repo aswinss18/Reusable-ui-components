@@ -33,3 +33,25 @@
   line-height: normal;
   margin: 0;
 }
+
+@media (max-width: 1024px) {
+  .card {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    height: auto;
+    min-height: 78px;
+  }
+
+  .card :global(.ant-card-body) {
+    padding: 14px;
+  }
+
+  .value {
+    font-size: var(--app-font-size-heading-3);
+  }
+}

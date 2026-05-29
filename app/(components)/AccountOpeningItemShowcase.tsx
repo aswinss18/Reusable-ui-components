@@ -2,6 +2,7 @@
 
 import { Flex, Typography } from "antd";
 import AccountOpeningItem from "./AccountOpeningItem";
+import styles from "./AccountOpeningItem.module.css";
 
 export default function AccountOpeningItemShowcase() {
   const handleItemClick = (name: string, date: string) => {
@@ -71,78 +72,32 @@ export default function AccountOpeningItemShowcase() {
         <Flex vertical gap={0}>
           {/* Header */}
           <Flex
-            style={{
-              width: "928px",
-              padding: "12px 20px",
-              backgroundColor: "#FAFAFA",
-              borderBottom: "2px solid #E8E8F5",
-              marginBottom: "12px",
-            }}
+            className={styles.headerRow}
             align="center"
             justify="space-between"
           >
-            <Flex style={{ flex: "0 0 120px", minWidth: "120px" }}>
-              <Typography.Text
-                style={{
-                  color: "#8D8CAB",
-                  fontSize: "12px",
-                  fontWeight: 600,
-                  textTransform: "uppercase",
-                  letterSpacing: "0.5px",
-                }}
-              >
+            <Flex className={styles.headerDateColumn}>
+              <Typography.Text className={styles.headerLabel}>
                 Date
               </Typography.Text>
             </Flex>
-            <Flex style={{ flex: 1, minWidth: "180px" }}>
-              <Typography.Text
-                style={{
-                  color: "#8D8CAB",
-                  fontSize: "12px",
-                  fontWeight: 600,
-                  textTransform: "uppercase",
-                  letterSpacing: "0.5px",
-                }}
-              >
+            <Flex className={styles.headerNameColumn}>
+              <Typography.Text className={styles.headerLabel}>
                 Account holder name
               </Typography.Text>
             </Flex>
-            <Flex style={{ flex: "0 0 140px", minWidth: "140px", justifyContent: "center" }}>
-              <Typography.Text
-                style={{
-                  color: "#8D8CAB",
-                  fontSize: "12px",
-                  fontWeight: 600,
-                  textTransform: "uppercase",
-                  letterSpacing: "0.5px",
-                }}
-              >
+            <Flex className={styles.headerFundingColumn}>
+              <Typography.Text className={styles.headerLabel}>
                 Funding Status
               </Typography.Text>
             </Flex>
-            <Flex style={{ flex: "0 0 140px", minWidth: "140px", justifyContent: "center" }}>
-              <Typography.Text
-                style={{
-                  color: "#8D8CAB",
-                  fontSize: "12px",
-                  fontWeight: 600,
-                  textTransform: "uppercase",
-                  letterSpacing: "0.5px",
-                }}
-              >
+            <Flex className={styles.headerStatusColumn}>
+              <Typography.Text className={styles.headerLabel}>
                 KYC Status
               </Typography.Text>
             </Flex>
-            <Flex style={{ flex: "0 0 140px", minWidth: "140px", justifyContent: "center" }}>
-              <Typography.Text
-                style={{
-                  color: "#8D8CAB",
-                  fontSize: "12px",
-                  fontWeight: 600,
-                  textTransform: "uppercase",
-                  letterSpacing: "0.5px",
-                }}
-              >
+            <Flex className={styles.headerStatusColumn}>
+              <Typography.Text className={styles.headerLabel}>
                 Account Status
               </Typography.Text>
             </Flex>

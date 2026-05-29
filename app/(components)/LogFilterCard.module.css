@@ -24,6 +24,7 @@
 .searchInput {
   flex: 1;
   height: 47px;
+  min-width: 0;
 }
 
 .searchInput :global(.ant-input-affix-wrapper) {
@@ -128,14 +129,64 @@
   line-height: 19.5px;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1024px) {
+  .card :global(.ant-card-body) {
+    padding: 26px 28px 24px !important;
+  }
+
+  .content {
+    gap: 26px;
+  }
+
   .topRow {
     align-items: flex-start !important;
     flex-direction: column;
   }
 
+  .searchInput {
+    width: 100%;
+  }
+
   .filterGroup {
     width: 100%;
+  }
+
+  .filterButton {
+    padding: 0 16px !important;
+  }
+
+  .statsRow {
+    flex-wrap: nowrap !important;
+    gap: 12px;
+  }
+
+  .statItem {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .filterButton {
+    flex: 0 1 calc(50% - 6px);
+  }
+
+  .statsRow {
+    gap: 8px;
+  }
+
+  .statItem {
+    gap: 4px;
+  }
+
+  .statValue {
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  .statLabel {
+    font-size: 11px;
+    line-height: 15px;
   }
 }
 
@@ -149,15 +200,12 @@
   }
 
   .filterButton {
+    flex: 0 1 calc(50% - 5px);
     width: calc(50% - 5px);
     min-width: 0;
   }
 
   .statsRow {
-    gap: 18px;
-  }
-
-  .statItem {
-    flex: 1 1 calc(50% - 9px);
+    gap: 6px;
   }
 }

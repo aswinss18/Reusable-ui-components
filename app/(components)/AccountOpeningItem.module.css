@@ -11,6 +11,14 @@
   border-radius: var(--app-border-radius-sm);
 }
 
+.headerRow {
+  width: 928px;
+  padding: 12px 20px;
+  background: #fafafa;
+  border-bottom: 2px solid #e8e8f5;
+  margin-bottom: 12px;
+}
+
 .item:hover {
   background: var(--ui-color-surface-highlight);
 }
@@ -21,7 +29,17 @@
   padding-left: 20px;
 }
 
+.headerDateColumn {
+  flex: 0 0 120px;
+  min-width: 120px;
+}
+
 .nameColumn {
+  flex: 1;
+  min-width: 180px;
+}
+
+.headerNameColumn {
   flex: 1;
   min-width: 180px;
 }
@@ -39,6 +57,18 @@
 .accountColumn {
   flex: 0 0 140px;
   min-width: 140px;
+}
+
+.headerStatusColumn {
+  flex: 0 0 140px;
+  min-width: 140px;
+  justify-content: center;
+}
+
+.headerFundingColumn {
+  flex: 0 0 140px;
+  min-width: 140px;
+  justify-content: center;
 }
 
 .date {
@@ -59,6 +89,15 @@
   font-weight: var(--app-font-weight-medium);
   line-height: normal;
   margin: 0;
+}
+
+.headerLabel {
+  color: #8d8cab;
+  font-family: var(--app-font-family);
+  font-size: var(--app-font-size-caption);
+  font-weight: var(--app-font-weight-semibold);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 .tag {
@@ -103,4 +142,106 @@
 .tagFailed {
   color: var(--ui-color-negative-accent);
   background: var(--ui-color-danger-surface);
+}
+
+@media (max-width: 1024px) {
+  .item,
+  .headerRow {
+    width: 100%;
+  }
+
+  .item {
+    padding-right: 14px;
+  }
+
+  .headerRow {
+    padding: 12px 14px;
+  }
+
+  .dateColumn,
+  .headerDateColumn {
+    flex-basis: 104px;
+    min-width: 104px;
+  }
+
+  .dateColumn {
+    padding-left: 14px;
+  }
+
+  .nameColumn,
+  .headerNameColumn {
+    min-width: 140px;
+  }
+
+  .fundingColumn,
+  .kycColumn,
+  .accountColumn,
+  .headerStatusColumn,
+  .headerFundingColumn {
+    flex-basis: 112px;
+    min-width: 112px;
+  }
+
+  .name {
+    font-size: var(--app-font-size-body-large);
+  }
+
+  .headerLabel {
+    font-size: var(--app-font-size-micro);
+    letter-spacing: 0.3px;
+  }
+}
+
+@media (max-width: 768px) {
+  .item {
+    height: 44px;
+    padding-right: 10px;
+  }
+
+  .headerRow {
+    padding: 10px;
+  }
+
+  .dateColumn,
+  .headerDateColumn {
+    flex-basis: 90px;
+    min-width: 90px;
+  }
+
+  .dateColumn {
+    padding-left: 10px;
+  }
+
+  .nameColumn,
+  .headerNameColumn {
+    min-width: 0;
+  }
+
+  .fundingColumn,
+  .headerFundingColumn {
+    flex-basis: 62px;
+    min-width: 62px;
+  }
+
+  .kycColumn,
+  .accountColumn,
+  .headerStatusColumn {
+    flex-basis: 86px;
+    min-width: 86px;
+  }
+
+  .date {
+    font-size: var(--app-font-size-micro);
+  }
+
+  .name {
+    font-size: var(--app-font-size-body-small);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .fundingIcon {
+    font-size: var(--app-font-size-subtitle);
+  }
 }

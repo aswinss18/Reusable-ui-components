@@ -361,3 +361,82 @@
 :global(.notification-item:hover) {
   background: #f5f5f5 !important;
 }
+
+@media (max-width: 1024px) {
+  .inner:global(.ant-flex) {
+    padding: 0 24px;
+    gap: 18px;
+  }
+
+  .logo {
+    width: 200px;
+  }
+
+  .rightSection {
+    gap: 12px !important;
+    min-width: 0;
+  }
+
+  .search {
+    width: 320px;
+    min-width: 320px;
+  }
+
+  .search :global(.ant-input-affix-wrapper) {
+    width: 320px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    height: 76px !important;
+  }
+
+  .inner:global(.ant-flex) {
+    padding: 0 20px;
+    gap: 14px;
+  }
+
+  .logo {
+    width: 180px;
+  }
+
+  .rightSection {
+    gap: 10px !important;
+  }
+
+  .search {
+    width: 280px;
+    min-width: 0;
+  }
+
+  .search :global(.ant-input-affix-wrapper) {
+    width: 280px;
+    height: 36px !important;
+    padding: 0 14px !important;
+  }
+
+  .search :global(.ant-select-selector),
+  .search :global(.ant-select-selection-wrap),
+  .search :global(.ant-select-selection-search),
+  .search :global(.ant-select-selection-search-input) {
+    height: 36px !important;
+  }
+
+  .userText,
+  .divider {
+    display: none !important;
+  }
+
+  .avatar {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    font-size: var(--app-font-size-body-small) !important;
+  }
+
+  .bellIcon,
+  .logoutIcon {
+    font-size: var(--app-font-size-subtitle);
+  }
+}

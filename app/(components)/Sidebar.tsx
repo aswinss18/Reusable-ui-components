@@ -13,7 +13,7 @@ import {
 import { Badge, Button, Flex, Layout, Menu, Tooltip, Typography } from "antd";
 import type { MenuProps } from "antd";
 import { useRouter } from "next/navigation";
-import { isValidElement, useState } from "react";
+import { isValidElement, useEffect, useState } from "react";
 import type { ReactNode } from "react";
 import styles from "./Sidebar.module.css";
 
@@ -135,6 +135,25 @@ export default function Sidebar({
 }: SidebarProps) {
   const router = useRouter();
   const [collapsed, setCollapsed] = useState(defaultCollapsed);
+
+  useEffect(() => {
+    if (!collapsible) {
+      return;
+    }
+
+    const mediaQuery = window.matchMedia("(max-width: 1024px)");
+    const syncCollapsedState = (event: MediaQueryList | MediaQueryListEvent) => {
+      setCollapsed(event.matches);
+      onCollapse?.(event.matches);
+    };
+
+    syncCollapsedState(mediaQuery);
+    mediaQuery.addEventListener("change", syncCollapsedState);
+
+    return () => {
+      mediaQuery.removeEventListener("change", syncCollapsedState);
+    };
+  }, [collapsible, onCollapse]);
   
   const sidebarClassName = [styles.sidebar, className].filter(Boolean).join(" ");
 

@@ -165,6 +165,97 @@
   color: inherit;
 }
 
+.sidebar:global(.ant-layout-sider-collapsed) .inner:global(.ant-flex) {
+  padding-inline: 20px;
+}
+
+.sidebar:global(.ant-layout-sider-collapsed) .scrollContainer {
+  align-items: center;
+  padding-right: 0;
+  margin-right: 0;
+  scrollbar-width: none;
+}
+
+.sidebar:global(.ant-layout-sider-collapsed) .scrollContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.sidebar:global(.ant-layout-sider-collapsed) .section {
+  align-items: center;
+  width: 100%;
+}
+
+.sidebar:global(.ant-layout-sider-collapsed) .menu {
+  width: 40px !important;
+  margin-inline: 0 !important;
+}
+
+.sidebar:global(.ant-layout-sider-collapsed) .menu :global(.ant-menu-item),
+.sidebar:global(.ant-layout-sider-collapsed) .menu :global(.ant-menu-submenu-title),
+.sidebar:global(.ant-layout-sider-collapsed) .menu :global(.ant-menu-item).itemDefault,
+.sidebar:global(.ant-layout-sider-collapsed) .menu :global(.ant-menu-item).itemMedium,
+.sidebar:global(.ant-layout-sider-collapsed) .menu :global(.ant-menu-item).itemTall {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 36px !important;
+  min-width: 36px !important;
+  height: 36px !important;
+  min-height: 36px !important;
+  margin: 0 auto 8px !important;
+  padding: 0 !important;
+  border-radius: var(--app-border-radius-lg) !important;
+  line-height: 1 !important;
+  overflow: hidden !important;
+}
+
+.sidebar:global(.ant-layout-sider-collapsed) .menu :global(.ant-menu-item:last-child) {
+  margin-bottom: 0 !important;
+}
+
+.sidebar:global(.ant-layout-sider-collapsed) .menu :global(.ant-menu-item-icon) {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 20px !important;
+  min-width: 20px !important;
+  height: 20px !important;
+  margin: 0 !important;
+  line-height: 0 !important;
+  transform: translateX(6px);
+}
+
+.sidebar:global(.ant-layout-sider-collapsed) .menuIcon {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  font-size: var(--app-font-size-subtitle);
+  line-height: 0;
+  transform: translateX(6px);
+}
+
+.sidebar:global(.ant-layout-sider-collapsed) .menuIcon :global(.anticon),
+.sidebar:global(.ant-layout-sider-collapsed) .menu :global(.ant-menu-item-icon .anticon) {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 16px !important;
+  height: 16px !important;
+  line-height: 0 !important;
+}
+
+.sidebar:global(.ant-layout-sider-collapsed) .menuIcon :global(svg),
+.sidebar:global(.ant-layout-sider-collapsed) .menu :global(.ant-menu-item-icon svg) {
+  display: block !important;
+  width: 16px !important;
+  height: 16px !important;
+}
+
+.sidebar:global(.ant-layout-sider-collapsed) .currencyIcon {
+  font-size: var(--app-font-size-subtitle);
+  line-height: 1;
+}
+
 .itemRow {
   width: 100%;
 }

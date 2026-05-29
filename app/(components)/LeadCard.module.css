@@ -219,3 +219,63 @@
   font-weight: var(--app-font-weight-regular);
   line-height: 1.2;
 }
+
+@media (max-width: 1024px) {
+  .card :global(.ant-card-body) {
+    padding: 16px 18px;
+  }
+
+  .detailsCard :global(.ant-card-body) {
+    padding: 5px 0;
+  }
+
+  .detailItem {
+    padding: 3px 10px 4px;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    min-height: auto;
+  }
+
+  .card :global(.ant-card-body) {
+    padding: 16px;
+  }
+
+  .avatar {
+    width: 44px !important;
+    height: 44px !important;
+    font-size: var(--app-font-size-heading-4);
+  }
+
+  .headerRow {
+    align-items: flex-start !important;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .headerActions {
+    width: 100%;
+  }
+
+  .detailsRow {
+    flex-wrap: wrap;
+  }
+
+  .detailItem {
+    flex: 1 1 50%;
+    justify-content: flex-start;
+    padding: 8px 12px;
+  }
+
+  .detailItemBorder {
+    border-right: 0;
+  }
+
+  .editAction {
+    width: 100%;
+    justify-content: flex-end !important;
+    padding: 0 8px 6px 0;
+  }
+}

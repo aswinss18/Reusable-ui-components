@@ -47,3 +47,15 @@
 .value {
   font-weight: var(--app-font-weight-regular);
 }
+
+@media (max-width: 1024px) {
+  .body {
+    padding: 14px 14px 14px 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .line {
+    white-space: normal;
+  }
+}

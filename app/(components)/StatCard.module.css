@@ -94,3 +94,40 @@
   font-size: 22px;
   box-shadow: 0 10px 24px rgba(71, 66, 163, 0.22);
 }
+
+@media (max-width: 1024px) {
+  .card :global(.ant-card-body) {
+    padding: 20px;
+  }
+
+  .content {
+    gap: 16px;
+  }
+
+  .iconBox {
+    width: 44px;
+    height: 44px;
+    font-size: var(--app-font-size-heading-3);
+  }
+}
+
+@media (max-width: 768px) {
+  .card :global(.ant-card-body) {
+    padding: 18px;
+  }
+
+  .content {
+    gap: 12px;
+  }
+
+  .value {
+    font-size: var(--app-font-size-heading-3);
+  }
+
+  .iconBox {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--app-border-radius);
+    font-size: var(--app-font-size-heading-4);
+  }
+}
